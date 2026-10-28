@@ -1,0 +1,60 @@
+{
+  "task": "occupied_waypoint_probe",
+  "task_id": "84b6706c-b5d0-4352-9b4f-dd27be357299-occupied-waypoint-probe",
+  "passed": true,
+  "completed": true,
+  "reason": "completed",
+  "error": null,
+  "steps": 33,
+  "reached_waypoints": 4,
+  "total_waypoints": 4,
+  "simulated_seconds": 32.0,
+  "final_speed_knots": 0.0,
+  "max_speed_knots": 10.0,
+  "max_actual_turn_rate_deg_s": 39.0,
+  "available_speeds_knots": [
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0
+  ],
+  "recovery_decisions": 0,
+  "stop_confirmed": true,
+  "arrival_radius_m": 100.0,
+  "speed_unit": "knots",
+  "waypoint_speed_limits_knots": [
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889
+  ],
+  "speed_violation_count": 0,
+  "static_obstacle_count": 17,
+  "static_collision_radius_m": 86.04400529450463,
+  "static_collision_count": 0,
+  "minimum_static_clearance_m": 12.243046900372747,
+  "violations": [],
+  "arrivals": [
+    {
+      "index": 3,
+      "time_s": 31.0,
+      "speed_knots": 10.0
+    }
+  ],
+  "config": {
+    "steps": 150,
+    "dt": 1.0,
+    "start_offset_m": 50.0,
+    "initial_course_deg": 90.0,
+    "initial_position_xy_m": [
+      401.95908312895983,
+      -2108.2515524615924
+    ],
+    "max_turn_rate_deg_s": 45.0,
+    "kev_endpoint": "http://127.0.0.1:18028/v1/systemone",
+    "kev_timeout": 120.0
+  },
+  "elapsed_s": 13.096824551001191,
+  "limitations": "Idealized motion; simulation pauses during inference. No live UDP timing or measured hull dynamics."
+}

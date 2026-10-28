@@ -100,6 +100,15 @@ def run_task_control(session, status_socket, situations, action_target, policy,
     cycles = 0
     deadline = time.monotonic()
     failed_this_tick = False
+    distance_monitor = (policy.create_distance_monitor(logger, task, situation_max_age)
+                        if callable(getattr(type(policy), 'create_distance_monitor', None)) else None)
+
+    def situation_snapshot(own):
+        # Real stores expose all targets; old injected test stores may expose
+        # only get(). Own-ship freshness remains enforced separately above.
+        query = getattr(type(situations), 'query_state', None)
+        records = situations.query_state(include_age=True) if callable(query) else ()
+        return (dict(own),) + tuple(dict(r) for r in records if r.get('platformId') != plat_code)
 
     def stop_course():
         state = session.latest_state or {}
@@ -133,6 +142,29 @@ def run_task_control(session, status_socket, situations, action_target, policy,
 
     with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as control_socket:
         def send_control(speed, course, mode):
+            if speed > 0 and callable(getattr(type(policy), 'validate_control', None)):
+                fresh = situations.get(plat_code, situation_max_age)
+                check = (policy.validate_control(task, fresh, situation_snapshot(fresh), speed, course)
+                         if fresh is not None else dict(safe=False, obstacle_id=None, min_clearance_m=None))
+                if not check['safe']:
+                    logger.warning('task %s static obstacle control veto target=%s clearance=%s mode=%s; sending zero speed',
+                                   task.get('id'), check['obstacle_id'], check['min_clearance_m'], mode)
+                    speed, course, mode = 0., stop_course(), 'obstacle_stop'
+            if callable(getattr(type(policy), 'validate_dynamic_control', None)):
+                fresh=situations.get(plat_code,situation_max_age)
+                records=situation_snapshot(fresh) if fresh is not None else ()
+                check=(policy.validate_dynamic_control(task,fresh,records,speed,course)
+                       if fresh is not None else dict(safe=False,obstacle_id=None,min_clearance_m=None))
+                if not check['safe']:
+                    logger.warning('task %s dynamic obstacle control veto target=%s clearance=%s mode=%s; sending zero speed',
+                        task.get('id'),check['obstacle_id'],check['min_clearance_m'],mode)
+                    moving=speed>0
+                    speed,course,mode=0.,stop_course(),'dynamic_obstacle_stop'
+                    if moving and fresh is not None:
+                        stopped=policy.validate_dynamic_control(task,fresh,records,speed,course)
+                        if not stopped['safe']:
+                            logger.warning('task %s dynamic obstacle zero-speed risk target=%s clearance=%s; awaiting new decision',
+                                task.get('id'),stopped['obstacle_id'],stopped['min_clearance_m'])
             packet = build_control(plat_code, speed, course)
             with session.output_lock:
                 if session.superseded.is_set():
@@ -187,6 +219,11 @@ def run_task_control(session, status_socket, situations, action_target, policy,
                 own_state = situations.get(plat_code, situation_max_age)
                 if own_state is not None:
                     try:
+                        if distance_monitor is not None:
+                            policy.record_actual_distance(distance_monitor, task, own_state,
+                                                          situation_snapshot(own_state))
+                        if callable(getattr(type(policy), 'validate_position', None)):
+                            policy.validate_position(task, own_state, situation_snapshot(own_state))
                         session.update_situation(own_state)
                         if session.errors.get('errorStage') == 'situation':
                             session.clear_errors()
@@ -244,7 +281,7 @@ def run_task_control(session, status_socket, situations, action_target, policy,
                         if pending is None and not (max_cycles > 0 and cycles + int(new_action) >= max_cycles):
                             packet = dict(task)
                             packet['params'] = dict(task['params'], next_waypoint_index=session.current_route)
-                            packet['situation'] = (dict(own_state),)
+                            packet['situation'] = situation_snapshot(own_state)
                             pending_route = session.current_route
                             pending_started = now
                             pending = worker.submit(packet)
@@ -297,6 +334,8 @@ def run_task_control(session, status_socket, situations, action_target, policy,
             except TaskSuperseded:
                 pass
         finally:
+            if distance_monitor is not None:
+                distance_monitor.close()
             if pending is not None:
                 pending.cancel()
             if worker is not None:

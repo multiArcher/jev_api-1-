@@ -89,6 +89,16 @@ class FieldTaskTests(unittest.TestCase):
                 self.assertEqual(result['max_speed_knots'], 0.)
                 self.assertEqual(result['violations'][0]['kind'], 'command')
 
+    def test_yaw_envelope_uses_packet_course_but_physics_keeps_unrounded_course(self):
+        with tempfile.TemporaryDirectory() as folder:
+            result=ft.test_task_two(folder, ft.TestConfig(steps=1, initial_course_deg=175.91),
+                                    Mock(return_value=(10.,130.)), plots=False)
+            row=json.loads((Path(folder)/'task_two/trajectory.jsonl').read_text().splitlines()[0])
+        self.assertEqual(row['observed_course_deg'],175.)
+        self.assertEqual(row['actual_course_deg'],175.91)
+        self.assertNotEqual(result['reason'],'invalid_command')
+        self.assertAlmostEqual(result['max_actual_turn_rate_deg_s'],45.)
+
     def test_model_failure_saves_a_failed_result(self):
         with tempfile.TemporaryDirectory() as folder:
             result = ft.test_task_one(folder, ft.TestConfig(steps=2),
@@ -121,6 +131,29 @@ class FieldTaskTests(unittest.TestCase):
                          {'initial_position_xy_m': (0., float('nan'))}):
             with self.subTest(settings=settings), self.assertRaises(ValueError):
                 ft.TestConfig(**settings)
+
+    def test_checkpoint_images_are_saved_at_each_crossed_ten_point_milestone(self):
+        task = ft.load_task('task_two')
+        task['params']['planWaypointList'] = [dict(task['params']['planWaypointList'][0]) for _ in range(21)]
+        task['params']['planWaypointNum'] = 21
+        with tempfile.TemporaryDirectory() as folder, patch.object(ft, 'load_task', return_value=task), \
+                patch.object(ft, '_plot'), patch.object(ft, '_plot_checkpoint', return_value=Path(folder)/'image.png') as render:
+            result = ft.test_task_two(folder, ft.TestConfig(steps=1), Mock(), checkpoint_every=10)
+            saved = json.loads((Path(folder)/'task_two/checkpoints.json').read_text())
+            self.assertTrue(result['passed'])
+            self.assertEqual([c['milestone'] for c in saved], [10, 20])
+            self.assertEqual([call.args[-1]['milestone'] for call in render.call_args_list], [10, 20, 21])
+            self.assertTrue(render.call_args.args[-1]['final'])
+
+    def test_invalid_checkpoint_interval_and_no_plots(self):
+        with tempfile.TemporaryDirectory() as folder:
+            with self.assertRaises(ValueError):
+                ft.test_task_two(folder, ft.TestConfig(steps=1), Mock(), checkpoint_every=-1)
+            with patch.object(ft, '_plot_checkpoint') as render:
+                result=ft.test_task_two(folder, ft.TestConfig(steps=1), Mock(return_value=(10.,90.)),
+                                        plots=False, checkpoint_every=10)
+            render.assert_not_called()
+            self.assertEqual(result['checkpoints'], [])
 
 
 if __name__ == '__main__':

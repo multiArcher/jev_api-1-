@@ -1,0 +1,37 @@
+task_one: 100 steps, 2/12 waypoints, distance=532.1m
+task_one: 200 steps, 3/12 waypoints, distance=138.8m
+task_one: 300 steps, 5/12 waypoints, distance=669.3m
+task_one: 400 steps, 6/12 waypoints, distance=393.4m
+task_one: 500 steps, 7/12 waypoints, distance=699.0m
+task_one: 600 steps, 8/12 waypoints, distance=1685.2m
+task_one: 700 steps, 8/12 waypoints, distance=102.3m
+task_one: 800 steps, 9/12 waypoints, distance=1415.3m
+task_one: 900 steps, 10/12 waypoints, distance=3721.0m
+task_one: 1000 steps, 10/12 waypoints, distance=1868.9m
+task_one: 1100 steps, 10/12 waypoints, distance=543.3m
+task_one: 1200 steps, 11/12 waypoints, distance=1645.7m
+task_two: 100 steps, 4/45 waypoints, distance=310.5m
+task_two: 200 steps, 6/45 waypoints, distance=164.4m
+task_two: 300 steps, 8/45 waypoints, distance=229.2m
+task_two: 400 steps, 10/45 waypoints, distance=238.7m
+task_two: 500 steps, 11/45 waypoints, distance=171.2m
+task_two: 600 steps, 13/45 waypoints, distance=1432.8m
+task_two: 700 steps, 14/45 waypoints, distance=101.4m
+task_two: 800 steps, 15/45 waypoints, distance=268.8m
+task_two: 900 steps, 17/45 waypoints, distance=2347.6m
+task_two: 1000 steps, 18/45 waypoints, distance=298.9m
+task_two: 1100 steps, 19/45 waypoints, distance=2031.6m
+task_two: 1200 steps, 20/45 waypoints, distance=331.7m
+task_two: 1300 steps, 21/45 waypoints, distance=2624.4m
+task_two: 1400 steps, 21/45 waypoints, distance=1275.1m
+task_two: 1500 steps, 23/45 waypoints, distance=3904.7m
+task_two: 1600 steps, 23/45 waypoints, distance=2081.2m
+task_two: 1700 steps, 23/45 waypoints, distance=399.7m
+task_two: 1800 steps, 25/45 waypoints, distance=4192.2m
+task_two: 1900 steps, 25/45 waypoints, distance=2237.5m
+task_two: 2000 steps, 25/45 waypoints, distance=101.0m
+task_two: 2100 steps, 27/45 waypoints, distance=2189.1m
+task_two: 2200 steps, 27/45 waypoints, distance=609.0m
+task_two: 2300 steps, 29/45 waypoints, distance=3252.4m
+{"task": "task_one", "passed": true, "completed": true, "reason": "completed", "reached_waypoints": 12, "total_waypoints": 12, "speed_violation_count": 0}
+{"task": "task_two", "passed": false, "completed": false, "reason": "model_error", "reached_waypoints": 29, "total_waypoints": 45, "speed_violation_count": 0}

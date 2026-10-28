@@ -102,6 +102,20 @@ class ServiceConfigTests(unittest.TestCase):
             decision_service.main()
             self.assertEqual(start_server.call_args.args[2].max_turn_rate_deg_s, 5.)
 
+    def test_static_geometry_configuration_reaches_kev_with_cli_precedence(self):
+        with (
+            patch.dict(os.environ, {'STATIC_OBSTACLE_RADIUS_M':'90', 'VESSEL_LENGTH_M':'12',
+                                    'VESSEL_WIDTH_M':'4'}, clear=True),
+            patch.object(decision_service, 'LOCAL_CONFIG_PATH', self.path),
+            patch('sys.argv', ['decision_service.py','--static-obstacle-radius-m','80']),
+            patch.object(decision_service, 'start_server') as start_server,
+        ):
+            decision_service.main()
+            config=start_server.call_args.args[2].obstacle_config
+            self.assertEqual(config.obstacle_radius_m,80.)
+            self.assertEqual((config.vessel_length_m,config.vessel_width_m),(12.,4.))
+            self.assertAlmostEqual(config.collision_radius_m,86.32455532)
+
     def test_local_initial_course_accepts_zero_and_reaches_kev_policy(self):
         self.path.write_text(json.dumps({"INITIAL_COURSE_DEG": 0}), encoding="utf-8")
         with (

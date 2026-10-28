@@ -26,12 +26,14 @@ if __package__:
     from .jev_policy import JevPolicy, jev_policy
     from .policies.factory import DEFAULT_BACKEND, create_policy
     from .policies.turning import DEFAULT_MAX_TURN_RATE_DEG_S
+    from .policies.static_obstacles import StaticObstacleConfig, configure_actual_distance_log
 else:
     from control_runtime import error_details, run_task_control
     from policies.waypoint_radius import waypoint_arrival_radius
     from jev_policy import JevPolicy, jev_policy
     from policies.factory import DEFAULT_BACKEND, create_policy
     from policies.turning import DEFAULT_MAX_TURN_RATE_DEG_S
+    from policies.static_obstacles import StaticObstacleConfig, configure_actual_distance_log
 
 
 LOGGER = logging.getLogger("decision_service")
@@ -532,11 +534,14 @@ class SituationStore:
         with self._lock:
             self._records[platform_id] = (dict(record), time.monotonic())
 
-    def query_state(self) -> Tuple[Dict[str, Any], ...]:
+    def query_state(self, *, include_age: bool = False) -> Tuple[Dict[str, Any], ...]:
         """Return a stable snapshot for policy input."""
 
         with self._lock:
-            return tuple(dict(self._records[key][0]) for key in sorted(self._records))
+            now = time.monotonic()
+            return tuple(dict(self._records[key][0], **(
+                {'_received_age_s': max(0., now-self._records[key][1])} if include_age else {}))
+                for key in sorted(self._records))
 
     def get(self, platform_id: int, max_age: float) -> Optional[Dict[str, Any]]:
         """Return a fresh platform record, or None if absent/stale."""
@@ -1122,6 +1127,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--speed-unit", choices=("knots", "mps"), default=os.getenv("SPEED_UNIT", "knots"),
                         help="态势、航路点及控制报文速度单位，默认 knots")
     parser.add_argument("--max-speed-knots", type=float, default=float(os.getenv("MAX_SPEED_KNOTS", "50.0")))
+    parser.add_argument("--static-obstacle-radius-m", type=float, default=float(os.getenv("STATIC_OBSTACLE_RADIUS_M", "80")))
+    parser.add_argument("--vessel-length-m", type=float, default=float(os.getenv("VESSEL_LENGTH_M", "11.6")))
+    parser.add_argument("--vessel-width-m", type=float, default=float(os.getenv("VESSEL_WIDTH_M", "3.4")))
+    parser.add_argument("--static-obstacle-margin-m", type=float, default=float(os.getenv("STATIC_OBSTACLE_MARGIN_M", "0")))
     parser.add_argument("--speed-transition-time", type=float, default=float(os.getenv("SPEED_TRANSITION_TIME", "0.5")))
     parser.add_argument("--course-transition-time", type=float, default=float(os.getenv("COURSE_TRANSITION_TIME", "0.5")))
     parser.add_argument("--jev-timeout", type=float, default=float(os.getenv("JEV_TIMEOUT", "30.0")))
@@ -1191,10 +1200,16 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     args = parse_args()
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
+    configure_actual_distance_log(Path(__file__).resolve().parent / 'logs' /
+                                  f'static-obstacle-distance-{args.platform_id}-{args.port}.log')
+    obstacle_config = StaticObstacleConfig(obstacle_radius_m=args.static_obstacle_radius_m,
+        vessel_length_m=args.vessel_length_m, vessel_width_m=args.vessel_width_m,
+        safety_margin_m=args.static_obstacle_margin_m)
     policy = create_policy(
         args.backend, model_path=args.local_model_path, device=args.device,
         kev_endpoint=args.kev_endpoint, kev_timeout=args.kev_timeout,
         kev_max_turn_rate_deg_s=args.max_turn_rate_deg_s, kev_initial_course_deg=args.initial_course_deg,
+        kev_obstacle_config=obstacle_config,
         model=args.model, endpoint=args.endpoint, speed_unit=args.speed_unit,
         max_speed_knots=args.max_speed_knots, duration=args.control_interval,
         speed_transition=args.speed_transition_time,

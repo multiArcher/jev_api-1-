@@ -1,0 +1,15 @@
+{
+  "replayed_packets": 18933,
+  "targets": 17,
+  "static_targets": 16,
+  "own_excluded": true,
+  "retained_stale_target_ids": [
+    4002,
+    4003,
+    4004,
+    4005
+  ],
+  "collision_radius_m": 86.04400529450463,
+  "source_time_used_for_cache_expiry": false,
+  "external_records_unchanged": true
+}

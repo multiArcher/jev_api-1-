@@ -19,7 +19,11 @@ JSON保存用户提供的完整原始任务。`routeSpeed`、态势速度和控�
 
 默认同时执行两条任务，输出到 `server/experiments/results/field-tasks/task_one/` 和 `task_two/`。每条任务保存原始 `task.json`、逐步完整输入/候选/响应及运动记录 `trajectory.jsonl`、汇总 `summary.json`（含恢复决策次数与停车确认）、轨迹/速度/航向图 `trajectory.png`。没有绘图依赖时可加 `--no-plots`；`--output` 可指定新的结果目录以保留不同版本。
 
+可加 `--checkpoint-every 10`：每完成10个航点自动保存 `checkpoints/waypoints_10.png`、`waypoints_20.png` 等运行图，`checkpoints.json` 记录当时的时间、净空和违规统计。结束时另存 `checkpoints/final.png`，并标明是否通过；中间进度图不代表全程通过。图中橙线突出最近10个航点区间，绿点表示已到达航点，灰点表示尚未访问，红圈为静态目标的安全中心距离范围。`--no-plots` 会同时关闭进度图。
+
 `completed`要求所有航点按序访问，并在下发零速后由态势确认速度不高于0.1节。`passed`还要求没有速度或指令约束违规。正常航行指令不得超过50节，航向候选不得超过当前控制周期的可达转角。航点限速检查覆盖预测运动路径与当前到达圈的交段，以及尚未离开的已访问圈，记录圈内峰值速度（数值容差0.01节）；违规会记录航点索引和时刻。索引从0开始。
+
+态势报文的航向字段按整数度编码，候选转角范围依据模型实际收到的 `observed_course_deg` 检查。运动积分仍使用未取整的 `actual_course_deg` 并限制实际转向角速度，不能把两种精度混用而误报合法候选超限。二者同时写入轨迹记录，汇总中的 `max_actual_turn_rate_deg_s` 来自实际积分。
 
 当前Kev为10、20、30、40、50节五档速度，按下一航点转角和距离划分速度阶段；对齐的远距离巡航只开放50节，靠近航点、仍在已访问圈内或需要大角度转向时限制速度，恢复模式仅提供10节。两条任务限速约10.289节，较高速度在圈内可能违规，完成路线也不代表限速测试通过。测试会记录选择的速度/航向、固定首航点坐标和进展模式；恢复失败后模拟零速停车并保存失败原因，不代替模型选择方向。尚未完成、模型异常或任何违规时，命令退出码为1，全部通过为0。
 
@@ -30,3 +34,12 @@ JSON保存用户提供的完整原始任务。`routeSpeed`、态势速度和控�
 ```bash
 python3 -m unittest server.tests.test_field_tasks -v
 ```
+## 静态障碍物回放
+
+`static_situation.json` 来自2026-10-26的实际组播记录，包含1001～1009静止船艇和4001～4007静态障碍物，保留协议字段，速度单位为节。两条原任务不改动，可直接运行：
+
+```bash
+.venv/bin/python server/experiments/field_tasks.py --task both --steps 6000 --static-situation server/experiments/tasks/static_situation.json --output server/experiments/results/static-field-tasks
+```
+
+仿真按本艇5公里范围提供新探测，策略保留已知静态位置。碰撞统计使用全部已录制障碍物，检查积分路径各线段与约86.04米有效避碰圆的净空；报告完成情况、静态碰撞数、最小净空、航点限速和最终停车。图中的红圈是已包含艇体大小的禁入范围。当前近似运动和推理暂停世界的限制仍然适用，不代表实艇验证。

@@ -1,0 +1,197 @@
+task_two_resume: 100 steps, 31/45 waypoints, distance=2911.9m
+task_two_resume: 200 steps, 31/45 waypoints, distance=764.7m
+task_two_resume: 300 steps, 33/45 waypoints, distance=1981.6m
+task_two_resume: 400 steps, 35/45 waypoints, distance=1951.3m
+task_two_resume: 500 steps, 36/45 waypoints, distance=291.3m
+task_two_resume: 600 steps, 37/45 waypoints, distance=346.2m
+task_two_resume: 700 steps, 40/45 waypoints, distance=288.6m
+task_two_resume: 800 steps, 44/45 waypoints, distance=6286.4m
+task_two_resume: 900 steps, 44/45 waypoints, distance=4822.8m
+task_two_resume: 1000 steps, 44/45 waypoints, distance=2250.6m
+{
+  "task": "task_two_resume",
+  "task_id": "eaa367de-d805-46a1-a19f-c6dce33113a9-after-timeout",
+  "passed": false,
+  "completed": true,
+  "reason": "completed",
+  "error": null,
+  "steps": 1091,
+  "reached_waypoints": 45,
+  "total_waypoints": 45,
+  "simulated_seconds": 1090.0,
+  "final_speed_knots": 0.0,
+  "max_speed_knots": 50.0,
+  "max_actual_turn_rate_deg_s": 45.0,
+  "available_speeds_knots": [
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0
+  ],
+  "recovery_decisions": 9,
+  "stop_confirmed": true,
+  "arrival_radius_m": 100.0,
+  "speed_unit": "knots",
+  "waypoint_speed_limits_knots": [
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889
+  ],
+  "speed_violation_count": 1,
+  "static_obstacle_count": 16,
+  "static_collision_radius_m": 86.04400529450463,
+  "static_collision_count": 0,
+  "minimum_static_clearance_m": 517.935160252391,
+  "violations": [
+    {
+      "kind": "waypoint_speed",
+      "step": 825,
+      "index": 41,
+      "peak_speed_knots": 50.0,
+      "limit_knots": 10.28888888888889
+    }
+  ],
+  "arrivals": [
+    {
+      "index": 29,
+      "time_s": 81.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 30,
+      "time_s": 99.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 31,
+      "time_s": 236.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 32,
+      "time_s": 255.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 33,
+      "time_s": 381.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 34,
+      "time_s": 395.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 35,
+      "time_s": 496.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 36,
+      "time_s": 526.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 37,
+      "time_s": 619.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 38,
+      "time_s": 635.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 39,
+      "time_s": 698.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 40,
+      "time_s": 718.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 41,
+      "time_s": 773.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 42,
+      "time_s": 789.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 43,
+      "time_s": 795.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 44,
+      "time_s": 1089.0,
+      "speed_knots": 10.0
+    }
+  ],
+  "config": {
+    "steps": 6000,
+    "dt": 1.0,
+    "start_offset_m": 50.0,
+    "initial_course_deg": 228.0,
+    "initial_position_xy_m": [
+      2643.5582570713177,
+      -1549.0884853539962
+    ],
+    "max_turn_rate_deg_s": 45.0,
+    "kev_endpoint": "http://127.0.0.1:18029/v1/systemone",
+    "kev_timeout": 30.0
+  },
+  "elapsed_s": 244.47488735299703,
+  "limitations": "Idealized motion; simulation pauses during inference. No live UDP timing or measured hull dynamics.",
+  "initial_completed_waypoints": 29,
+  "continuation_from": "task_two/trajectory.jsonl",
+  "continuation_reason": "Original local inference service timed out; resume from its confirmed stop."
+}

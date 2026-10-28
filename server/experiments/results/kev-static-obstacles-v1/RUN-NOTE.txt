@@ -1,0 +1,1 @@
+Task one completed successfully. Task two was interrupted to validate the updated version in ../kev-static-obstacles-v2. Do not treat its partial trajectory as a completed run.

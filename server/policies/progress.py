@@ -34,7 +34,7 @@ class ProgressSupervisor:
         self.mode = 'normal'
         self.recovery_cycles = 0
 
-    def update(self, index, distance_m, heading_error_deg):
+    def update(self, index, distance_m, heading_error_deg, *, require_distance_progress=False):
         if index != self.index:
             self.index = index
             self.samples.clear()
@@ -59,7 +59,8 @@ class ProgressSupervisor:
                         f'距离{distance_m:.1f}米，航向误差{heading_error_deg:.1f}度')
         elif heading_gain < self.config.min_heading_improvement_deg and (
                 distance_change >= self.config.min_progress_m or
-                (distance_change > -self.config.min_progress_m and heading_error_deg > self.config.aligned_deg)):
+                (distance_change > -self.config.min_progress_m and
+                 (heading_error_deg > self.config.aligned_deg or require_distance_progress))):
             self.mode, self.recovery_cycles = 'recovery', 0
         return self.state()
 

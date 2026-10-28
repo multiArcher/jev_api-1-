@@ -1,0 +1,33 @@
+......................task b0bb189b-dc19-419c-8cd7-09e66646a25a: 模型决策异常：平台1010，目标航路点1/3，连续失败1/3次；RuntimeError: API timed out
+task b0bb189b-dc19-419c-8cd7-09e66646a25a: 模型决策异常：平台1010，目标航路点1/3，连续失败2/3次；RuntimeError: API timed out
+task b0bb189b-dc19-419c-8cd7-09e66646a25a: 模型决策异常：平台1010，目标航路点1/3，连续失败3/3次；RuntimeError: API timed out
+task b0bb189b-dc19-419c-8cd7-09e66646a25a failed: 模型决策异常：平台1010，目标航路点1/3，连续失败3/3次；RuntimeError: API timed out；连续错误达到3次，任务终止；已下发零速停车指令，尚未确认实际停车
+.........................invalid situation from 192.168.3.201:18010: invalid packet
+..situation multicast 239.255.0.10:18010 via 192.168.3.100 failed: network unavailable; retrying in 3.0 seconds
+situation multicast 239.255.0.10:18010 via 192.168.3.100 failed: network unavailable; retrying in 3.0 seconds
+situation multicast 239.255.0.10:18010 via 192.168.3.100 failed: network unavailable; retrying in 3.0 seconds
+...........2026-10-26 19:15:55,388 INFO using policy backend=kev class=KevPolicy
+..2026-10-26 19:15:55,390 INFO using policy backend=kev class=KevPolicy
+...2026-10-26 19:15:55,393 INFO using policy backend=kev class=KevPolicy
+.2026-10-26 19:15:55,394 INFO using policy backend=kev class=KevPolicy
+.2026-10-26 19:15:55,394 INFO using policy backend=kev class=KevPolicy
+2026-10-26 19:15:55,395 INFO using policy backend=jev class=JevPolicy
+2026-10-26 19:15:55,395 INFO using policy backend=jev class=JevPolicy
+2026-10-26 19:15:55,396 INFO using policy backend=kev class=KevPolicy
+...2026-10-26 19:15:55,398 INFO using policy backend=kev class=KevPolicy
+...........2026-10-26 19:15:55,409 WARNING task one static obstacle control veto target=4002 clearance=-86.04400529450463 mode=new; sending zero speed
+2026-10-26 19:15:55,409 INFO sent control 0x0662 to 127.0.0.1:18123 task=one platCode=1010 speed=0.00 knots course=90.00 deg mode=obstacle_stop packet=00 00 00 14 04 22 47 91 00 00 06 62 00 00 03 f2 00 00 23 28
+2026-10-26 19:15:55,419 INFO sent control 0x0662 to 127.0.0.1:18123 task=one platCode=1010 speed=0.00 knots course=90.00 deg mode=stop packet=00 00 00 14 04 22 47 9b 00 00 06 62 00 00 03 f2 00 00 23 28
+2026-10-26 19:15:55,419 INFO task one terminal status=2: stopped
+....2026-10-26 19:15:55,420 WARNING task one: 态势接收异常：平台1010，目标航路点1/1，连续失败1/3次；StaticObstacleBlocked: 本艇已处于静态目标4001的避碰范围内
+2026-10-26 19:15:55,420 INFO sent control 0x0662 to 127.0.0.1:18123 task=one platCode=1010 speed=0.00 knots course=0.00 deg mode=stop packet=00 00 00 14 04 22 47 9c 00 00 06 62 00 00 03 f2 00 00 00 00
+2026-10-26 19:15:55,420 ERROR task one failed: 态势接收异常：平台1010，目标航路点1/1，连续失败1/3次；StaticObstacleBlocked: 本艇已处于静态目标4001的避碰范围内；不可恢复错误，任务终止；已下发零速停车指令，尚未确认实际停车
+2026-10-26 19:15:55,420 INFO task one terminal status=3: 态势接收异常：平台1010，目标航路点1/1，连续失败1/3次；StaticObstacleBlocked: 本艇已处于静态目标4001的避碰范围内；不可恢复错误，任务终止；已下发零速停车指令，尚未确认实际停车
+.2026-10-26 19:15:55,421 INFO Kev static navigation waypoint=0 targets=1 detour=True guidance=(-530.0646360268526, 92.5294353510103)
+.....................................
+----------------------------------------------------------------------
+Ran 123 tests in 4.543s
+
+OK
+{"task": "mock", "passed": false, "completed": false, "reason": "step_limit", "reached_waypoints": 0, "total_waypoints": 12, "speed_violation_count": 0}
+{"task": "mock", "passed": false, "completed": false, "reason": "step_limit", "reached_waypoints": 0, "total_waypoints": 12, "speed_violation_count": 0}

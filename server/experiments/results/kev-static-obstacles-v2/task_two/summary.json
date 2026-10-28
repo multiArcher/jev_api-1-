@@ -1,0 +1,238 @@
+{
+  "task": "task_two",
+  "task_id": "eaa367de-d805-46a1-a19f-c6dce33113a9",
+  "passed": false,
+  "completed": false,
+  "reason": "model_error",
+  "error": "Local Kev request failed (http://127.0.0.1:18028/v1/systemone): timed out",
+  "steps": 2354,
+  "reached_waypoints": 29,
+  "total_waypoints": 45,
+  "simulated_seconds": 2353.0,
+  "final_speed_knots": 0.0,
+  "max_speed_knots": 50.0,
+  "max_actual_turn_rate_deg_s": 45.0,
+  "available_speeds_knots": [
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0
+  ],
+  "recovery_decisions": 11,
+  "stop_confirmed": true,
+  "arrival_radius_m": 100.0,
+  "speed_unit": "knots",
+  "waypoint_speed_limits_knots": [
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889
+  ],
+  "speed_violation_count": 0,
+  "static_obstacle_count": 16,
+  "static_collision_radius_m": 86.04400529450463,
+  "static_collision_count": 0,
+  "minimum_static_clearance_m": 53.02156563885508,
+  "violations": [],
+  "arrivals": [
+    {
+      "index": 0,
+      "time_s": 0.0,
+      "speed_knots": 0.0
+    },
+    {
+      "index": 1,
+      "time_s": 10.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 2,
+      "time_s": 46.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 3,
+      "time_s": 79.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 4,
+      "time_s": 132.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 5,
+      "time_s": 170.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 6,
+      "time_s": 212.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 7,
+      "time_s": 264.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 8,
+      "time_s": 317.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 9,
+      "time_s": 386.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 10,
+      "time_s": 427.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 11,
+      "time_s": 508.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 12,
+      "time_s": 561.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 13,
+      "time_s": 658.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 14,
+      "time_s": 700.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 15,
+      "time_s": 812.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 16,
+      "time_s": 865.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 17,
+      "time_s": 996.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 18,
+      "time_s": 1038.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 19,
+      "time_s": 1184.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 20,
+      "time_s": 1233.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 21,
+      "time_s": 1451.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 22,
+      "time_s": 1482.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 23,
+      "time_s": 1717.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 24,
+      "time_s": 1763.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 25,
+      "time_s": 2000.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 26,
+      "time_s": 2019.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 27,
+      "time_s": 2229.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 28,
+      "time_s": 2267.0,
+      "speed_knots": 10.0
+    }
+  ],
+  "config": {
+    "steps": 6000,
+    "dt": 1.0,
+    "start_offset_m": 50.0,
+    "initial_course_deg": 90.0,
+    "initial_position_xy_m": null,
+    "max_turn_rate_deg_s": 45.0,
+    "kev_endpoint": "http://127.0.0.1:18028/v1/systemone",
+    "kev_timeout": 120.0
+  },
+  "elapsed_s": 680.6342813020019,
+  "limitations": "Idealized motion; simulation pauses during inference. No live UDP timing or measured hull dynamics."
+}

@@ -1,0 +1,283 @@
+{
+  "simId": "1010",
+  "id": "eaa367de-d805-46a1-a19f-c6dce33113a9-after-timeout",
+  "code": "trackingMode",
+  "params": {
+    "platCode": 1010,
+    "planRouteNum": 0,
+    "currentRoute": 29,
+    "planWaypointNum": 45,
+    "planWaypointList": [
+      {
+        "routeLon": 113.24767908786436,
+        "routeLat": 21.777360981511052,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.24860895516377,
+        "routeLat": 21.77713217099759,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.24985244319305,
+        "routeLat": 21.77575587843,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.25170330733775,
+        "routeLat": 21.777198228760643,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.25479765951171,
+        "routeLat": 21.777264286523696,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.2489493198979,
+        "routeLat": 21.772706764244248,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.24911950226496,
+        "routeLat": 21.770494060867577,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.25789201168568,
+        "routeLat": 21.777330344286746,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.26098636385964,
+        "routeLat": 21.7773964020498,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.24928968463203,
+        "routeLat": 21.76828135749091,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.24945986699909,
+        "routeLat": 21.76606865411424,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.26408071603362,
+        "routeLat": 21.777462459812853,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.26717506820759,
+        "routeLat": 21.777528517575906,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.24963004936616,
+        "routeLat": 21.763855950737568,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.24980023173322,
+        "routeLat": 21.761643247360897,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.27026942038155,
+        "routeLat": 21.77759457533896,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.27336377255553,
+        "routeLat": 21.77766063310201,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.24997041410028,
+        "routeLat": 21.759430543984227,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.25014059646735,
+        "routeLat": 21.757217840607556,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.2764581247295,
+        "routeLat": 21.777726690865062,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.27955247690346,
+        "routeLat": 21.777792748628116,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.2503107788344,
+        "routeLat": 21.755005137230885,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.25105640948179,
+        "routeLat": 21.75324087196339,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.28264682907744,
+        "routeLat": 21.77785880639117,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.2852676406205,
+        "routeLat": 21.77755584112922,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.2536281198759,
+        "routeLat": 21.75289964292144,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.25619983027002,
+        "routeLat": 21.752558413879495,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.2843673359241,
+        "routeLat": 21.77450892343468,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.2834670312277,
+        "routeLat": 21.771462005740144,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.25877154066413,
+        "routeLat": 21.75221718483755,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.26134325105825,
+        "routeLat": 21.751875955795605,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.2825667265313,
+        "routeLat": 21.768415088045607,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.28166642183491,
+        "routeLat": 21.765368170351067,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.26391496145236,
+        "routeLat": 21.751534726753658,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.26648667184648,
+        "routeLat": 21.75119349771171,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.28076611713851,
+        "routeLat": 21.76232125265653,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.27986581244211,
+        "routeLat": 21.759274334961994,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.26905838224059,
+        "routeLat": 21.750852268669764,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.27163009263471,
+        "routeLat": 21.750511039627817,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.27896550774571,
+        "routeLat": 21.756227417267457,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.27806520304931,
+        "routeLat": 21.753180499572917,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.27420180302882,
+        "routeLat": 21.750169810585874,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.27677351342292,
+        "routeLat": 21.749828581543927,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.27716489835291,
+        "routeLat": 21.75013358187838,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      },
+      {
+        "routeLon": 113.21556642048978,
+        "routeLat": 21.749346359192856,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 0.0
+      }
+    ]
+  }
+}

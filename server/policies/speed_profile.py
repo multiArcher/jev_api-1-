@@ -15,7 +15,7 @@ def _turn_speed(angle):
     return 10.
 
 
-def plan_speed(observation, geometry, speeds, turn_rate_deg_s, recovering=False):
+def plan_speed(observation, geometry, speeds, turn_rate_deg_s, recovering=False, *, apply_heading_cap=True):
     """Plan cruise/approach speeds from the next leg and existing motion assumptions.
 
     Brake lead includes the configured linear speed transition, two command
@@ -58,7 +58,7 @@ def plan_speed(observation, geometry, speeds, turn_rate_deg_s, recovering=False)
     cap, phase = cruise, 'cruise'
     if distance <= approach_distance and entry < cap:
         cap, phase = entry, 'approach'
-    if heading_error > 15.:
+    if apply_heading_cap and heading_error > 15.:
         cap, phase = min(cap, _turn_speed(heading_error)), 'align'
     # All visited circles still occupied retain their speed limits.
     for i in range(index):
