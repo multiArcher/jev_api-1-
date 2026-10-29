@@ -1,0 +1,42 @@
+{
+  "mock": false,
+  "budget": false,
+  "steps": 120,
+  "pass_finished_s": null,
+  "p2_arrival_s": null,
+  "first_ahead_100m_s": null,
+  "minimum_dynamic_clearance_m": 17.670047891291816,
+  "maximum_acceleration_mps2": 1.4599999999999793,
+  "maximum_braking_mps2": 1.7500000000001006,
+  "maximum_turn_rate_deg_s": 7.745966692414842,
+  "maximum_angular_acceleration_deg_s2": 4.00000000000179,
+  "speed_violation_count": 0,
+  "initial_command": {
+    "speed": 40.0,
+    "course": 170.8
+  },
+  "initial_speed_profile": {
+    "phase": "align",
+    "entry_speed_knots": 10.0,
+    "speed_cap_knots": 40.0,
+    "next_waypoint_index": 2,
+    "next_waypoint_xy_m": [
+      1700.11,
+      -7409.35
+    ],
+    "next_leg_bearing_deg": 170.82,
+    "next_turn_deg": 8.12,
+    "approach_distance_m": 347.58,
+    "below_minimum_speed_limit": false
+  },
+  "initial_state": {
+    "position_xy_m": [
+      841.7954211937509,
+      -3057.673102043199
+    ],
+    "course_deg": 162.0,
+    "speed_knots": 27.7
+  },
+  "final_speed_knots": 10.0,
+  "final_relative_along_m": 8.629526406863945
+}

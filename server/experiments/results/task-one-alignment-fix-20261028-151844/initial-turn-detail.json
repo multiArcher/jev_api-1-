@@ -1,0 +1,182 @@
+[
+  {
+    "time_s": 10.0,
+    "waypoint": 1,
+    "actual_course_deg": 90.0,
+    "command": {
+      "platCode": 1010,
+      "speed": 10.0,
+      "course": 90.0
+    },
+    "heading_error_deg": 0.0,
+    "alignment": false
+  },
+  {
+    "time_s": 11.0,
+    "waypoint": 1,
+    "actual_course_deg": 90.0,
+    "command": {
+      "platCode": 1010,
+      "speed": 10.0,
+      "course": 90.0
+    },
+    "heading_error_deg": 0.0,
+    "alignment": false
+  },
+  {
+    "time_s": 12.0,
+    "waypoint": 2,
+    "actual_course_deg": 90.0,
+    "command": {
+      "platCode": 1010,
+      "speed": 10.0,
+      "course": 146.0
+    },
+    "heading_error_deg": 67.67,
+    "alignment": true
+  },
+  {
+    "time_s": 13.0,
+    "waypoint": 2,
+    "actual_course_deg": 92.0,
+    "command": {
+      "platCode": 1010,
+      "speed": 10.0,
+      "course": 157.88
+    },
+    "heading_error_deg": 65.88,
+    "alignment": true
+  },
+  {
+    "time_s": 14.0,
+    "waypoint": 2,
+    "actual_course_deg": 98.0,
+    "command": {
+      "platCode": 1010,
+      "speed": 10.0,
+      "course": 158.07
+    },
+    "heading_error_deg": 60.07,
+    "alignment": true
+  },
+  {
+    "time_s": 15.0,
+    "waypoint": 2,
+    "actual_course_deg": 108.0,
+    "command": {
+      "platCode": 1010,
+      "speed": 10.0,
+      "course": 158.25
+    },
+    "heading_error_deg": 50.25,
+    "alignment": true
+  },
+  {
+    "time_s": 16.0,
+    "waypoint": 2,
+    "actual_course_deg": 120.0,
+    "command": {
+      "platCode": 1010,
+      "speed": 10.0,
+      "course": 158.41
+    },
+    "heading_error_deg": 38.41,
+    "alignment": true
+  },
+  {
+    "time_s": 17.0,
+    "waypoint": 2,
+    "actual_course_deg": 132.0,
+    "command": {
+      "platCode": 1010,
+      "speed": 10.0,
+      "course": 158.53
+    },
+    "heading_error_deg": 26.53,
+    "alignment": true
+  },
+  {
+    "time_s": 18.0,
+    "waypoint": 2,
+    "actual_course_deg": 143.83276527777778,
+    "command": {
+      "platCode": 1010,
+      "speed": 10.0,
+      "course": 158.6
+    },
+    "heading_error_deg": 15.6,
+    "alignment": true
+  },
+  {
+    "time_s": 19.0,
+    "waypoint": 2,
+    "actual_course_deg": 152.701863948972,
+    "command": {
+      "platCode": 1010,
+      "speed": 10.0,
+      "course": 156.0
+    },
+    "heading_error_deg": 6.64,
+    "alignment": false
+  },
+  {
+    "time_s": 20.0,
+    "waypoint": 2,
+    "actual_course_deg": 157.57100424512436,
+    "command": {
+      "platCode": 1010,
+      "speed": 10.0,
+      "course": 157.0
+    },
+    "heading_error_deg": 1.66,
+    "alignment": false
+  },
+  {
+    "time_s": 21.0,
+    "waypoint": 2,
+    "actual_course_deg": 158.4401445412767,
+    "command": {
+      "platCode": 1010,
+      "speed": 10.0,
+      "course": 158.8
+    },
+    "heading_error_deg": 0.66,
+    "alignment": false
+  },
+  {
+    "time_s": 22.0,
+    "waypoint": 2,
+    "actual_course_deg": 158.79997372294756,
+    "command": {
+      "platCode": 1010,
+      "speed": 10.0,
+      "course": 158.8
+    },
+    "heading_error_deg": 0.66,
+    "alignment": false
+  },
+  {
+    "time_s": 23.0,
+    "waypoint": 2,
+    "actual_course_deg": 158.8,
+    "command": {
+      "platCode": 1010,
+      "speed": 10.0,
+      "course": 158.0
+    },
+    "heading_error_deg": 0.66,
+    "alignment": false
+  },
+  {
+    "time_s": 24.0,
+    "waypoint": 2,
+    "actual_course_deg": 158.0,
+    "command": {
+      "platCode": 1010,
+      "speed": 10.0,
+      "course": 158.0
+    },
+    "heading_error_deg": 0.66,
+    "alignment": false
+  }
+]

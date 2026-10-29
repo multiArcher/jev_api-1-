@@ -21,7 +21,9 @@ def answer(choice):
 
 def fastest_straight(payload):
     speed = max(payload['state']['speeds_knots'])
-    return answer(f'speed_{speed:g}__heading_07')
+    options = payload['questions']['action']['criteria']
+    return answer(min((k for k,v in options.items() if v['speed_knots']==speed),
+                      key=lambda k: options[k]['turn_deg']))
 
 
 class KevTests(unittest.TestCase):
@@ -36,7 +38,7 @@ class KevTests(unittest.TestCase):
         for speed in KEV_SPEEDS_KNOTS:
             heading = 90. if speed == 50. else 70.
             packet['situation'][0]['targetCourse'] = heading
-            for i,course in enumerate(reachable_courses(heading,1.,45.)):
+            for i,course in enumerate(reachable_courses(heading,1.,12.)):
                 client.return_value=answer(f'speed_{speed:g}__heading_{i:02d}')
                 self.assertEqual(policy(packet),(speed,course))
         request=client.call_args.args[0]
@@ -44,9 +46,9 @@ class KevTests(unittest.TestCase):
         self.assertEqual(len(criteria),16)
         self.assertTrue(all(v['turn_deg'] == abs(v['signed_turn_deg']) for v in criteria.values()))
         self.assertTrue(all(list(v)[-1] == 'turn_deg' for v in criteria.values()))
-        self.assertEqual({v['absolute_course_deg'] for v in criteria.values()}, set(reachable_courses(90.,1.,45.)))
+        self.assertEqual({v['absolute_course_deg'] for v in criteria.values()}, set(reachable_courses(90.,1.,12.)))
         self.assertEqual(request['state']['speeds_knots'],[50.])
-        self.assertEqual(request['state']['max_turn_deg'],45.)
+        self.assertEqual(request['state']['max_turn_deg'],12.)
         self.assertEqual(KEV_SPEEDS_KNOTS, (10., 20., 30., 40., 50.))
         self.assertNotIn('forecast_note', request['state'])
         self.assertAlmostEqual(request['state']['target_bearing_deg'],90.)
@@ -115,7 +117,7 @@ class KevTests(unittest.TestCase):
                 with patch.dict(ROUTES, {'arrival_test':[(0,0),(distance,0)]}), \
                         patch.dict(SCENARIOS, {'arrival_test':dict(radius_m=turning_radius,speed_knots=50.)}), \
                         patch('server.experiments.simulate.save'), patch('server.experiments.simulate.plot_map'):
-                    result=direct(policy,'arrival_test',SimpleNamespace(steps=1,dt=1.,backend='kev',max_turn_rate_deg_s=45.),Path('/tmp'))
+                    result=direct(policy,'arrival_test',SimpleNamespace(steps=1,dt=1.,backend='kev',max_turn_rate_deg_s=12.),Path('/tmp'))
                 self.assertEqual(result['completed'],completed)
 
     def test_model_payload_rounds_every_float_including_candidates_and_history(self):
@@ -167,7 +169,8 @@ class KevTests(unittest.TestCase):
                 result = service(build_json_packet(packet, ALGORITHM_TASK_ID), policy, (state,))
                 action = decode_speed_course_packet(result)
                 self.assertEqual(action['speed'], max(client.call_args.args[0]['state']['speeds_knots']))
-                self.assertEqual(action['course'], course)
+                self.assertIn(action['course'], [v['absolute_course_deg'] for v in
+                              client.call_args.args[0]['questions']['action']['criteria'].values()])
                 payload = client.call_args.args[0]
                 self.assertEqual(payload['state']['actual_speed_knots'], 0.)
                 self.assertEqual(payload['state']['actual_course_deg'], course)
@@ -183,7 +186,7 @@ class KevTests(unittest.TestCase):
         speed, course = policy(packet)
         payload = client.call_args.args[0]
         self.assertEqual(speed, max(payload['state']['speeds_knots']))
-        self.assertEqual(course, 230.)
+        self.assertIn(course, [v['absolute_course_deg'] for v in payload['questions']['action']['criteria'].values()])
         self.assertEqual(payload['state']['actual_course_deg'], 230.)
         self.assertEqual(policy.observation(packet)['boat']['longitude'], 120.51)
         self.assertEqual(policy.observation(packet)['boat']['latitude'], 30.21)
@@ -200,22 +203,23 @@ class KevTests(unittest.TestCase):
         client = Mock(return_value=answer('speed_50__heading_00'))
         policy = KevPolicy(client=client, initial_course_deg=90., duration=.2)
         _, course = policy(self.packet())
-        self.assertEqual(course, 81.)
+        self.assertEqual(course, 87.6)
         payload = client.call_args.args[0]
-        self.assertEqual(payload['state']['max_turn_deg'], 9.)
-        self.assertEqual(payload['questions']['action']['criteria']['speed_50__heading_15']['absolute_course_deg'], 99.)
+        self.assertEqual(payload['state']['max_turn_deg'], 2.4)
+        self.assertEqual(payload['questions']['action']['criteria']['speed_50__heading_15']['absolute_course_deg'], 92.4)
 
     def test_motion_and_simulation_obey_the_same_rate_limit(self):
         speed=15*KNOT_MPS
         motion=predict_ground_motion(speed,0.,speed,90.,.5,.5,1.,max_turn_rate_deg_s=5.)
-        self.assertEqual(motion['end_course_deg'],5.)
-        radius=speed/math.radians(5.)
-        self.assertAlmostEqual(motion['endpoint'][0],radius*(1-math.cos(math.radians(5))),places=4)
-        self.assertAlmostEqual(motion['endpoint'][1],radius*math.sin(math.radians(5)),places=4)
+        self.assertEqual(motion['end_course_deg'],2.)
+        self.assertEqual(motion['end_turn_rate_deg_s'],4.)
+        self.assertGreater(motion['endpoint'][0],0.)
         from server.experiments.simulate import advance
         x,y,v,course=advance(0,0,speed,0.,dict(speed=15.,course=90.),1.,max_turn_rate_deg_s=5.)
-        self.assertEqual(course,5.)
-        self.assertAlmostEqual(x,motion['endpoint'][0]);self.assertAlmostEqual(y,motion['endpoint'][1])
+        self.assertEqual(course,2.)
+        self.assertEqual(v,speed)
+        self.assertAlmostEqual(x,motion['endpoint'][0])
+        self.assertAlmostEqual(y,motion['endpoint'][1])
 
     def test_transition_fields_removed_and_optional_prompt_fields_do_not_drive_history(self):
         client=Mock(return_value=answer('speed_50__heading_07'))
@@ -243,6 +247,7 @@ class KevTests(unittest.TestCase):
         self.assertLess(payload['state']['target_relative_bearing_deg'],-90.)
         self.assertEqual(payload['state']['target_turn_side'],'left')
         self.assertEqual(payload['questions']['action']['criteria']['speed_10__heading_00']['maneuver'],'left')
-        self.assertEqual(payload['questions']['action']['criteria']['speed_10__heading_07']['maneuver'],'straight')
-        self.assertEqual(payload['questions']['action']['criteria']['speed_10__heading_00']['signed_turn_deg'],-45.)
-        self.assertEqual(payload['questions']['action']['criteria']['speed_10__heading_15']['signed_turn_deg'],45.)
+        self.assertTrue(payload['state']['heading_alignment']['active'])
+        options=payload['questions']['action']['criteria']
+        self.assertTrue(all(v['heading_gain_deg']>=2. for v in options.values()))
+        self.assertTrue(any(v['signed_turn_deg'] < -12. for v in options.values()))

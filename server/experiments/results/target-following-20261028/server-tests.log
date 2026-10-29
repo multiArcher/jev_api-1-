@@ -1,0 +1,68 @@
+task_two: checkpoint 10/21 image=/tmp/tmpi1xoocob/image.png
+task_two: checkpoint 20/21 image=/tmp/tmpi1xoocob/image.png
+task b0bb189b-dc19-419c-8cd7-09e66646a25a: 模型决策异常：平台1010，目标航路点1/3，连续失败1/3次；RuntimeError: API timed out
+task b0bb189b-dc19-419c-8cd7-09e66646a25a: 模型决策异常：平台1010，目标航路点1/3，连续失败2/3次；RuntimeError: API timed out
+task b0bb189b-dc19-419c-8cd7-09e66646a25a: 模型决策异常：平台1010，目标航路点1/3，连续失败3/3次；RuntimeError: API timed out
+task b0bb189b-dc19-419c-8cd7-09e66646a25a failed: 模型决策异常：平台1010，目标航路点1/3，连续失败3/3次；RuntimeError: API timed out；连续错误达到3次，任务终止；已下发零速停车指令，尚未确认实际停车
+Kev dynamic early warning targets=(2001,) warning_horizon_s=60.0 action_horizon_s=10.0; warning does not veto actions
+Kev dynamic early warning targets=(2001,) warning_horizon_s=60.0 action_horizon_s=10.0; warning does not veto actions
+Kev dynamic early warning targets=(2001,) warning_horizon_s=60.0 action_horizon_s=10.0; warning does not veto actions
+Kev dynamic early warning targets=(2001,) warning_horizon_s=60.0 action_horizon_s=10.0; warning does not veto actions
+Kev dynamic early warning targets=(2001,) warning_horizon_s=60.0 action_horizon_s=10.0; warning does not veto actions
+Kev dynamic early warning targets=(2001,) warning_horizon_s=60.0 action_horizon_s=10.0; warning does not veto actions
+Kev dynamic early warning targets=(2001,) warning_horizon_s=60.0 action_horizon_s=10.0; warning does not veto actions
+task one dynamic obstacle control veto target=2001 clearance=-89.7490030385046 mode=new; sending zero speed
+task one dynamic obstacle zero-speed risk target=2001 clearance=-74.28680141221585; awaiting new decision
+task one dynamic obstacle control veto target=2001 clearance=-44.020462469782245 mode=stop; sending zero speed
+Kev dynamic early warning targets=(2001,) warning_horizon_s=60.0 action_horizon_s=10.0; warning does not veto actions
+invalid situation from 192.168.3.201:18010: invalid packet
+situation multicast 239.255.0.10:18010 via 192.168.3.100 failed: network unavailable; retrying in 3.0 seconds
+situation multicast 239.255.0.10:18010 via 192.168.3.100 failed: network unavailable; retrying in 3.0 seconds
+situation multicast 239.255.0.10:18010 via 192.168.3.100 failed: network unavailable; retrying in 3.0 seconds
+Kev dynamic early warning targets=(2001,) warning_horizon_s=60.0 action_horizon_s=10.0; warning does not veto actions
+Kev dynamic early warning targets=(2001,) warning_horizon_s=60.0 action_horizon_s=10.0; warning does not veto actions
+Kev dynamic early warning targets=(2001,) warning_horizon_s=60.0 action_horizon_s=10.0; warning does not veto actions
+Kev dynamic wait status=blocked targets=[2001]
+Kev dynamic early warning targets=(2001,) warning_horizon_s=60.0 action_horizon_s=10.0; warning does not veto actions
+2026-10-28 09:32:01,866 INFO using policy backend=kev class=KevPolicy
+2026-10-28 09:32:01,868 INFO using policy backend=kev class=KevPolicy
+2026-10-28 09:32:01,871 INFO using policy backend=kev class=KevPolicy
+2026-10-28 09:32:01,872 INFO using policy backend=kev class=KevPolicy
+2026-10-28 09:32:01,872 INFO using policy backend=kev class=KevPolicy
+2026-10-28 09:32:01,873 INFO using policy backend=jev class=JevPolicy
+2026-10-28 09:32:01,874 INFO using policy backend=jev class=JevPolicy
+2026-10-28 09:32:01,874 INFO using policy backend=kev class=KevPolicy
+2026-10-28 09:32:01,876 INFO using policy backend=kev class=KevPolicy
+2026-10-28 09:32:01,888 WARNING task one static obstacle control veto target=4002 clearance=-86.04400529450463 mode=new; sending zero speed
+2026-10-28 09:32:01,888 INFO sent control 0x0662 to 127.0.0.1:18123 task=one platCode=1010 speed=0.00 knots course=90.00 deg mode=obstacle_stop packet=00 00 00 14 02 0b b5 e0 00 00 06 62 00 00 03 f2 00 00 23 28
+2026-10-28 09:32:01,898 INFO sent control 0x0662 to 127.0.0.1:18123 task=one platCode=1010 speed=0.00 knots course=90.00 deg mode=stop packet=00 00 00 14 02 0b b5 ea 00 00 06 62 00 00 03 f2 00 00 23 28
+2026-10-28 09:32:01,898 INFO task one terminal status=2: stopped
+2026-10-28 09:32:01,903 INFO Kev route rejoin waypoint=0 mode=inactive cross_track_m=None
+2026-10-28 09:32:01,903 INFO Kev static navigation waypoint=0 targets=1 detour=True guidance=(-1749.4152574990903, 0.0)
+2026-10-28 09:32:02,019 INFO Kev route rejoin waypoint=0 mode=avoiding cross_track_m=0.0
+2026-10-28 09:32:02,019 INFO Kev static navigation waypoint=0 targets=1 detour=True guidance=(-1330.0646360268527, 92.5294353510103)
+2026-10-28 09:32:02,095 INFO Kev route rejoin waypoint=0 mode=avoiding cross_track_m=0.0
+2026-10-28 09:32:02,095 INFO Kev static navigation waypoint=0 targets=1 detour=True guidance=(-2448.7102389776946, 57.18633600676043)
+2026-10-28 09:32:02,117 WARNING task one: 态势接收异常：平台1010，目标航路点1/1，连续失败1/3次；StaticObstacleBlocked: 本艇已处于静态目标4001的避碰范围内
+2026-10-28 09:32:02,117 INFO sent control 0x0662 to 127.0.0.1:18123 task=one platCode=1010 speed=0.00 knots course=0.00 deg mode=stop packet=00 00 00 14 02 0b b6 c5 00 00 06 62 00 00 03 f2 00 00 00 00
+2026-10-28 09:32:02,117 ERROR task one failed: 态势接收异常：平台1010，目标航路点1/1，连续失败1/3次；StaticObstacleBlocked: 本艇已处于静态目标4001的避碰范围内；不可恢复错误，任务终止；已下发零速停车指令，尚未确认实际停车
+2026-10-28 09:32:02,117 INFO task one terminal status=3: 态势接收异常：平台1010，目标航路点1/1，连续失败1/3次；StaticObstacleBlocked: 本艇已处于静态目标4001的避碰范围内；不可恢复错误，任务终止；已下发零速停车指令，尚未确认实际停车
+2026-10-28 09:32:02,118 INFO Kev route rejoin waypoint=0 mode=avoiding cross_track_m=0.0
+2026-10-28 09:32:02,118 INFO Kev static navigation waypoint=0 targets=1 detour=True guidance=(-530.0646360268526, 92.5294353510103)
+2026-10-28 09:32:02,184 INFO Kev route rejoin waypoint=0 mode=avoiding cross_track_m=0.0
+2026-10-28 09:32:02,184 INFO Kev static navigation waypoint=0 targets=1 detour=True guidance=(-2280.0646360268524, 92.5294353510103)
+2026-10-28 09:32:02,368 INFO Kev route rejoin waypoint=0 mode=inactive cross_track_m=None
+2026-10-28 09:32:02,368 INFO Kev static navigation waypoint=0 targets=1 detour=False guidance=(0.0, 0.0)
+2026-10-28 09:32:02,485 INFO Kev route rejoin waypoint=0 mode=avoiding cross_track_m=0.0
+2026-10-28 09:32:02,485 INFO Kev static navigation waypoint=0 targets=1 detour=True guidance=(-2180.0646360268524, 92.5294353510103)
+2026-10-28 09:32:02,538 INFO Kev route rejoin waypoint=0 mode=inactive cross_track_m=None
+2026-10-28 09:32:02,538 INFO Kev static navigation waypoint=0 targets=1 detour=False guidance=(0.0, 0.0)
+2026-10-28 09:32:04,967 INFO Kev route rejoin waypoint=0 mode=inactive cross_track_m=None
+2026-10-28 09:32:05,415 INFO Kev route rejoin waypoint=0 mode=inactive cross_track_m=None
+2026-10-28 09:32:05,424 INFO Kev route rejoin waypoint=0 mode=inactive cross_track_m=None
+----------------------------------------------------------------------
+Ran 211 tests in 34.730s
+
+OK
+{"task": "mock", "passed": false, "completed": false, "reason": "step_limit", "reached_waypoints": 0, "total_waypoints": 12, "speed_violation_count": 0}
+{"task": "mock", "passed": false, "completed": false, "reason": "step_limit", "reached_waypoints": 0, "total_waypoints": 12, "speed_violation_count": 0}

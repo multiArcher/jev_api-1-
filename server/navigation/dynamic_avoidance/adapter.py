@@ -44,7 +44,7 @@ def scene_from_situation(records, *, origin_lon_lat, speed_unit, own_id, max_own
                 raise ValueError('own vessel needs fresh position, speed and course')
             angle = math.radians(course)
             own = Vessel((position[0]+speed*age*math.sin(angle),
-                          position[1]+speed*age*math.cos(angle)), speed, course)
+                          position[1]+speed*age*math.cos(angle)), speed, course, record.get('_turn_rate_deg_s', 0.))
         else:
             targets.append(Target(pid, position, speed, course, age))
     return own, tuple(sorted(targets, key=lambda t: t.target_id))

@@ -1,0 +1,49 @@
+{
+  "simId": "1010",
+  "id": "3ba83cea-c755-4ae9-82c1-a91b4075d124",
+  "code": "trackingMode",
+  "params": {
+    "platCode": 1010,
+    "planRouteNum": 0,
+    "currentRoute": 0,
+    "planWaypointNum": 6,
+    "planWaypointList": [
+      {
+        "routeLon": 113.20104641412587,
+        "routeLat": 21.924566054814065,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 100.0
+      },
+      {
+        "routeLon": 113.21115941112475,
+        "routeLat": 21.894454522606793,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 100.0
+      },
+      {
+        "routeLon": 113.21750943249543,
+        "routeLat": 21.858006698528484,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 100.0
+      },
+      {
+        "routeLon": 113.2312906262747,
+        "routeLat": 21.784147110443612,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 100.0
+      },
+      {
+        "routeLon": 113.23867993779788,
+        "routeLat": 21.778541725643322,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 100.0
+      },
+      {
+        "routeLon": 113.24742222185273,
+        "routeLat": 21.779024957101356,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 100.0
+      }
+    ]
+  }
+}

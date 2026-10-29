@@ -4,6 +4,7 @@ import math
 from choice_control import build_payload, decode_action
 from tools.http_transport import JevTransport
 from tools.waypoint_geometry import KNOT_MPS
+from tools.acceleration_response import DEFAULT_ACCELERATION_RESPONSE
 if __package__:
     from .policies.waypoint import WaypointPolicy
 else:
@@ -13,8 +14,8 @@ else:
 class JevPolicy(WaypointPolicy):
     def __init__(self, model="jev-latest", endpoint="https://api.typesafe.ai/v1/systemone",
                  speed_unit="knots", max_speed_knots=50.0, duration=1.0,
-                 speed_transition=0.5, course_transition=0.5, api_timeout=10.0):
-        super().__init__(speed_unit, max_speed_knots, duration, speed_transition, course_transition)
+                 speed_transition=0.5, course_transition=0.5, api_timeout=10.0, motion_curves=None, acceleration_response=DEFAULT_ACCELERATION_RESPONSE):
+        super().__init__(speed_unit, max_speed_knots, duration, speed_transition, course_transition, motion_curves, acceleration_response)
         if not math.isfinite(api_timeout) or api_timeout <= 0:
             raise ValueError("api_timeout must be positive and finite")
         self.model, self.endpoint, self.api_timeout = model, endpoint, api_timeout

@@ -1,0 +1,21 @@
+[
+  {
+    "scenario": "single",
+    "min_clearance_m": 25.160866634936056,
+    "ahead_150m_s": {
+      "4001": 24
+    },
+    "min_detour_command_knots": 50.0,
+    "final_cross_track_m": 5.945172775923066
+  },
+  {
+    "scenario": "two",
+    "min_clearance_m": 17.685450410211274,
+    "ahead_150m_s": {
+      "4001": 23,
+      "4003": 42
+    },
+    "min_detour_command_knots": 50.0,
+    "final_cross_track_m": 6.446804097610197
+  }
+]

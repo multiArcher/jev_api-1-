@@ -1,0 +1,23 @@
+[
+  "/home/epic/jev_api(1)/.venv/bin/python",
+  "-u",
+  "server/experiments/field_tasks.py",
+  "--task",
+  "one",
+  "--steps",
+  "6000",
+  "--dt",
+  "1",
+  "--start-offset-m",
+  "150",
+  "--initial-course-deg",
+  "90",
+  "--max-turn-rate-deg-s",
+  "12",
+  "--static-situation",
+  "server/experiments/tasks/static_situation.json",
+  "--checkpoint-every",
+  "3",
+  "--output",
+  "/home/epic/jev_api(1)/server/experiments/results/task-one-alignment-fix-20261028-151844"
+]

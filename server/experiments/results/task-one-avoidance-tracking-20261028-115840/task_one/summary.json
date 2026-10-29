@@ -1,0 +1,66 @@
+{
+  "task": "task_one",
+  "task_id": "84b6706c-b5d0-4352-9b4f-dd27be357299",
+  "passed": false,
+  "completed": false,
+  "reason": "navigation_no_progress",
+  "error": "航点1低速恢复连续20轮无改善；距离1203.9米，航向误差93.8度",
+  "steps": 113,
+  "reached_waypoints": 1,
+  "total_waypoints": 12,
+  "simulated_seconds": 112.0,
+  "final_speed_knots": 0.0,
+  "max_speed_knots": 41.84673782202383,
+  "max_actual_turn_rate_deg_s": 2.0,
+  "available_speeds_knots": [
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0
+  ],
+  "recovery_decisions": 20,
+  "stop_confirmed": true,
+  "arrival_radius_m": 100.0,
+  "speed_unit": "knots",
+  "waypoint_speed_limits_knots": [
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889
+  ],
+  "speed_violation_count": 0,
+  "static_obstacle_count": 16,
+  "static_collision_radius_m": 86.04400529450463,
+  "static_collision_count": 0,
+  "minimum_static_clearance_m": 174.20348300842227,
+  "violations": [],
+  "arrivals": [
+    {
+      "index": 0,
+      "time_s": 12.0,
+      "speed_knots": 10.0
+    }
+  ],
+  "config": {
+    "steps": 6000,
+    "dt": 1.0,
+    "start_offset_m": 150.0,
+    "initial_course_deg": 90.0,
+    "initial_position_xy_m": null,
+    "max_turn_rate_deg_s": 12.0,
+    "kev_endpoint": "http://127.0.0.1:18028/v1/systemone",
+    "kev_timeout": 120.0
+  },
+  "checkpoints": [],
+  "elapsed_s": 37.8243644030008,
+  "limitations": "Idealized motion; simulation pauses during inference. No live UDP timing or measured hull dynamics."
+}

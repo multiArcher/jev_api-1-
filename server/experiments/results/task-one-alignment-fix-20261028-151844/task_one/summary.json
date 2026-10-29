@@ -1,0 +1,162 @@
+{
+  "task": "task_one",
+  "task_id": "84b6706c-b5d0-4352-9b4f-dd27be357299",
+  "passed": true,
+  "completed": true,
+  "reason": "completed",
+  "error": null,
+  "steps": 1286,
+  "reached_waypoints": 12,
+  "total_waypoints": 12,
+  "simulated_seconds": 1285.0,
+  "final_speed_knots": 0.0,
+  "max_speed_knots": 50.0,
+  "max_actual_turn_rate_deg_s": 12.0,
+  "available_speeds_knots": [
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0
+  ],
+  "recovery_decisions": 0,
+  "stop_confirmed": true,
+  "arrival_radius_m": 100.0,
+  "speed_unit": "knots",
+  "waypoint_speed_limits_knots": [
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889
+  ],
+  "speed_violation_count": 0,
+  "static_obstacle_count": 16,
+  "static_collision_radius_m": 86.04400529450463,
+  "static_collision_count": 0,
+  "minimum_static_clearance_m": 10.119767491936358,
+  "violations": [],
+  "arrivals": [
+    {
+      "index": 0,
+      "time_s": 12.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 1,
+      "time_s": 99.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 2,
+      "time_s": 186.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 3,
+      "time_s": 257.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 4,
+      "time_s": 357.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 5,
+      "time_s": 440.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 6,
+      "time_s": 528.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 7,
+      "time_s": 663.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 8,
+      "time_s": 775.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 9,
+      "time_s": 920.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 10,
+      "time_s": 1120.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 11,
+      "time_s": 1282.0,
+      "speed_knots": 10.0
+    }
+  ],
+  "config": {
+    "steps": 6000,
+    "dt": 1.0,
+    "start_offset_m": 150.0,
+    "initial_course_deg": 90.0,
+    "initial_position_xy_m": null,
+    "max_turn_rate_deg_s": 12.0,
+    "kev_endpoint": "http://127.0.0.1:18028/v1/systemone",
+    "kev_timeout": 120.0
+  },
+  "checkpoints": [
+    {
+      "milestone": 3,
+      "reached_waypoints": 3,
+      "total_waypoints": 12,
+      "time_s": 186.0,
+      "minimum_static_clearance_m": 174.20348300842227,
+      "static_collision_count": 0,
+      "speed_violation_count": 0,
+      "image": "/home/epic/jev_api(1)/server/experiments/results/task-one-alignment-fix-20261028-151844/task_one/checkpoints/waypoints_03.png"
+    },
+    {
+      "milestone": 6,
+      "reached_waypoints": 6,
+      "total_waypoints": 12,
+      "time_s": 440.0,
+      "minimum_static_clearance_m": 10.439098683920136,
+      "static_collision_count": 0,
+      "speed_violation_count": 0,
+      "image": "/home/epic/jev_api(1)/server/experiments/results/task-one-alignment-fix-20261028-151844/task_one/checkpoints/waypoints_06.png"
+    },
+    {
+      "milestone": 9,
+      "reached_waypoints": 9,
+      "total_waypoints": 12,
+      "time_s": 775.0,
+      "minimum_static_clearance_m": 10.119767491936358,
+      "static_collision_count": 0,
+      "speed_violation_count": 0,
+      "image": "/home/epic/jev_api(1)/server/experiments/results/task-one-alignment-fix-20261028-151844/task_one/checkpoints/waypoints_09.png"
+    },
+    {
+      "milestone": 12,
+      "reached_waypoints": 12,
+      "total_waypoints": 12,
+      "time_s": 1282.0,
+      "minimum_static_clearance_m": 10.119767491936358,
+      "static_collision_count": 0,
+      "speed_violation_count": 0,
+      "image": "/home/epic/jev_api(1)/server/experiments/results/task-one-alignment-fix-20261028-151844/task_one/checkpoints/waypoints_12.png"
+    }
+  ],
+  "elapsed_s": 254.64658696300103,
+  "limitations": "Idealized motion; simulation pauses during inference. No live UDP timing or measured hull dynamics."
+}

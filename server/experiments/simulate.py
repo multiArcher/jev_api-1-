@@ -23,6 +23,7 @@ from server.policies.factory import create_policy
 from server.policies.turning import DEFAULT_MAX_TURN_RATE_DEG_S
 from server.policies.waypoint_radius import DEFAULT_ARRIVAL_RADIUS_M
 from tools.navigation_motion import predict_ground_motion
+from tools.vessel_dynamics import motion_parameters
 from tools.waypoint_geometry import KNOT_MPS
 
 EARTH = 6378137.0
@@ -55,18 +56,15 @@ def telemetry(x, y, speed, course):
         targetTypeConfid=None, threatLevel=None, batch=0)
 
 
-def advance(x, y, speed, course, command, dt, max_turn_rate_deg_s=None):
-    motion = predict_ground_motion(speed, course if speed > 1e-6 or max_turn_rate_deg_s is not None else None,
-        command['speed'] * KNOT_MPS, command['course'], .5, .5, dt, max_turn_rate_deg_s=max_turn_rate_deg_s)
+def advance(x, y, speed, course, command, dt, max_turn_rate_deg_s=None, *,
+            initial_turn_rate_deg_s=0., return_turn_rate=False, motion_settings=None):
+    motion = predict_ground_motion(speed, course,
+        command['speed'] * KNOT_MPS, command['course'], 0., 0., dt,
+        **motion_parameters(dict(motion_settings if isinstance(motion_settings,dict) else {}, initial_turn_rate_deg_s=initial_turn_rate_deg_s,
+                                 **({'max_turn_rate_deg_s':max_turn_rate_deg_s} if max_turn_rate_deg_s is not None else {}))))
     dx, dy = motion['endpoint']
-    if max_turn_rate_deg_s is not None:
-        return x + dx, y + dy, motion['end_speed'], motion['end_course_deg']
-    # Legacy transition model retained for Jev and Julia.
-    end_course = course if command['speed'] == 0 and course is not None else command['course']
-    if course is not None and dt < .5 and command['speed'] > 0:
-        delta = (command['course'] - course + 180) % 360 - 180
-        end_course = (course + delta * dt / .5) % 360
-    return x + dx, y + dy, motion['end_speed'], end_course
+    result = (x+dx, y+dy, motion['end_speed'], motion['end_course_deg'])
+    return (*result, motion['end_turn_rate_deg_s']) if return_turn_rate else result
 
 
 def draw_map(ax, rows, name):
@@ -135,10 +133,11 @@ def plot(rows, name, output):
 
 def direct(policy, name, args, out):
     task = scenario(name)
-    x = y = speed = 0.; course = getattr(args, 'initial_course_deg', 90.) if args.backend == 'kev' else None
+    x = y = speed = yaw_rate = 0.; course = getattr(args, 'initial_course_deg', 90.)
     rows = []; completed = False; violation_steps = 0; final_arrived = False
     for step in range(args.steps):
         state = decode_situation_packet(build_situation_packet(telemetry(x, y, speed, course)))
+        state['_turn_rate_deg_s'] = yaw_rate
         started = time.perf_counter()
         control = service(build_json_packet(task, ALGORITHM_TASK_ID), policy, (state,))
         elapsed = time.perf_counter() - started
@@ -160,8 +159,9 @@ def direct(policy, name, args, out):
             print(f'step {step+1}/{args.steps}: target={current}, distance={distance:.1f}m, course={command["course"]:.1f}, decision={elapsed:.3f}s', flush=True)
         if final_arrived and speed <= .1 * KNOT_MPS and command['speed'] == 0:
             completed = True; break
-        x, y, speed, course = advance(x, y, speed, course, command, args.dt,
-            max_turn_rate_deg_s=args.max_turn_rate_deg_s if args.backend == 'kev' else None)
+        x, y, speed, course, yaw_rate = advance(x, y, speed, course, command, args.dt,
+            max_turn_rate_deg_s=args.max_turn_rate_deg_s if args.backend == 'kev' else None,
+            initial_turn_rate_deg_s=yaw_rate, return_turn_rate=True, motion_settings=getattr(policy,'execution',{}))
     save(rows, name, out)
     plot_map(rows, name, out, completed)
     latencies = sorted(r['latency_s'] for r in rows)
@@ -194,6 +194,7 @@ def udp(args, out):
         process = subprocess.Popen([sys.executable, '-m', 'server.decision_service',
             '--kev-endpoint', args.kev_endpoint, '--kev-timeout', str(args.kev_timeout),
             '--max-turn-rate-deg-s', str(args.max_turn_rate_deg_s), '--initial-course-deg', str(args.initial_course_deg),
+            '--acceleration-response',args.acceleration_response,
             '--backend', args.backend, '--device', args.device, '--local-model-path', str(args.model_path),
             '--host', '127.0.0.1', '--port', str(port), '--action-host', '127.0.0.1',
             '--action-port', str(control.getsockname()[1]), '--situation-port', '0',
@@ -209,7 +210,7 @@ def udp(args, out):
                     raise RuntimeError('Service startup failed; see udp-service.log')
                 time.sleep(.1)
             control.setblocking(False); peer.setblocking(False)
-            x = y = speed = 0.; course = args.initial_course_deg if args.backend == 'kev' else None
+            x = y = speed = yaw_rate = 0.; course = args.initial_course_deg
             command = dict(speed=0., course=0.)
             peer.sendto(build_situation_packet(telemetry(x, y, speed, course)), target)
             peer.sendto(build_json_packet(task, ALGORITHM_TASK_ID), target)
@@ -217,8 +218,10 @@ def udp(args, out):
             final = None
             while time.monotonic() - start < args.udp_seconds + 12:
                 now = time.monotonic(); dt = now - previous; previous = now
-                x, y, speed, course = advance(x, y, speed, course, command, dt,
-                    max_turn_rate_deg_s=args.max_turn_rate_deg_s if args.backend == 'kev' else None)
+                x, y, speed, course, yaw_rate = advance(x, y, speed, course, command, dt,
+                    max_turn_rate_deg_s=args.max_turn_rate_deg_s if args.backend == 'kev' else None,
+                    initial_turn_rate_deg_s=yaw_rate, return_turn_rate=True,
+                    motion_settings=dict(acceleration_response=args.acceleration_response))
                 if now >= next_tick:
                     peer.sendto(build_situation_packet(telemetry(x, y, speed, course)), target)
                     tx, ty = ROUTES[name][current_target]
@@ -274,6 +277,7 @@ def main():
     p.add_argument('--backend', choices=['julia', 'jev', 'kev'], default='julia')
     p.add_argument('--kev-endpoint', default='http://127.0.0.1:18028/v1/systemone')
     p.add_argument('--max-turn-rate-deg-s', type=float, default=DEFAULT_MAX_TURN_RATE_DEG_S, help='Kev yaw-rate simulation assumption, degrees/second')
+    p.add_argument('--acceleration-response', choices=('measured_0_50kn','bounded'), default='measured_0_50kn')
     p.add_argument('--initial-course-deg', type=float, default=90., help='Configured simulated initial direction; default east')
     p.add_argument('--kev-timeout', type=float, default=120.)
     p.add_argument('--device', choices=['cpu','cuda'], default='cpu')
@@ -302,7 +306,7 @@ def main():
         results = [udp(args, out)]
     else:
         policy = create_policy(args.backend, model_path=args.model_path, device=args.device,
-            duration=args.dt, max_speed_knots=args.max_speed_knots,
+            duration=args.dt, max_speed_knots=args.max_speed_knots,acceleration_response=args.acceleration_response,
             kev_endpoint=args.kev_endpoint, kev_timeout=args.kev_timeout,
             kev_max_turn_rate_deg_s=args.max_turn_rate_deg_s, kev_initial_course_deg=args.initial_course_deg)
         print(('Kev HTTP adapter ready; model is resident in the separate Kev service.' if args.backend == 'kev' else f'Model loaded in {time.perf_counter()-started:.2f}s'), flush=True)
@@ -312,7 +316,7 @@ def main():
             print(json.dumps(result), flush=True)
     selected = list(ROUTES) if args.scenario == 'all' and args.transport == 'direct' else ['straight' if args.scenario == 'all' else args.scenario]
     (out / 'scenarios.json').write_text(json.dumps({n: SCENARIOS[n] for n in selected}, indent=2) + '\n')
-    summary = dict(requested_steps=args.steps, candidate_turn_limit_deg=min(args.max_turn_rate_deg_s * args.dt, 179.99) if args.backend == 'kev' else None, max_turn_rate_deg_s=args.max_turn_rate_deg_s if args.backend == 'kev' else None, initial_course_deg=args.initial_course_deg if args.backend == 'kev' else None, completion_mode='final_parking', kev_endpoint=args.kev_endpoint if args.backend == 'kev' else None, dt=args.dt, effective_speeds_knots=effective_speeds, max_speed_knots=args.max_speed_knots, backend=args.backend, device='kev_service' if args.backend == 'kev' else args.device, transport=args.transport,
+    summary = dict(acceleration_response=args.acceleration_response,requested_steps=args.steps, candidate_turn_limit_deg=min(args.max_turn_rate_deg_s * args.dt, 179.99) if args.backend == 'kev' else None, max_turn_rate_deg_s=args.max_turn_rate_deg_s if args.backend == 'kev' else None, initial_course_deg=args.initial_course_deg, completion_mode='final_parking', kev_endpoint=args.kev_endpoint if args.backend == 'kev' else None, dt=args.dt, effective_speeds_knots=effective_speeds, max_speed_knots=args.max_speed_knots, backend=args.backend, device='kev_service' if args.backend == 'kev' else args.device, transport=args.transport,
         model_path=None if args.backend == 'kev' else str(args.model_path), elapsed_s=time.perf_counter()-started, results=results,
         limitations='Idealized motion; direct mode pauses world during inference; sampled speed checks are not continuous verification. UDP mode runs in real time. Cycle-limit status is not physical route completion.')
     (out / 'summary.json').write_text(json.dumps(summary, indent=2) + '\n')

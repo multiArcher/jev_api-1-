@@ -1,0 +1,95 @@
+{
+  "original_count": 16,
+  "added_count": 8,
+  "total_count": 24,
+  "placements": [
+    {
+      "platform_id": 4101,
+      "leg": "P7 -> P8",
+      "xy_m": [
+        544.1320248855665,
+        -406.646571099527
+      ],
+      "offset_from_leg_m": 20.0,
+      "nearest_waypoint_m": 392.4599823934434,
+      "nearest_existing_obstacle_m": 1801.4133992594277
+    },
+    {
+      "platform_id": 4102,
+      "leg": "P11 -> P12",
+      "xy_m": [
+        877.0872215079141,
+        -701.6177669656516
+      ],
+      "offset_from_leg_m": -20.0,
+      "nearest_waypoint_m": 705.1367973085735,
+      "nearest_existing_obstacle_m": 444.82262683964024
+    },
+    {
+      "platform_id": 4103,
+      "leg": "P15 -> P16",
+      "xy_m": [
+        1581.8167624521325,
+        -580.1689286861797
+      ],
+      "offset_from_leg_m": 20.0,
+      "nearest_waypoint_m": 602.2947976499453,
+      "nearest_existing_obstacle_m": 715.1178547616344
+    },
+    {
+      "platform_id": 4104,
+      "leg": "P19 -> P20",
+      "xy_m": [
+        1491.5719092765828,
+        -1230.2788661515624
+      ],
+      "offset_from_leg_m": -20.0,
+      "nearest_waypoint_m": 1239.654876928604,
+      "nearest_existing_obstacle_m": 656.3437089787029
+    },
+    {
+      "platform_id": 4105,
+      "leg": "P23 -> P24",
+      "xy_m": [
+        1315.9707474761756,
+        -1847.5812121222998
+      ],
+      "offset_from_leg_m": 20.0,
+      "nearest_waypoint_m": 966.3573258201634,
+      "nearest_existing_obstacle_m": 641.7927659039394
+    },
+    {
+      "platform_id": 4106,
+      "leg": "P27 -> P28",
+      "xy_m": [
+        2204.003123115982,
+        -1676.7457263961128
+      ],
+      "offset_from_leg_m": -20.0,
+      "nearest_waypoint_m": 1172.6584824474562,
+      "nearest_existing_obstacle_m": 528.3765544898839
+    },
+    {
+      "platform_id": 4107,
+      "leg": "P31 -> P32",
+      "xy_m": [
+        2825.758494786497,
+        -1624.9267052089458
+      ],
+      "offset_from_leg_m": 20.0,
+      "nearest_waypoint_m": 596.6490156671798,
+      "nearest_existing_obstacle_m": 623.911013813618
+    },
+    {
+      "platform_id": 4108,
+      "leg": "P35 -> P36",
+      "xy_m": [
+        2621.349743494917,
+        -2370.8400886622744
+      ],
+      "offset_from_leg_m": -20.0,
+      "nearest_waypoint_m": 610.8953822216745,
+      "nearest_existing_obstacle_m": 773.414321834924
+    }
+  ]
+}

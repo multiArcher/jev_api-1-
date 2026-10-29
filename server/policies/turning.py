@@ -1,11 +1,15 @@
 """Local course envelope under an explicitly configured yaw-rate assumption."""
 import math
 
-DEFAULT_MAX_TURN_RATE_DEG_S = 45.0  # Configured prediction limit, not a measured vessel specification.
+from tools.vessel_dynamics import MAX_TURN_RATE_DEG_S
+
+DEFAULT_MAX_TURN_RATE_DEG_S = MAX_TURN_RATE_DEG_S
 
 
 def reachable_courses(course_deg, duration_s, max_turn_rate_deg_s):
-    """16 representable courses inside the envelope, including quantized straight ahead.
+    """16 target course commands inside the rate envelope, including straight ahead.
+
+    These are targets; acceleration-limited forecasts may not reach them in one cycle.
 
     Start with 16 evenly spaced samples and replace the closest central sample
     with straight ahead. Even sample counts cannot be both symmetric and include zero.
@@ -26,3 +30,22 @@ def reachable_courses(course_deg, duration_s, max_turn_rate_deg_s):
         nearest = min(range(16),key=lambda i:abs(samples[i]-straight))
         samples[nearest] = straight
     return [(value % 36000)/100 for value in samples]
+
+
+ALIGNMENT_ENTER_DEG = 30.
+ALIGNMENT_EXIT_DEG = 15.
+ALIGNMENT_PREVIEW_S = 10.
+ALIGNMENT_MIN_GAIN_DEG = 2.
+
+
+def alignment_courses(course_deg, target_course_deg, max_turn_rate_deg_s, duration_s):
+    """Sixteen sustained heading targets; physical motion remains rate/alpha bounded.
+
+    Include the exact guidance bearing to avoid a new sequence of tiny local
+    commands. Preview duration is a planning horizon, not command hold time.
+    """
+    courses = reachable_courses(course_deg,max(duration_s,ALIGNMENT_PREVIEW_S),max_turn_rate_deg_s)
+    target = round(target_course_deg,2)%360
+    nearest = min(range(len(courses)),key=lambda index:abs((courses[index]-target+180)%360-180))
+    courses[nearest] = target
+    return courses

@@ -70,7 +70,7 @@ def valid_request(packet):
         if (
             len(speeds) != 8
             or len(courses) != 8
-            or not all(finite(v) and v >= 0 for v in speeds)
+            or not all(finite(v) and 0 <= v <= 50. for v in speeds)
             or not all(finite(v) and 0 <= v < 360 for v in courses)
         ):
             return False

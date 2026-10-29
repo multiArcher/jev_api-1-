@@ -1,0 +1,12 @@
+[
+  {
+    "milestone": 2,
+    "reached_waypoints": 2,
+    "total_waypoints": 6,
+    "time_s": 277.0,
+    "minimum_static_clearance_m": 10.082687600175518,
+    "static_collision_count": 0,
+    "speed_violation_count": 0,
+    "image": "/home/epic/jev_api(1)/server/experiments/results/six-waypoint-northwest-20261028-153529/six_waypoint_northwest_20261028/checkpoints/waypoints_02.png"
+  }
+]

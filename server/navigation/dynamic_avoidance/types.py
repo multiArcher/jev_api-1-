@@ -2,6 +2,8 @@
 from dataclasses import dataclass
 import math
 from typing import Literal
+from tools.vessel_dynamics import positive_limit, validate_curve
+from tools.acceleration_response import DEFAULT_ACCELERATION_RESPONSE, validate_response_mode
 
 Point = tuple[float, float]
 
@@ -32,10 +34,13 @@ class Vessel:
     position_m: Point
     speed_mps: float
     course_deg: float
+    turn_rate_deg_s: float = 0.
 
     def __post_init__(self):
         if not valid_point(self.position_m):
             raise ValueError('vessel position must be a finite east/north pair')
+        if not finite(self.turn_rate_deg_s) or abs(self.turn_rate_deg_s) > 12.:
+            raise ValueError('vessel turn rate must be finite and bounded by 12 deg/s')
         action = Action(self.speed_mps, self.course_deg)
         object.__setattr__(self, 'position_m', tuple(self.position_m))
         object.__setattr__(self, 'course_deg', action.course_deg)
@@ -73,6 +78,9 @@ class AvoidanceConfig:
     horizon_s: float = 60.
     warning_horizon_s: float = 60.
     action_horizon_s: float = 10.
+    control_delay_s: float = 0.
+    controller_deceleration_mps2: float = .9
+    early_avoidance_margin_s: float = 5.
     dt_s: float = .2
     obstacle_radius_m: float = 80.
     vessel_length_m: float = 11.6
@@ -81,22 +89,37 @@ class AvoidanceConfig:
     uncertainty_mps: float = .5
     max_target_age_s: float = 5.
     unknown_target_speed_mps: float = 30.
+    acceleration_response: str = DEFAULT_ACCELERATION_RESPONSE
     acceleration_mps2: float = 1.46
     deceleration_mps2: float = 1.75
-    max_turn_rate_deg_s: float = 45.
+    max_turn_rate_deg_s: float = 12.
+    max_turn_acceleration_deg_s2: float = 4.
+    acceleration_curve: tuple = ()
+    deceleration_curve: tuple = ()
+    turn_rate_curve: tuple = ()
     heading_step_deg: float = 15.
-    # Candidate course commands are limited per planning interval; actual
-    # heading still changes continuously according to max_turn_rate_deg_s.
+    # The standalone planner may request a sustained turn across its horizon;
+    # actual heading still obeys yaw-rate and angular-acceleration limits.
     planning_interval_s: float = 1.
     clearance_epsilon_m: float = .5
     continuity_slack_deg: float = 15.
 
     def __post_init__(self):
-        zero_allowed = {'safety_margin_m', 'uncertainty_mps', 'max_target_age_s',
+        zero_allowed = {'control_delay_s', 'safety_margin_m', 'uncertainty_mps', 'max_target_age_s',
                         'clearance_epsilon_m', 'continuity_slack_deg'}
         for name, value in self.__dict__.items():
+            if name == 'acceleration_response':
+                validate_response_mode(value)
+                continue
+            if name.endswith('_curve'):
+                maximum = dict(acceleration_curve=self.acceleration_mps2, deceleration_curve=self.deceleration_mps2, turn_rate_curve=self.max_turn_rate_deg_s)[name]
+                object.__setattr__(self, name, validate_curve(value, maximum))
+                continue
             if not finite(value) or value < 0 or (name not in zero_allowed and value == 0):
                 raise ValueError(f'invalid {name}')
+        for name, maximum in (('acceleration_mps2', 1.46), ('deceleration_mps2', 1.75), ('max_turn_rate_deg_s', 12.), ('max_turn_acceleration_deg_s2', 4.)):
+            positive_limit(name, getattr(self, name), maximum)
+        positive_limit('controller_deceleration_mps2',self.controller_deceleration_mps2,1.75)
         if self.heading_step_deg > 180:
             raise ValueError('heading_step_deg must be <= 180')
         if self.action_horizon_s > self.warning_horizon_s:

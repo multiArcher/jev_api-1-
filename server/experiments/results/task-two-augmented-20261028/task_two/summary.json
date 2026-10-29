@@ -1,0 +1,382 @@
+{
+  "task": "task_two",
+  "task_id": "eaa367de-d805-46a1-a19f-c6dce33113a9",
+  "passed": false,
+  "completed": true,
+  "reason": "completed",
+  "error": null,
+  "steps": 3408,
+  "reached_waypoints": 45,
+  "total_waypoints": 45,
+  "simulated_seconds": 3407.0,
+  "final_speed_knots": 0.0,
+  "max_speed_knots": 50.0,
+  "max_actual_turn_rate_deg_s": 45.0,
+  "available_speeds_knots": [
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0
+  ],
+  "recovery_decisions": 0,
+  "stop_confirmed": true,
+  "arrival_radius_m": 100.0,
+  "speed_unit": "knots",
+  "waypoint_speed_limits_knots": [
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889,
+    10.28888888888889
+  ],
+  "speed_violation_count": 3,
+  "static_obstacle_count": 24,
+  "static_collision_radius_m": 86.04400529450463,
+  "static_collision_count": 0,
+  "minimum_static_clearance_m": 9.441027563842667,
+  "violations": [
+    {
+      "kind": "waypoint_speed",
+      "step": 3101,
+      "index": 41,
+      "peak_speed_knots": 50.0,
+      "limit_knots": 10.28888888888889
+    },
+    {
+      "kind": "waypoint_speed",
+      "step": 3143,
+      "index": 38,
+      "peak_speed_knots": 50.0,
+      "limit_knots": 10.28888888888889
+    },
+    {
+      "kind": "waypoint_speed",
+      "step": 3178,
+      "index": 37,
+      "peak_speed_knots": 50.0,
+      "limit_knots": 10.28888888888889
+    }
+  ],
+  "arrivals": [
+    {
+      "index": 0,
+      "time_s": 0.0,
+      "speed_knots": 0.0
+    },
+    {
+      "index": 1,
+      "time_s": 10.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 2,
+      "time_s": 46.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 3,
+      "time_s": 78.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 4,
+      "time_s": 132.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 5,
+      "time_s": 177.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 6,
+      "time_s": 218.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 7,
+      "time_s": 284.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 8,
+      "time_s": 337.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 9,
+      "time_s": 406.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 10,
+      "time_s": 450.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 11,
+      "time_s": 542.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 12,
+      "time_s": 594.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 13,
+      "time_s": 692.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 14,
+      "time_s": 736.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 15,
+      "time_s": 868.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 16,
+      "time_s": 920.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 17,
+      "time_s": 1048.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 18,
+      "time_s": 1092.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 19,
+      "time_s": 1250.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 20,
+      "time_s": 1303.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 21,
+      "time_s": 1464.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 22,
+      "time_s": 1498.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 23,
+      "time_s": 1692.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 24,
+      "time_s": 1742.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 25,
+      "time_s": 1915.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 26,
+      "time_s": 1934.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 27,
+      "time_s": 2126.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 28,
+      "time_s": 2146.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 29,
+      "time_s": 2312.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 30,
+      "time_s": 2330.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 31,
+      "time_s": 2488.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 32,
+      "time_s": 2506.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 33,
+      "time_s": 2638.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 34,
+      "time_s": 2656.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 35,
+      "time_s": 2773.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 36,
+      "time_s": 2794.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 37,
+      "time_s": 2887.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 38,
+      "time_s": 2904.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 39,
+      "time_s": 2980.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 40,
+      "time_s": 3000.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 41,
+      "time_s": 3060.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 42,
+      "time_s": 3078.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 43,
+      "time_s": 3086.0,
+      "speed_knots": 10.0
+    },
+    {
+      "index": 44,
+      "time_s": 3406.0,
+      "speed_knots": 10.0
+    }
+  ],
+  "config": {
+    "steps": 12000,
+    "dt": 1.0,
+    "start_offset_m": 50.0,
+    "initial_course_deg": 90.0,
+    "initial_position_xy_m": null,
+    "max_turn_rate_deg_s": 45.0,
+    "kev_endpoint": "http://127.0.0.1:18028/v1/systemone",
+    "kev_timeout": 120.0
+  },
+  "checkpoints": [
+    {
+      "milestone": 10,
+      "reached_waypoints": 10,
+      "total_waypoints": 45,
+      "time_s": 406.0,
+      "minimum_static_clearance_m": 10.037058325270593,
+      "static_collision_count": 0,
+      "speed_violation_count": 0,
+      "image": "server/experiments/results/task-two-augmented-20261028/task_two/checkpoints/waypoints_10.png"
+    },
+    {
+      "milestone": 20,
+      "reached_waypoints": 20,
+      "total_waypoints": 45,
+      "time_s": 1250.0,
+      "minimum_static_clearance_m": 9.441027563842667,
+      "static_collision_count": 0,
+      "speed_violation_count": 0,
+      "image": "server/experiments/results/task-two-augmented-20261028/task_two/checkpoints/waypoints_20.png"
+    },
+    {
+      "milestone": 30,
+      "reached_waypoints": 30,
+      "total_waypoints": 45,
+      "time_s": 2312.0,
+      "minimum_static_clearance_m": 9.441027563842667,
+      "static_collision_count": 0,
+      "speed_violation_count": 0,
+      "image": "server/experiments/results/task-two-augmented-20261028/task_two/checkpoints/waypoints_30.png"
+    },
+    {
+      "milestone": 40,
+      "reached_waypoints": 40,
+      "total_waypoints": 45,
+      "time_s": 2980.0,
+      "minimum_static_clearance_m": 9.441027563842667,
+      "static_collision_count": 0,
+      "speed_violation_count": 0,
+      "image": "server/experiments/results/task-two-augmented-20261028/task_two/checkpoints/waypoints_40.png"
+    }
+  ],
+  "elapsed_s": 1986.787996303,
+  "limitations": "Idealized motion; simulation pauses during inference. No live UDP timing or measured hull dynamics."
+}

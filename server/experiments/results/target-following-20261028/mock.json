@@ -1,0 +1,3290 @@
+{
+  "mode": "mock",
+  "scenarios": {
+    "catch_up": {
+      "summary": {
+        "steps": 60,
+        "initial_distance_m": 400.0,
+        "final_distance_m": 200.30840216661343,
+        "min_distance_m": 200.3084021666102,
+        "in_band_fraction": 0.8166666666666667,
+        "below_minimum": false,
+        "max_decision_s": 0.1592385930000546,
+        "final_speed_knots": 10.0,
+        "safety_hold_steps": 0
+      },
+      "trajectory": [
+        {
+          "time_s": 1,
+          "own_xy_m": [
+            20.33797188779994,
+            3.095770360076247
+          ],
+          "target_xy_m": [
+            405.14444444444445,
+            3.1500637111401367e-16
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 50.0,
+          "course_deg": 81.0,
+          "distance_m": 384.81892510063733,
+          "decision_s": 0.1405919009999934,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 2,
+          "own_xy_m": [
+            45.36723496345968,
+            -1.283395906039584
+          ],
+          "target_xy_m": [
+            410.2888888888889,
+            6.300127422280273e-16
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 50.0,
+          "course_deg": 108.0,
+          "distance_m": 364.92391071115406,
+          "decision_s": 0.14926547000004575,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 3,
+          "own_xy_m": [
+            69.39620637634239,
+            -10.459657490090025
+          ],
+          "target_xy_m": [
+            415.43333333333334,
+            9.45019113342041e-16
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 50.0,
+          "course_deg": 111.0,
+          "distance_m": 346.19517279629804,
+          "decision_s": 0.1589224680000143,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 4,
+          "own_xy_m": [
+            92.9119984942839,
+            -20.880922522984136
+          ],
+          "target_xy_m": [
+            420.5777777777778,
+            1.2600254844560547e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 50.0,
+          "course_deg": 114.0,
+          "distance_m": 328.3304369668919,
+          "decision_s": 0.15078006999999616,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 5,
+          "own_xy_m": [
+            115.85015616565113,
+            -32.518627041640066
+          ],
+          "target_xy_m": [
+            425.72222222222223,
+            1.5750318555700683e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 50.0,
+          "course_deg": 117.0,
+          "distance_m": 311.5736805746616,
+          "decision_s": 0.1592385930000546,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 6,
+          "own_xy_m": [
+            138.76882398227406,
+            -44.196271562718245
+          ],
+          "target_xy_m": [
+            430.8666666666667,
+            1.890038226684082e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 50.0,
+          "course_deg": 117.0,
+          "distance_m": 295.42251119527384,
+          "decision_s": 0.14870270000005803,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 7,
+          "own_xy_m": [
+            156.23632431735328,
+            -47.945514058948135
+          ],
+          "target_xy_m": [
+            436.0111111111111,
+            2.205044597798096e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 30.0,
+          "course_deg": 96.0,
+          "distance_m": 283.8533136038215,
+          "decision_s": 0.14784415400004036,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 8,
+          "own_xy_m": [
+            171.19418058589002,
+            -51.7029945157769
+          ],
+          "target_xy_m": [
+            441.15555555555557,
+            2.5200509689121098e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 30.0,
+          "course_deg": 105.0,
+          "distance_m": 274.86786574172476,
+          "decision_s": 0.15361758300002748,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 9,
+          "own_xy_m": [
+            185.87995396633832,
+            -56.44665849980042
+          ],
+          "target_xy_m": [
+            446.3,
+            2.8350573400261236e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 30.0,
+          "course_deg": 108.0,
+          "distance_m": 266.4673068726585,
+          "decision_s": 0.1442858969999179,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 10,
+          "own_xy_m": [
+            200.29733681406742,
+            -61.95241545023075
+          ],
+          "target_xy_m": [
+            451.44444444444446,
+            3.1500637111401374e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 30.0,
+          "course_deg": 111.0,
+          "distance_m": 258.6754171760861,
+          "decision_s": 0.15091266399997494,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 11,
+          "own_xy_m": [
+            214.7055947296737,
+            -67.4832274715464
+          ],
+          "target_xy_m": [
+            456.5888888888889,
+            3.4650700822541512e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 30.0,
+          "course_deg": 111.0,
+          "distance_m": 251.12051685055508,
+          "decision_s": 0.14377765799997633,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 12,
+          "own_xy_m": [
+            225.9739773494264,
+            -67.51967948630558
+          ],
+          "target_xy_m": [
+            461.73333333333335,
+            3.780076453368165e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 20.0,
+          "course_deg": 66.0,
+          "distance_m": 245.23739733547978,
+          "decision_s": 0.14411155499999495,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 13,
+          "own_xy_m": [
+            234.68373825396364,
+            -62.05580744649579
+          ],
+          "target_xy_m": [
+            466.8777777777778,
+            4.095082824482179e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 20.0,
+          "course_deg": 57.0,
+          "distance_m": 240.34349424984055,
+          "decision_s": 0.15102097999999842,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 14,
+          "own_xy_m": [
+            244.54241983278948,
+            -60.22860881839209
+          ],
+          "target_xy_m": [
+            472.02222222222224,
+            4.410089195596193e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 20.0,
+          "course_deg": 102.0,
+          "distance_m": 235.31796747238465,
+          "decision_s": 0.14292637500000183,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 15,
+          "own_xy_m": [
+            254.48502731887436,
+            -62.874321461301555
+          ],
+          "target_xy_m": [
+            477.1666666666667,
+            4.7250955667102065e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 20.0,
+          "course_deg": 105.0,
+          "distance_m": 231.3877542175457,
+          "decision_s": 0.15112580699997125,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 16,
+          "own_xy_m": [
+            264.27554290583913,
+            -66.03676411731723
+          ],
+          "target_xy_m": [
+            482.31111111111113,
+            5.04010193782422e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 20.0,
+          "course_deg": 108.0,
+          "distance_m": 227.81651217083018,
+          "decision_s": 0.14244032600004175,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 17,
+          "own_xy_m": [
+            273.88713147099185,
+            -69.70726875093722
+          ],
+          "target_xy_m": [
+            487.4555555555556,
+            5.355108308938234e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 20.0,
+          "course_deg": 111.0,
+          "distance_m": 224.65657142109032,
+          "decision_s": 0.1508512300000575,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 18,
+          "own_xy_m": [
+            283.4926367480627,
+            -73.39447676514756
+          ],
+          "target_xy_m": [
+            492.6,
+            5.670114680052248e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 20.0,
+          "course_deg": 111.0,
+          "distance_m": 221.6137147962812,
+          "decision_s": 0.14328573899990715,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 19,
+          "own_xy_m": [
+            293.09814202513354,
+            -77.0816847793579
+          ],
+          "target_xy_m": [
+            497.74444444444447,
+            5.985121051166262e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 20.0,
+          "course_deg": 111.0,
+          "distance_m": 218.68172128076998,
+          "decision_s": 0.1429514610000524,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 20,
+          "own_xy_m": [
+            302.5044588723093,
+            -81.25019079251528
+          ],
+          "target_xy_m": [
+            502.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 20.0,
+          "course_deg": 114.0,
+          "distance_m": 216.23023215288285,
+          "decision_s": 0.14226906599992617,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 21,
+          "own_xy_m": [
+            311.90382658094245,
+            -85.43505892016155
+          ],
+          "target_xy_m": [
+            508.03333333333336,
+            6.615133793394289e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 20.0,
+          "course_deg": 114.0,
+          "distance_m": 213.92973779170492,
+          "decision_s": 0.1447726059999468,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 22,
+          "own_xy_m": [
+            321.3031942895756,
+            -89.61992704780782
+          ],
+          "target_xy_m": [
+            513.1777777777778,
+            6.930140164508303e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 20.0,
+          "course_deg": 114.0,
+          "distance_m": 211.772489036762,
+          "decision_s": 0.14466332400002102,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 23,
+          "own_xy_m": [
+            330.7025619982087,
+            -93.80479517545409
+          ],
+          "target_xy_m": [
+            518.3222222222222,
+            7.245146535622316e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 20.0,
+          "course_deg": 114.0,
+          "distance_m": 209.7629054444164,
+          "decision_s": 0.14479912499996317,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 24,
+          "own_xy_m": [
+            340.1019297068418,
+            -97.98966330310036
+          ],
+          "target_xy_m": [
+            523.4666666666666,
+            7.56015290673633e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 20.0,
+          "course_deg": 114.0,
+          "distance_m": 207.90526899191542,
+          "decision_s": 0.1455339130000084,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 25,
+          "own_xy_m": [
+            349.50129741547494,
+            -102.17453143074663
+          ],
+          "target_xy_m": [
+            528.611111111111,
+            7.875159277850344e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 20.0,
+          "course_deg": 114.0,
+          "distance_m": 206.2036862793148,
+          "decision_s": 0.14613280900005066,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 26,
+          "own_xy_m": [
+            355.7407585129478,
+            -102.66944246793064
+          ],
+          "target_xy_m": [
+            533.7555555555554,
+            8.190165648964358e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 69.0,
+          "distance_m": 205.50007879024398,
+          "decision_s": 0.14616358600005697,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 27,
+          "own_xy_m": [
+            360.54351115148467,
+            -100.82583846082547
+          ],
+          "target_xy_m": [
+            538.8999999999997,
+            8.505172020078372e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 69.0,
+          "distance_m": 204.8826171633381,
+          "decision_s": 0.14120748299990282,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 28,
+          "own_xy_m": [
+            365.0354018754422,
+            -98.32556329708189
+          ],
+          "target_xy_m": [
+            544.0444444444441,
+            8.820178391192385e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 60.0,
+          "distance_m": 204.2355349080057,
+          "decision_s": 0.14120055499995487,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 29,
+          "own_xy_m": [
+            369.92797118798285,
+            -96.78363101525647
+          ],
+          "target_xy_m": [
+            549.1888888888885,
+            9.135184762306399e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 75.0,
+          "distance_m": 203.71928688140503,
+          "decision_s": 0.15044390499997462,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 30,
+          "own_xy_m": [
+            374.95799945921743,
+            -95.70537995757557
+          ],
+          "target_xy_m": [
+            554.3333333333329,
+            9.450191133420413e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 78.0,
+          "distance_m": 203.31018212395145,
+          "decision_s": 0.14194451999992452,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 31,
+          "own_xy_m": [
+            380.03756555169457,
+            -94.89185794499922
+          ],
+          "target_xy_m": [
+            559.4777777777773,
+            9.765197504534427e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 81.0,
+          "distance_m": 202.98584795003697,
+          "decision_s": 0.1508908309999697,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 32,
+          "own_xy_m": [
+            384.5277669414444,
+            -92.51199749292134
+          ],
+          "target_xy_m": [
+            564.6222222222217,
+            1.008020387564844e-14
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 54.0,
+          "distance_m": 202.46600332650956,
+          "decision_s": 0.14170218200001727,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 33,
+          "own_xy_m": [
+            388.689709923618,
+            -89.48816891723901
+          ],
+          "target_xy_m": [
+            569.7666666666661,
+            1.0395210246762454e-14
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 54.0,
+          "distance_m": 201.98266420533224,
+          "decision_s": 0.14964087199996357,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 34,
+          "own_xy_m": [
+            392.85165290579164,
+            -86.46434034155668
+          ],
+          "target_xy_m": [
+            574.9111111111105,
+            1.0710216617876468e-14
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 54.0,
+          "distance_m": 201.54832788369836,
+          "decision_s": 0.14929219900000135,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 35,
+          "own_xy_m": [
+            397.01359588796527,
+            -83.44051176587435
+          ],
+          "target_xy_m": [
+            580.0555555555549,
+            1.1025222988990482e-14
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 54.0,
+          "distance_m": 201.16331177106454,
+          "decision_s": 0.14939646900006665,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 36,
+          "own_xy_m": [
+            401.1755388701389,
+            -80.41668319019202
+          ],
+          "target_xy_m": [
+            585.1999999999992,
+            1.1340229360104496e-14
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 54.0,
+          "distance_m": 200.82789952954047,
+          "decision_s": 0.14849041500008298,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 37,
+          "own_xy_m": [
+            405.3374818523125,
+            -77.39285461450969
+          ],
+          "target_xy_m": [
+            590.3444444444436,
+            1.165523573121851e-14
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 54.0,
+          "distance_m": 200.54234005054602,
+          "decision_s": 0.1484659500000589,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 38,
+          "own_xy_m": [
+            410.2164684423689,
+            -76.14188203897939
+          ],
+          "target_xy_m": [
+            595.488888888888,
+            1.1970242102332523e-14
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.30840216663304,
+          "decision_s": 0.14842214899999817,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 39,
+          "own_xy_m": [
+            415.36091288681456,
+            -76.14188203897939
+          ],
+          "target_xy_m": [
+            600.6333333333324,
+            1.2285248473446537e-14
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.3084021666319,
+          "decision_s": 0.1412773870000592,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 40,
+          "own_xy_m": [
+            420.5053573312602,
+            -76.14188203897939
+          ],
+          "target_xy_m": [
+            605.7777777777768,
+            1.2600254844560551e-14
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.30840216663074,
+          "decision_s": 0.14152602699994077,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 41,
+          "own_xy_m": [
+            425.64980177570584,
+            -76.14188203897939
+          ],
+          "target_xy_m": [
+            610.9222222222212,
+            1.2915261215674565e-14
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.30840216662958,
+          "decision_s": 0.14174451200005933,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 42,
+          "own_xy_m": [
+            430.7942462201515,
+            -76.14188203897939
+          ],
+          "target_xy_m": [
+            616.0666666666656,
+            1.3230267586788579e-14
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.30840216662844,
+          "decision_s": 0.14161843700003374,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 43,
+          "own_xy_m": [
+            435.9386906645971,
+            -76.14188203897939
+          ],
+          "target_xy_m": [
+            621.21111111111,
+            1.3545273957902593e-14
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.30840216662727,
+          "decision_s": 0.1414215539999759,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 44,
+          "own_xy_m": [
+            441.08313510904276,
+            -76.14188203897939
+          ],
+          "target_xy_m": [
+            626.3555555555544,
+            1.3860280329016606e-14
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.3084021666261,
+          "decision_s": 0.1411770819998992,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 45,
+          "own_xy_m": [
+            446.2275795534884,
+            -76.14188203897939
+          ],
+          "target_xy_m": [
+            631.4999999999987,
+            1.417528670013062e-14
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.30840216662494,
+          "decision_s": 0.14134953100005987,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 46,
+          "own_xy_m": [
+            451.37202399793404,
+            -76.14188203897939
+          ],
+          "target_xy_m": [
+            636.6444444444431,
+            1.4490293071244632e-14
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.3084021666238,
+          "decision_s": 0.14140847900000608,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 47,
+          "own_xy_m": [
+            456.5164684423797,
+            -76.14188203897939
+          ],
+          "target_xy_m": [
+            641.7888888888875,
+            1.4805299442358646e-14
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.30840216662264,
+          "decision_s": 0.14149421800004802,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 48,
+          "own_xy_m": [
+            461.6609128868253,
+            -76.14188203897939
+          ],
+          "target_xy_m": [
+            646.9333333333319,
+            1.512030581347266e-14
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.30840216662148,
+          "decision_s": 0.14137197399998058,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 49,
+          "own_xy_m": [
+            466.80535733127095,
+            -76.14188203897939
+          ],
+          "target_xy_m": [
+            652.0777777777763,
+            1.5435312184586674e-14
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.30840216662034,
+          "decision_s": 0.1415388109999185,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 50,
+          "own_xy_m": [
+            471.9498017757166,
+            -76.14188203897939
+          ],
+          "target_xy_m": [
+            657.2222222222207,
+            1.5750318555700688e-14
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.30840216661917,
+          "decision_s": 0.14138657900002727,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 51,
+          "own_xy_m": [
+            477.09424622016223,
+            -76.14188203897939
+          ],
+          "target_xy_m": [
+            662.3666666666651,
+            1.60653249268147e-14
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.308402166618,
+          "decision_s": 0.1419735340000443,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 52,
+          "own_xy_m": [
+            482.2386906646079,
+            -76.14188203897939
+          ],
+          "target_xy_m": [
+            667.5111111111095,
+            1.6380331297928715e-14
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.30840216661687,
+          "decision_s": 0.14185871200004385,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 53,
+          "own_xy_m": [
+            487.3831351090535,
+            -76.14188203897939
+          ],
+          "target_xy_m": [
+            672.6555555555539,
+            1.669533766904273e-14
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.3084021666157,
+          "decision_s": 0.14187181500005863,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 54,
+          "own_xy_m": [
+            492.52757955349915,
+            -76.14188203897939
+          ],
+          "target_xy_m": [
+            677.7999999999982,
+            1.7010344040156743e-14
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.30840216661454,
+          "decision_s": 0.1423576330000742,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 55,
+          "own_xy_m": [
+            497.6720239979448,
+            -76.14188203897939
+          ],
+          "target_xy_m": [
+            682.9444444444426,
+            1.7325350411270757e-14
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.30840216661338,
+          "decision_s": 0.14203759399993032,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 56,
+          "own_xy_m": [
+            502.81646844239043,
+            -76.14188203897939
+          ],
+          "target_xy_m": [
+            688.088888888887,
+            1.764035678238477e-14
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.30840216661224,
+          "decision_s": 0.14176732299995365,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 57,
+          "own_xy_m": [
+            507.96091288683607,
+            -76.14188203897939
+          ],
+          "target_xy_m": [
+            693.2333333333314,
+            1.7955363153498784e-14
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.30840216661107,
+          "decision_s": 0.14147381099996892,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 58,
+          "own_xy_m": [
+            513.1053573312811,
+            -76.14188203897939
+          ],
+          "target_xy_m": [
+            698.3777777777758,
+            1.8270369524612798e-14
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.3084021666105,
+          "decision_s": 0.14163517800000136,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 59,
+          "own_xy_m": [
+            518.2498017757239,
+            -76.14188203897939
+          ],
+          "target_xy_m": [
+            703.5222222222202,
+            1.8585375895726812e-14
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.30840216661198,
+          "decision_s": 0.14146854099999473,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 60,
+          "own_xy_m": [
+            523.3942462201667,
+            -76.14188203897939
+          ],
+          "target_xy_m": [
+            708.6666666666646,
+            1.8900382266840826e-14
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.30840216661343,
+          "decision_s": 0.1417672429998902,
+          "selection_mode": "target_following"
+        }
+      ]
+    },
+    "target_turn": {
+      "summary": {
+        "steps": 60,
+        "initial_distance_m": 200.0,
+        "final_distance_m": 185.4761276137619,
+        "min_distance_m": 182.7088613094442,
+        "in_band_fraction": 1.0,
+        "below_minimum": false,
+        "max_decision_s": 0.1495784480000566,
+        "final_speed_knots": 10.0,
+        "safety_hold_steps": 0
+      },
+      "trajectory": [
+        {
+          "time_s": 1,
+          "own_xy_m": [
+            5.144444444444441,
+            3.150063711140138e-16
+          ],
+          "target_xy_m": [
+            205.14444444444445,
+            3.1500637111401367e-16
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.0,
+          "decision_s": 0.13461330500001623,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 2,
+          "own_xy_m": [
+            10.288888888888902,
+            6.300127422280268e-16
+          ],
+          "target_xy_m": [
+            210.2888888888889,
+            6.300127422280273e-16
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.0,
+          "decision_s": 0.1347599100000707,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 3,
+          "own_xy_m": [
+            15.433333333333387,
+            9.450191133420399e-16
+          ],
+          "target_xy_m": [
+            215.43333333333334,
+            9.45019113342041e-16
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 199.99999999999994,
+          "decision_s": 0.13467049199994108,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 4,
+          "own_xy_m": [
+            20.577777777777793,
+            1.2600254844560568e-15
+          ],
+          "target_xy_m": [
+            220.57777777777778,
+            1.2600254844560547e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.0,
+          "decision_s": 0.13471877100005258,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 5,
+          "own_xy_m": [
+            25.72222222222219,
+            1.5750318555700738e-15
+          ],
+          "target_xy_m": [
+            225.72222222222223,
+            1.5750318555700683e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.00000000000003,
+          "decision_s": 0.13449748200002887,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 6,
+          "own_xy_m": [
+            30.866666666666585,
+            1.8900382266840908e-15
+          ],
+          "target_xy_m": [
+            230.86666666666667,
+            1.890038226684082e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.00000000000009,
+          "decision_s": 0.1347590450000098,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 7,
+          "own_xy_m": [
+            36.01111111111112,
+            2.2050445977981078e-15
+          ],
+          "target_xy_m": [
+            236.01111111111112,
+            2.205044597798096e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.0,
+          "decision_s": 0.13530236900010095,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 8,
+          "own_xy_m": [
+            41.155555555555694,
+            2.5200509689121247e-15
+          ],
+          "target_xy_m": [
+            241.15555555555557,
+            2.5200509689121098e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 199.9999999999999,
+          "decision_s": 0.13461564099998213,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 9,
+          "own_xy_m": [
+            46.30000000000027,
+            2.8350573400261417e-15
+          ],
+          "target_xy_m": [
+            246.3,
+            2.8350573400261236e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 199.99999999999974,
+          "decision_s": 0.13458663500000512,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 10,
+          "own_xy_m": [
+            51.44444444444484,
+            3.1500637111401587e-15
+          ],
+          "target_xy_m": [
+            251.44444444444446,
+            3.1500637111401374e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 199.9999999999996,
+          "decision_s": 0.13479474300004313,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 11,
+          "own_xy_m": [
+            56.588888888889414,
+            3.4650700822541757e-15
+          ],
+          "target_xy_m": [
+            256.5888888888889,
+            3.4650700822541512e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 199.9999999999995,
+          "decision_s": 0.13455945700002303,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 12,
+          "own_xy_m": [
+            61.73333333333399,
+            3.780076453368193e-15
+          ],
+          "target_xy_m": [
+            261.73333333333335,
+            3.780076453368165e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 199.99999999999937,
+          "decision_s": 0.13455418800003827,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 13,
+          "own_xy_m": [
+            66.87777777777836,
+            4.09508282448221e-15
+          ],
+          "target_xy_m": [
+            266.8777777777778,
+            4.095082824482179e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 199.99999999999943,
+          "decision_s": 0.1343055390000245,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 14,
+          "own_xy_m": [
+            72.02222222222258,
+            4.4100891955962266e-15
+          ],
+          "target_xy_m": [
+            272.02222222222224,
+            4.410089195596193e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 199.99999999999966,
+          "decision_s": 0.13466530300001978,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 15,
+          "own_xy_m": [
+            77.1666666666668,
+            4.7250955667102436e-15
+          ],
+          "target_xy_m": [
+            277.1666666666667,
+            4.7250955667102065e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 199.9999999999999,
+          "decision_s": 0.1344889570000305,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 16,
+          "own_xy_m": [
+            82.31111111111102,
+            5.0401019378242605e-15
+          ],
+          "target_xy_m": [
+            282.31111111111113,
+            5.04010193782422e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.0000000000001,
+          "decision_s": 0.13431974499997068,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 17,
+          "own_xy_m": [
+            87.45555555555524,
+            5.3551083089382775e-15
+          ],
+          "target_xy_m": [
+            287.4555555555556,
+            5.355108308938234e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.00000000000034,
+          "decision_s": 0.13439973600009125,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 18,
+          "own_xy_m": [
+            92.59999999999945,
+            5.6701146800522945e-15
+          ],
+          "target_xy_m": [
+            292.6,
+            5.670114680052248e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.00000000000057,
+          "decision_s": 0.13426513499996418,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 19,
+          "own_xy_m": [
+            97.74444444444367,
+            5.9851210511663114e-15
+          ],
+          "target_xy_m": [
+            297.74444444444447,
+            5.985121051166262e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.0000000000008,
+          "decision_s": 0.1347366749999992,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 20,
+          "own_xy_m": [
+            102.88888888888789,
+            6.3001274222803284e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.00000000000102,
+          "decision_s": 0.13451094900005955,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 21,
+          "own_xy_m": [
+            104.99904879297789,
+            -0.6050190209657911
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            5.144444444444451
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 0.0,
+          "speed_knots": 2.5,
+          "course_deg": 135.0,
+          "distance_m": 197.97334452730075,
+          "decision_s": 0.12644309500001327,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 22,
+          "own_xy_m": [
+            105.90846668100399,
+            -1.5144369089918228
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            10.288888888888895
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 0.0,
+          "speed_knots": 2.5,
+          "course_deg": 135.0,
+          "distance_m": 197.33374073656924,
+          "decision_s": 0.14342525699998987,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 23,
+          "own_xy_m": [
+            106.93624957420913,
+            -2.2860851190496363
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            15.43333333333334
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 0.0,
+          "speed_knots": 2.5,
+          "course_deg": 126.0,
+          "distance_m": 196.75216554000022,
+          "decision_s": 0.14466005799999948,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 24,
+          "own_xy_m": [
+            108.07209112943069,
+            -2.8874523920888104
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            20.577777777777786
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 0.0,
+          "speed_knots": 2.5,
+          "course_deg": 117.0,
+          "distance_m": 196.224875375612,
+          "decision_s": 0.1495784480000566,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 25,
+          "own_xy_m": [
+            109.21802452026198,
+            -3.4713346181427327
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            25.722222222222232
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 0.0,
+          "speed_knots": 2.5,
+          "course_deg": 117.0,
+          "distance_m": 195.85879471262635,
+          "decision_s": 0.1467704369999865,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 26,
+          "own_xy_m": [
+            110.43395654876839,
+            -3.8876132960774727
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            30.866666666666678
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 0.0,
+          "speed_knots": 2.5,
+          "course_deg": 108.0,
+          "distance_m": 195.56779120747152,
+          "decision_s": 0.1482576240000526,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 27,
+          "own_xy_m": [
+            111.70003876857034,
+            -4.10855321630733
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            36.01111111111112
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 0.0,
+          "speed_knots": 2.5,
+          "course_deg": 99.0,
+          "distance_m": 195.3529213400055,
+          "decision_s": 0.14527005499996903,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 28,
+          "own_xy_m": [
+            112.98008528248135,
+            -4.030097657495576
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            41.155555555555566
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 0.0,
+          "speed_knots": 2.5,
+          "course_deg": 84.0,
+          "distance_m": 195.2103914844371,
+          "decision_s": 0.1444609700000683,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 29,
+          "own_xy_m": [
+            114.16349911036981,
+            -3.5491628130236377
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            46.30000000000001
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 0.0,
+          "speed_knots": 2.5,
+          "course_deg": 63.0,
+          "distance_m": 195.19787852385411,
+          "decision_s": 0.14136884799995642,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 30,
+          "own_xy_m": [
+            115.3094325012011,
+            -2.9652805869697154
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            51.44444444444446
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 0.0,
+          "speed_knots": 2.5,
+          "course_deg": 63.0,
+          "distance_m": 195.3112148257098,
+          "decision_s": 0.13917166999999608,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 31,
+          "own_xy_m": [
+            117.50655623643294,
+            -2.875472244582354
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            56.5888888888889
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 0.0,
+          "speed_knots": 5.0,
+          "course_deg": 108.0,
+          "distance_m": 194.68595096893287,
+          "decision_s": 0.13849499500008733,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 32,
+          "own_xy_m": [
+            119.95288494223627,
+            -3.6703326245579135
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            61.73333333333335
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 0.0,
+          "speed_knots": 5.0,
+          "course_deg": 108.0,
+          "distance_m": 194.27614640171637,
+          "decision_s": 0.147714671000017,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 33,
+          "own_xy_m": [
+            122.48504938184071,
+            -4.112212465017617
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            66.8777777777778
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 0.0,
+          "speed_knots": 5.0,
+          "course_deg": 99.0,
+          "distance_m": 193.86883200648057,
+          "decision_s": 0.1483447250000154,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 34,
+          "own_xy_m": [
+            125.02560328014938,
+            -4.514596672315562
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            72.02222222222224
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 0.0,
+          "speed_knots": 5.0,
+          "course_deg": 99.0,
+          "distance_m": 193.631694239428,
+          "decision_s": 0.1462422910000214,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 35,
+          "own_xy_m": [
+            127.59571781007057,
+            -4.554918449178237
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            77.16666666666669
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 0.0,
+          "speed_knots": 5.0,
+          "course_deg": 90.0,
+          "distance_m": 193.4066009750292,
+          "decision_s": 0.14706184499993924,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 36,
+          "own_xy_m": [
+            130.16794003229327,
+            -4.554918449178237
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            82.31111111111113
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 0.0,
+          "speed_knots": 5.0,
+          "course_deg": 90.0,
+          "distance_m": 193.3345113152119,
+          "decision_s": 0.14492612000003646,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 37,
+          "own_xy_m": [
+            132.7127199030831,
+            -4.192689306477206
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            87.45555555555558
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 0.0,
+          "speed_knots": 5.0,
+          "course_deg": 81.0,
+          "distance_m": 193.2856158046342,
+          "decision_s": 0.1451763420000134,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 38,
+          "own_xy_m": [
+            137.07848361182727,
+            -5.085265065267507
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            92.60000000000002
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 0.0,
+          "speed_knots": 10.0,
+          "course_deg": 108.0,
+          "distance_m": 192.44610026969892,
+          "decision_s": 0.14301280899996982,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 39,
+          "own_xy_m": [
+            140.2303283073245,
+            -5.073057635033301
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            97.74444444444447
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 0.0,
+          "speed_knots": 5.0,
+          "course_deg": 75.0,
+          "distance_m": 192.42984712442578,
+          "decision_s": 0.1413271019999911,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 40,
+          "own_xy_m": [
+            142.5946451059197,
+            -4.064533654909748
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            102.88888888888891
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 0.0,
+          "speed_knots": 5.0,
+          "course_deg": 66.0,
+          "distance_m": 192.69997193509474,
+          "decision_s": 0.1422811750001074,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 41,
+          "own_xy_m": [
+            144.7581942005472,
+            -2.6774609245685626
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            108.03333333333336
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 0.0,
+          "speed_knots": 5.0,
+          "course_deg": 56.28999999999999,
+          "distance_m": 193.0341849720744,
+          "decision_s": 0.14096510399997442,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 42,
+          "own_xy_m": [
+            146.67405442362437,
+            -0.9638115589650975
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            113.1777777777778
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 0.0,
+          "speed_knots": 5.0,
+          "course_deg": 47.28999999999999,
+          "distance_m": 193.4719021546221,
+          "decision_s": 0.13910113099996124,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 43,
+          "own_xy_m": [
+            148.56411359662886,
+            0.7808957182124403
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            118.32222222222225
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 0.0,
+          "speed_knots": 5.0,
+          "course_deg": 47.28999999999999,
+          "distance_m": 193.98994743369772,
+          "decision_s": 0.1393435589999399,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 44,
+          "own_xy_m": [
+            152.74557723551703,
+            2.143626367233747
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            123.4666666666667
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 0.0,
+          "speed_knots": 10.0,
+          "course_deg": 92.28999999999999,
+          "distance_m": 193.03443770928385,
+          "decision_s": 0.14003700000000663,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 45,
+          "own_xy_m": [
+            157.8859132454229,
+            1.9380677448389503
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            128.61111111111114
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 0.0,
+          "speed_knots": 10.0,
+          "course_deg": 92.28999999999999,
+          "distance_m": 192.54070442670837,
+          "decision_s": 0.14671716299994841,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 46,
+          "own_xy_m": [
+            163.02624925532876,
+            1.7325091224441533
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            133.7555555555556
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 0.0,
+          "speed_knots": 10.0,
+          "course_deg": 92.28999999999999,
+          "distance_m": 192.3321157652736,
+          "decision_s": 0.14732881899999484,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 47,
+          "own_xy_m": [
+            168.14069186336533,
+            2.2530232716333995
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            138.90000000000003
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 0.0,
+          "speed_knots": 10.0,
+          "course_deg": 83.28999999999999,
+          "distance_m": 191.9100644849876,
+          "decision_s": 0.13983998599996994,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 48,
+          "own_xy_m": [
+            173.24989826021928,
+            2.8541211308219148
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            144.04444444444448
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 0.0,
+          "speed_knots": 10.0,
+          "course_deg": 83.28999999999999,
+          "distance_m": 191.67935540538934,
+          "decision_s": 0.1458743630000754,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 49,
+          "own_xy_m": [
+            186.09976377487413,
+            2.442618795460319
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            149.18888888888893
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 0.0,
+          "speed_knots": 30.0,
+          "course_deg": 92.28999999999999,
+          "distance_m": 187.54777399700188,
+          "decision_s": 0.1457773540000744,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 50,
+          "own_xy_m": [
+            193.777598605119,
+            3.1240955380260367
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            154.33333333333337
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 0.0,
+          "speed_knots": 10.0,
+          "course_deg": 83.28999999999999,
+          "distance_m": 186.4658340340849,
+          "decision_s": 0.14098464000005606,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 51,
+          "own_xy_m": [
+            198.74764758524597,
+            4.438276387662236
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            159.47777777777782
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 0.0,
+          "speed_knots": 10.0,
+          "course_deg": 74.28999999999999,
+          "distance_m": 186.76896190630615,
+          "decision_s": 0.14045644500004073,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 52,
+          "own_xy_m": [
+            203.69991875107436,
+            5.831229704211419
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            164.62222222222226
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 0.0,
+          "speed_knots": 10.0,
+          "course_deg": 74.28999999999999,
+          "distance_m": 187.22454727373557,
+          "decision_s": 0.14671566999993502,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 53,
+          "own_xy_m": [
+            216.4559542458094,
+            7.434955483071036
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            169.7666666666667
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 0.0,
+          "speed_knots": 30.0,
+          "course_deg": 83.28999999999999,
+          "distance_m": 183.90822887192724,
+          "decision_s": 0.14617764299998726,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 54,
+          "own_xy_m": [
+            223.78774672993848,
+            9.740785037394781
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            174.91111111111115
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 0.0,
+          "speed_knots": 10.0,
+          "course_deg": 68.28999999999999,
+          "distance_m": 183.1344514452381,
+          "decision_s": 0.1412598499999831,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 55,
+          "own_xy_m": [
+            228.56728556657237,
+            11.643760904577514
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            180.0555555555556
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 0.0,
+          "speed_knots": 10.0,
+          "course_deg": 68.28999999999999,
+          "distance_m": 184.08213736797762,
+          "decision_s": 0.14603279499999644,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 56,
+          "own_xy_m": [
+            237.32481176635304,
+            13.712716748159975
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            185.20000000000005
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 0.0,
+          "speed_knots": 20.0,
+          "course_deg": 77.28999999999999,
+          "distance_m": 183.59340000671773,
+          "decision_s": 0.14690850300007696,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 57,
+          "own_xy_m": [
+            243.17057118552967,
+            16.33528857671992
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            190.3444444444445
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 0.0,
+          "speed_knots": 10.0,
+          "course_deg": 62.28999999999999,
+          "distance_m": 183.9713667805874,
+          "decision_s": 0.14131645500003742,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 58,
+          "own_xy_m": [
+            247.72501206529355,
+            18.727437592712036
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            195.48888888888894
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 0.0,
+          "speed_knots": 10.0,
+          "course_deg": 62.28999999999999,
+          "distance_m": 185.16928463041467,
+          "decision_s": 0.14637905500001125,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 59,
+          "own_xy_m": [
+            256.21829884533815,
+            21.70047023539422
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            200.63333333333338
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 0.0,
+          "speed_knots": 20.0,
+          "course_deg": 71.28999999999999,
+          "distance_m": 184.91920795698596,
+          "decision_s": 0.14608952300000055,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 60,
+          "own_xy_m": [
+            261.75790117971655,
+            24.919723589792042
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            205.77777777777783
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 0.0,
+          "speed_knots": 10.0,
+          "course_deg": 56.28999999999999,
+          "distance_m": 185.4761276137619,
+          "decision_s": 0.14057759100001022,
+          "selection_mode": "target_following"
+        }
+      ]
+    },
+    "target_stop": {
+      "summary": {
+        "steps": 60,
+        "initial_distance_m": 200.0,
+        "final_distance_m": 198.71388888888993,
+        "min_distance_m": 198.71388888888993,
+        "in_band_fraction": 1.0,
+        "below_minimum": false,
+        "max_decision_s": 0.1351066689999243,
+        "final_speed_knots": 0.0,
+        "safety_hold_steps": 0
+      },
+      "trajectory": [
+        {
+          "time_s": 1,
+          "own_xy_m": [
+            5.144444444444441,
+            3.150063711140138e-16
+          ],
+          "target_xy_m": [
+            205.14444444444445,
+            3.1500637111401367e-16
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.0,
+          "decision_s": 0.1339608399999861,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 2,
+          "own_xy_m": [
+            10.288888888888902,
+            6.300127422280268e-16
+          ],
+          "target_xy_m": [
+            210.2888888888889,
+            6.300127422280273e-16
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.0,
+          "decision_s": 0.1344779749999816,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 3,
+          "own_xy_m": [
+            15.433333333333387,
+            9.450191133420399e-16
+          ],
+          "target_xy_m": [
+            215.43333333333334,
+            9.45019113342041e-16
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 199.99999999999994,
+          "decision_s": 0.13413709600001766,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 4,
+          "own_xy_m": [
+            20.577777777777793,
+            1.2600254844560568e-15
+          ],
+          "target_xy_m": [
+            220.57777777777778,
+            1.2600254844560547e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.0,
+          "decision_s": 0.13450859199997467,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 5,
+          "own_xy_m": [
+            25.72222222222219,
+            1.5750318555700738e-15
+          ],
+          "target_xy_m": [
+            225.72222222222223,
+            1.5750318555700683e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.00000000000003,
+          "decision_s": 0.13493609200008905,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 6,
+          "own_xy_m": [
+            30.866666666666585,
+            1.8900382266840908e-15
+          ],
+          "target_xy_m": [
+            230.86666666666667,
+            1.890038226684082e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.00000000000009,
+          "decision_s": 0.1349038590000191,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 7,
+          "own_xy_m": [
+            36.01111111111112,
+            2.2050445977981078e-15
+          ],
+          "target_xy_m": [
+            236.01111111111112,
+            2.205044597798096e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.0,
+          "decision_s": 0.13433953100002327,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 8,
+          "own_xy_m": [
+            41.155555555555694,
+            2.5200509689121247e-15
+          ],
+          "target_xy_m": [
+            241.15555555555557,
+            2.5200509689121098e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 199.9999999999999,
+          "decision_s": 0.1343041559999847,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 9,
+          "own_xy_m": [
+            46.30000000000027,
+            2.8350573400261417e-15
+          ],
+          "target_xy_m": [
+            246.3,
+            2.8350573400261236e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 199.99999999999974,
+          "decision_s": 0.13412198900005023,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 10,
+          "own_xy_m": [
+            51.44444444444484,
+            3.1500637111401587e-15
+          ],
+          "target_xy_m": [
+            251.44444444444446,
+            3.1500637111401374e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 199.9999999999996,
+          "decision_s": 0.13416630100005023,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 11,
+          "own_xy_m": [
+            56.588888888889414,
+            3.4650700822541757e-15
+          ],
+          "target_xy_m": [
+            256.5888888888889,
+            3.4650700822541512e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 199.9999999999995,
+          "decision_s": 0.13423471700002665,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 12,
+          "own_xy_m": [
+            61.73333333333399,
+            3.780076453368193e-15
+          ],
+          "target_xy_m": [
+            261.73333333333335,
+            3.780076453368165e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 199.99999999999937,
+          "decision_s": 0.13427650500000254,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 13,
+          "own_xy_m": [
+            66.87777777777836,
+            4.09508282448221e-15
+          ],
+          "target_xy_m": [
+            266.8777777777778,
+            4.095082824482179e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 199.99999999999943,
+          "decision_s": 0.13447290700003123,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 14,
+          "own_xy_m": [
+            72.02222222222258,
+            4.4100891955962266e-15
+          ],
+          "target_xy_m": [
+            272.02222222222224,
+            4.410089195596193e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 199.99999999999966,
+          "decision_s": 0.13418485699992289,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 15,
+          "own_xy_m": [
+            77.1666666666668,
+            4.7250955667102436e-15
+          ],
+          "target_xy_m": [
+            277.1666666666667,
+            4.7250955667102065e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 199.9999999999999,
+          "decision_s": 0.134343139000066,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 16,
+          "own_xy_m": [
+            82.31111111111102,
+            5.0401019378242605e-15
+          ],
+          "target_xy_m": [
+            282.31111111111113,
+            5.04010193782422e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.0000000000001,
+          "decision_s": 0.1342965040000763,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 17,
+          "own_xy_m": [
+            87.45555555555524,
+            5.3551083089382775e-15
+          ],
+          "target_xy_m": [
+            287.4555555555556,
+            5.355108308938234e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.00000000000034,
+          "decision_s": 0.13451224200002798,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 18,
+          "own_xy_m": [
+            92.59999999999945,
+            5.6701146800522945e-15
+          ],
+          "target_xy_m": [
+            292.6,
+            5.670114680052248e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.00000000000057,
+          "decision_s": 0.1345907669999633,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 19,
+          "own_xy_m": [
+            97.74444444444367,
+            5.9851210511663114e-15
+          ],
+          "target_xy_m": [
+            297.74444444444447,
+            5.985121051166262e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.0000000000008,
+          "decision_s": 0.1351066689999243,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 20,
+          "own_xy_m": [
+            102.88888888888789,
+            6.3001274222803284e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 10.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 10.0,
+          "course_deg": 90.0,
+          "distance_m": 200.00000000000102,
+          "decision_s": 0.1345403330000181,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 21,
+          "own_xy_m": [
+            104.174999999999,
+            6.378879015058833e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 0.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 0.0,
+          "course_deg": 90.0,
+          "distance_m": 198.71388888888993,
+          "decision_s": 0.09251014899996335,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 22,
+          "own_xy_m": [
+            104.174999999999,
+            6.378879015058833e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 0.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 0.0,
+          "course_deg": 90.0,
+          "distance_m": 198.71388888888993,
+          "decision_s": 0.1002835109999296,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 23,
+          "own_xy_m": [
+            104.174999999999,
+            6.378879015058833e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 0.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 0.0,
+          "course_deg": 90.0,
+          "distance_m": 198.71388888888993,
+          "decision_s": 0.10038668100003179,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 24,
+          "own_xy_m": [
+            104.174999999999,
+            6.378879015058833e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 0.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 0.0,
+          "course_deg": 90.0,
+          "distance_m": 198.71388888888993,
+          "decision_s": 0.10039929399999892,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 25,
+          "own_xy_m": [
+            104.174999999999,
+            6.378879015058833e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 0.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 0.0,
+          "course_deg": 90.0,
+          "distance_m": 198.71388888888993,
+          "decision_s": 0.10037250499999573,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 26,
+          "own_xy_m": [
+            104.174999999999,
+            6.378879015058833e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 0.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 0.0,
+          "course_deg": 90.0,
+          "distance_m": 198.71388888888993,
+          "decision_s": 0.10033748000000742,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 27,
+          "own_xy_m": [
+            104.174999999999,
+            6.378879015058833e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 0.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 0.0,
+          "course_deg": 90.0,
+          "distance_m": 198.71388888888993,
+          "decision_s": 0.1010975540000345,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 28,
+          "own_xy_m": [
+            104.174999999999,
+            6.378879015058833e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 0.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 0.0,
+          "course_deg": 90.0,
+          "distance_m": 198.71388888888993,
+          "decision_s": 0.10066776999997273,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 29,
+          "own_xy_m": [
+            104.174999999999,
+            6.378879015058833e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 0.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 0.0,
+          "course_deg": 90.0,
+          "distance_m": 198.71388888888993,
+          "decision_s": 0.10092512500000339,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 30,
+          "own_xy_m": [
+            104.174999999999,
+            6.378879015058833e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 0.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 0.0,
+          "course_deg": 90.0,
+          "distance_m": 198.71388888888993,
+          "decision_s": 0.10102065199998833,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 31,
+          "own_xy_m": [
+            104.174999999999,
+            6.378879015058833e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 0.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 0.0,
+          "course_deg": 90.0,
+          "distance_m": 198.71388888888993,
+          "decision_s": 0.10044060799998533,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 32,
+          "own_xy_m": [
+            104.174999999999,
+            6.378879015058833e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 0.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 0.0,
+          "course_deg": 90.0,
+          "distance_m": 198.71388888888993,
+          "decision_s": 0.1011646119999341,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 33,
+          "own_xy_m": [
+            104.174999999999,
+            6.378879015058833e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 0.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 0.0,
+          "course_deg": 90.0,
+          "distance_m": 198.71388888888993,
+          "decision_s": 0.10105956699999297,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 34,
+          "own_xy_m": [
+            104.174999999999,
+            6.378879015058833e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 0.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 0.0,
+          "course_deg": 90.0,
+          "distance_m": 198.71388888888993,
+          "decision_s": 0.10125599999992119,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 35,
+          "own_xy_m": [
+            104.174999999999,
+            6.378879015058833e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 0.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 0.0,
+          "course_deg": 90.0,
+          "distance_m": 198.71388888888993,
+          "decision_s": 0.10109583399992061,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 36,
+          "own_xy_m": [
+            104.174999999999,
+            6.378879015058833e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 0.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 0.0,
+          "course_deg": 90.0,
+          "distance_m": 198.71388888888993,
+          "decision_s": 0.1006845950000752,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 37,
+          "own_xy_m": [
+            104.174999999999,
+            6.378879015058833e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 0.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 0.0,
+          "course_deg": 90.0,
+          "distance_m": 198.71388888888993,
+          "decision_s": 0.10107491600001595,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 38,
+          "own_xy_m": [
+            104.174999999999,
+            6.378879015058833e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 0.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 0.0,
+          "course_deg": 90.0,
+          "distance_m": 198.71388888888993,
+          "decision_s": 0.10116699599996082,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 39,
+          "own_xy_m": [
+            104.174999999999,
+            6.378879015058833e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 0.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 0.0,
+          "course_deg": 90.0,
+          "distance_m": 198.71388888888993,
+          "decision_s": 0.10077389000002768,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 40,
+          "own_xy_m": [
+            104.174999999999,
+            6.378879015058833e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 0.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 0.0,
+          "course_deg": 90.0,
+          "distance_m": 198.71388888888993,
+          "decision_s": 0.10087774199996602,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 41,
+          "own_xy_m": [
+            104.174999999999,
+            6.378879015058833e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 0.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 0.0,
+          "course_deg": 90.0,
+          "distance_m": 198.71388888888993,
+          "decision_s": 0.1009837740000421,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 42,
+          "own_xy_m": [
+            104.174999999999,
+            6.378879015058833e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 0.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 0.0,
+          "course_deg": 90.0,
+          "distance_m": 198.71388888888993,
+          "decision_s": 0.10097632700001213,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 43,
+          "own_xy_m": [
+            104.174999999999,
+            6.378879015058833e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 0.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 0.0,
+          "course_deg": 90.0,
+          "distance_m": 198.71388888888993,
+          "decision_s": 0.10110183900007996,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 44,
+          "own_xy_m": [
+            104.174999999999,
+            6.378879015058833e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 0.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 0.0,
+          "course_deg": 90.0,
+          "distance_m": 198.71388888888993,
+          "decision_s": 0.10104608600011034,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 45,
+          "own_xy_m": [
+            104.174999999999,
+            6.378879015058833e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 0.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 0.0,
+          "course_deg": 90.0,
+          "distance_m": 198.71388888888993,
+          "decision_s": 0.10103849300003276,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 46,
+          "own_xy_m": [
+            104.174999999999,
+            6.378879015058833e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 0.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 0.0,
+          "course_deg": 90.0,
+          "distance_m": 198.71388888888993,
+          "decision_s": 0.10096713100006127,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 47,
+          "own_xy_m": [
+            104.174999999999,
+            6.378879015058833e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 0.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 0.0,
+          "course_deg": 90.0,
+          "distance_m": 198.71388888888993,
+          "decision_s": 0.10053089400003046,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 48,
+          "own_xy_m": [
+            104.174999999999,
+            6.378879015058833e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 0.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 0.0,
+          "course_deg": 90.0,
+          "distance_m": 198.71388888888993,
+          "decision_s": 0.10056811300000845,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 49,
+          "own_xy_m": [
+            104.174999999999,
+            6.378879015058833e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 0.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 0.0,
+          "course_deg": 90.0,
+          "distance_m": 198.71388888888993,
+          "decision_s": 0.10104006500000651,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 50,
+          "own_xy_m": [
+            104.174999999999,
+            6.378879015058833e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 0.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 0.0,
+          "course_deg": 90.0,
+          "distance_m": 198.71388888888993,
+          "decision_s": 0.10101052100003471,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 51,
+          "own_xy_m": [
+            104.174999999999,
+            6.378879015058833e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 0.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 0.0,
+          "course_deg": 90.0,
+          "distance_m": 198.71388888888993,
+          "decision_s": 0.1008076919999894,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 52,
+          "own_xy_m": [
+            104.174999999999,
+            6.378879015058833e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 0.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 0.0,
+          "course_deg": 90.0,
+          "distance_m": 198.71388888888993,
+          "decision_s": 0.10086679899995943,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 53,
+          "own_xy_m": [
+            104.174999999999,
+            6.378879015058833e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 0.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 0.0,
+          "course_deg": 90.0,
+          "distance_m": 198.71388888888993,
+          "decision_s": 0.10103379700001369,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 54,
+          "own_xy_m": [
+            104.174999999999,
+            6.378879015058833e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 0.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 0.0,
+          "course_deg": 90.0,
+          "distance_m": 198.71388888888993,
+          "decision_s": 0.10079971499999374,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 55,
+          "own_xy_m": [
+            104.174999999999,
+            6.378879015058833e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 0.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 0.0,
+          "course_deg": 90.0,
+          "distance_m": 198.71388888888993,
+          "decision_s": 0.10074763900001926,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 56,
+          "own_xy_m": [
+            104.174999999999,
+            6.378879015058833e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 0.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 0.0,
+          "course_deg": 90.0,
+          "distance_m": 198.71388888888993,
+          "decision_s": 0.10066258200004086,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 57,
+          "own_xy_m": [
+            104.174999999999,
+            6.378879015058833e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 0.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 0.0,
+          "course_deg": 90.0,
+          "distance_m": 198.71388888888993,
+          "decision_s": 0.10072363400001905,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 58,
+          "own_xy_m": [
+            104.174999999999,
+            6.378879015058833e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 0.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 0.0,
+          "course_deg": 90.0,
+          "distance_m": 198.71388888888993,
+          "decision_s": 0.10122783500003152,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 59,
+          "own_xy_m": [
+            104.174999999999,
+            6.378879015058833e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 0.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 0.0,
+          "course_deg": 90.0,
+          "distance_m": 198.71388888888993,
+          "decision_s": 0.10009912099997109,
+          "selection_mode": "target_following"
+        },
+        {
+          "time_s": 60,
+          "own_xy_m": [
+            104.174999999999,
+            6.378879015058833e-15
+          ],
+          "target_xy_m": [
+            302.8888888888889,
+            6.3001274222802756e-15
+          ],
+          "target_speed_knots": 0.0,
+          "target_course_deg": 90.0,
+          "speed_knots": 0.0,
+          "course_deg": 90.0,
+          "distance_m": 198.71388888888993,
+          "decision_s": 0.10098834400002943,
+          "selection_mode": "target_following"
+        }
+      ]
+    }
+  }
+}

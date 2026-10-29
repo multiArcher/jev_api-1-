@@ -1,0 +1,20 @@
+[
+  {
+    "scenario": "single",
+    "max_speed_knots": 50.0,
+    "max_cycle_acceleration_mps2": 1.4599999999999724,
+    "max_cycle_braking_mps2": 1.750000000000007,
+    "max_substep_turn_rate_deg_s": 9.583326093250877,
+    "max_substep_angular_acceleration_deg_s2": 4.000000000000092,
+    "limits_passed": true
+  },
+  {
+    "scenario": "two",
+    "max_speed_knots": 50.0,
+    "max_cycle_acceleration_mps2": 1.4599999999999724,
+    "max_cycle_braking_mps2": 1.750000000000007,
+    "max_substep_turn_rate_deg_s": 12.0,
+    "max_substep_angular_acceleration_deg_s2": 4.000000000000092,
+    "limits_passed": true
+  }
+]

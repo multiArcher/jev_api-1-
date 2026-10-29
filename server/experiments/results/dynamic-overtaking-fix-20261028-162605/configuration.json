@@ -1,0 +1,59 @@
+{
+  "scope": "合成同向慢目标超越场景，非16:10原始目标位置回放；真实本地Kev，离线世界在推理期间暂停",
+  "source_sha256": {
+    "/home/epic/jev_api(1)/server/policies/julia_policy.py": "f2dd292d0c26e3ac88fa7e5eb0acd86fc992d1cb595f16af3451aab217c8b254",
+    "/home/epic/jev_api(1)/server/policies/turning.py": "e835430834c1985773b097dd6a869ee33229312332a08a5dae5f34435f7308f6",
+    "/home/epic/jev_api(1)/server/policies/waypoint.py": "3bfb89b02020ec7f50762cdec82f07f0d213694556fe1108861fded4e3cd24ec",
+    "/home/epic/jev_api(1)/server/policies/progress.py": "32a0430f58f39883ec7a5591f5615f2267bd3ad3490eda9a8a35564266fb6ed4",
+    "/home/epic/jev_api(1)/server/policies/kev_policy.py": "181b03406ea8915deb15a8e8f95aeed5f4f21414ef44e5355782acbeac9259b7",
+    "/home/epic/jev_api(1)/server/policies/factory.py": "68a583f2bf739a44ccf862a28e378f0a891ca319d5f4a3f98a7b3c02ce8787f9",
+    "/home/epic/jev_api(1)/server/policies/static_obstacles.py": "809ce93d0c0ca65b2d7deb8c6016e01c69c716a6da01f62bb3d345bb5ec5f642",
+    "/home/epic/jev_api(1)/server/policies/waypoint_radius.py": "abb1ab2b07043f8636bad219e6842d95c4fb2a1087bda57b4740ece067d97e19",
+    "/home/epic/jev_api(1)/server/policies/speed_profile.py": "eeec38e19bdd1be23b924b7c0b7b194f7a81f558b84f40df2012a4507abb6ccf",
+    "/home/epic/jev_api(1)/server/policies/__init__.py": "72031e3466c2f029ddb487769a8090c86a4a18b4ca8156b64e90f0121ebbe8a1",
+    "/home/epic/jev_api(1)/server/navigation/route_rejoin.py": "207d3a2cdf26ec33ff7b22c278b55a6f0f8fe2533334f5add2bb2cb34690684b",
+    "/home/epic/jev_api(1)/server/navigation/target_following.py": "0903690515fed2a7027908a611f79f3c86707d6bdc2215885ec169905a7dc5b1",
+    "/home/epic/jev_api(1)/server/navigation/__init__.py": "8a1d56688d7d6080b35f97ff2add31f3b0559652ee4141c7a839f12b6f2d08fe",
+    "/home/epic/jev_api(1)/server/navigation/dynamic_avoidance/kev.py": "5ed7081486e604252e2f56b8ded57fad2f66c1eb02f7ef4def646db51af8e8aa",
+    "/home/epic/jev_api(1)/server/navigation/dynamic_avoidance/types.py": "1db8605bdb0ced8cfa89b7297ce0a3439c332f211fcfee58af059ca92140cbeb",
+    "/home/epic/jev_api(1)/server/navigation/dynamic_avoidance/adapter.py": "f0a4e7527775b7bfdb9f13cc76139dd28db2781fb0c322ddca858b06719739ea",
+    "/home/epic/jev_api(1)/server/navigation/dynamic_avoidance/planner.py": "eb440ef0b7fdbd74d97d365e5599d42c6c0fc5c458f3c3684dafbd5405106e45",
+    "/home/epic/jev_api(1)/server/navigation/dynamic_avoidance/prediction.py": "f2e6294a14cbd2f15c6c919785359a180c49a50e91e5142988f1f10694c31f1d",
+    "/home/epic/jev_api(1)/server/navigation/dynamic_avoidance/overtaking.py": "f709663656f26ae879ab8cc7ef8b7365c8bad096cf690d7b528d16fb97627932",
+    "/home/epic/jev_api(1)/server/navigation/dynamic_avoidance/__init__.py": "69306b519e16e0cc97a8fb000f113bba9ba92a69e88ae42f92cb658be2567994",
+    "/home/epic/jev_api(1)/jev_api/tools/http_transport.py": "70f521cb010477d2ee9c25025def7b8a3bc273f31da6ed9824ef02409702438c",
+    "/home/epic/jev_api(1)/jev_api/tools/vessel_dynamics.py": "d1977a0c5401b6e6379f5a89b24da447f85cd5f2d96874f0fa53dbebd4a0b52c",
+    "/home/epic/jev_api(1)/jev_api/tools/waypoint_geometry.py": "4652871464b1a377fa99679a3bd8ded1728a78490625183c1e572b88a837059b",
+    "/home/epic/jev_api(1)/jev_api/tools/acceleration_response.py": "be5712fd343f8ad9827cc1d5357a3c83712c685f0cff5269f16df3e5f0aa801c",
+    "/home/epic/jev_api(1)/jev_api/tools/navigation_motion.py": "f08f149a1e422b3cf76a7c6baba1dcc17329da15782a65a7b1c417f81fc5bf21",
+    "/home/epic/jev_api(1)/jev_api/tools/__init__.py": "e2d4278b889bd3054b2be33970bf0eafbbc8ff0ff5f40d5d93038a98f1ec628e",
+    "/home/epic/jev_api(1)/server/experiments/kev_dynamic_avoidance.py": "ce40723d42db217329ef9ac0b0715ef66631c9b189539374be61be30e5c84940",
+    "/home/epic/jev_api(1)/jev_api/tools/data/acceleration_0_50kn.json": "d76b97dafa08f0c5e747c41083668bbfd9e1aafa7b278a716ba36f4a34daadd4"
+  },
+  "initial_own_speed_knots": 50.0,
+  "target_speed_knots": 9.6,
+  "targets_m": {
+    "single": [
+      [
+        4001,
+        300.0,
+        0.0,
+        90.0
+      ]
+    ],
+    "two": [
+      [
+        4001,
+        300.0,
+        0.0,
+        90.0
+      ],
+      [
+        4003,
+        700.0,
+        -30.0,
+        98.0
+      ]
+    ]
+  }
+}

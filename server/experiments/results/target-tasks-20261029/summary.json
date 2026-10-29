@@ -1,0 +1,97 @@
+[
+  {
+    "scenario": "capped_50",
+    "title": "伴随：限速20.58节，目标50节",
+    "status": "failed",
+    "failure": "TargetTaskUnreachable: 目标任务持续无法缩小位置误差或找到安全可达动作",
+    "simulated_s": 68.0,
+    "first_band_entry_s": null,
+    "min_distance_m": 310.4834939252005,
+    "final_distance_m": 1210.080426525427,
+    "final_report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 50.0,
+      "targetCourse": 90.0,
+      "currentAlongM": -1207.44,
+      "currentAcrossM": 80.0,
+      "alongOutM": -1047.44,
+      "acrossOutM": 0.0,
+      "inPosition": 0
+    },
+    "max_own_speed_knots": 20.0,
+    "zero_speed_commands": 4,
+    "in_band_samples": 0
+  },
+  {
+    "scenario": "unlimited_50",
+    "title": "伴随：上限50节，目标50节",
+    "status": "failed",
+    "failure": "TargetTaskUnreachable: 目标任务持续无法缩小位置误差或找到安全可达动作",
+    "simulated_s": 78.0,
+    "first_band_entry_s": null,
+    "min_distance_m": 310.4834939252005,
+    "final_distance_m": 541.2976756204432,
+    "final_report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 50.0,
+      "targetCourse": 90.0,
+      "currentAlongM": -536.84,
+      "currentAcrossM": 69.33,
+      "alongOutM": -376.84,
+      "acrossOutM": -0.67,
+      "inPosition": 0
+    },
+    "max_own_speed_knots": 50.0,
+    "zero_speed_commands": 9,
+    "in_band_samples": 0
+  },
+  {
+    "scenario": "accompany_30",
+    "title": "伴随：上限50节，目标30节",
+    "status": "running",
+    "failure": "",
+    "simulated_s": 160.0,
+    "first_band_entry_s": 36.0,
+    "min_distance_m": 158.2356638832487,
+    "final_distance_m": 190.4436374595546,
+    "final_report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 119.99999999999999,
+      "currentAlongM": -160.11,
+      "currentAcrossM": 103.13,
+      "alongOutM": -0.11,
+      "acrossOutM": 13.13,
+      "inPosition": 0
+    },
+    "max_own_speed_knots": 49.062529705748744,
+    "zero_speed_commands": 0,
+    "in_band_samples": 8
+  },
+  {
+    "scenario": "follow_30",
+    "title": "跟随：上限50节，目标30节",
+    "status": "running",
+    "failure": "",
+    "simulated_s": 160.0,
+    "first_band_entry_s": 34.0,
+    "min_distance_m": 163.43069346101646,
+    "final_distance_m": 216.80866635556518,
+    "final_report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 119.99999999999999,
+      "relativeDistanceM": 216.81,
+      "relativeBearingDeg": 199.36,
+      "inRange": 0,
+      "distanceOutM": 16.81
+    },
+    "max_own_speed_knots": 50.0,
+    "zero_speed_commands": 0,
+    "in_band_samples": 26
+  }
+]

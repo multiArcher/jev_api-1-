@@ -1,0 +1,33 @@
+{
+  "scenario": "首航段反向延长线外150米进场；初始航向沿P1到P2方向",
+  "config": {
+    "steps": 6000,
+    "dt": 1.0,
+    "start_offset_m": 50.0,
+    "initial_course_deg": 161.61145139668466,
+    "initial_position_xy_m": [
+      -47.318907591313874,
+      142.340861962982
+    ],
+    "max_turn_rate_deg_s": 12.0,
+    "kev_endpoint": "http://127.0.0.1:18028/v1/systemone",
+    "kev_timeout": 120.0
+  },
+  "limits": {
+    "max_speed_knots": 50.0,
+    "acceleration_mps2": 1.46,
+    "deceleration_mps2": 1.75,
+    "max_turn_rate_deg_s": 12.0,
+    "max_turn_acceleration_deg_s2": 4.0,
+    "calibration": "12 deg/s at 11 knots; constant envelope pending speed curves"
+  },
+  "acceleration_response": "measured_0_50kn",
+  "static_obstacles": 16,
+  "source_sha256": {
+    "/home/epic/jev_api(1)/server/policies/kev_policy.py": "95e4df54d0d3c923b92ae2994b1b9a35fd057b2c919c3ae89554def1d9b3541b",
+    "/home/epic/jev_api(1)/jev_api/tools/navigation_motion.py": "f08f149a1e422b3cf76a7c6baba1dcc17329da15782a65a7b1c417f81fc5bf21",
+    "/home/epic/jev_api(1)/jev_api/tools/data/acceleration_0_50kn.json": "d76b97dafa08f0c5e747c41083668bbfd9e1aafa7b278a716ba36f4a34daadd4",
+    "/home/epic/jev_api(1)/server/experiments/tasks/task_one.json": "ddff60a1e62d91dfedbd1830770c0cdd91ddb78809d96fc8959d8d6ed8030424",
+    "/home/epic/jev_api(1)/server/experiments/tasks/static_situation.json": "24fb08fbf7a9baa5a4915a62e0c3f842f8c8b8ce4c0423c1312f7990325e7db5"
+  }
+}

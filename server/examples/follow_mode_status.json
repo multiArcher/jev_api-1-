@@ -1,0 +1,16 @@
+{
+  "simId": "sim-001",
+  "id": "node-follow-1",
+  "code": "followMode",
+  "status": 1,
+  "description": "跟随中",
+  "params": {
+    "targetPlatCode": 2002,
+    "relativeDistanceM": 230.0,
+    "relativeBearingDeg": 178.2,
+    "inRange": 0,
+    "distanceOutM": 10.0,
+    "targetSpeed": 12.0,
+    "targetCourse": 45.0
+  }
+}

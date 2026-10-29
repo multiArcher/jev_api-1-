@@ -1,0 +1,24 @@
+{
+  "scope": "P1 approach, arrival-circle entry and local turn toward P2 only; full route and final stop not evaluated",
+  "assumptions": "缺少14:50起步态势：假设P1西500米北500米、135度、静止；历史地图16个静态目标，不代表该次实时目标列表",
+  "first_circle_entry_s": 75.0,
+  "first_circle_entry_xy_m": [
+    -70.85488956274753,
+    68.22244364113926
+  ],
+  "first_circle_entry_course_deg": 135.0,
+  "aligned_with_p2_s": 80.0,
+  "seconds_to_within_5deg": 5.0,
+  "aligned_course_deg": 161.69525452216155,
+  "initial_course_deg": 135.0,
+  "minimum_distance_to_p1_m": 39.78160820125386,
+  "maximum_acceleration_mps2": 1.4600000000001612,
+  "maximum_braking_mps2": 1.7500000000019813,
+  "maximum_turn_rate_deg_s": 12.0,
+  "maximum_angular_acceleration_deg_s2": 4.000000000000128,
+  "minimum_static_clearance_m": 10.082687600175518,
+  "maximum_replay_position_error_m": 0.0,
+  "source_hashes_unchanged": true,
+  "physics_constraints_passed": true,
+  "observed_turn": true
+}

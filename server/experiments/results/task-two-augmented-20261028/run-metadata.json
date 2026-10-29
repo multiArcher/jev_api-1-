@@ -1,0 +1,15 @@
+{
+  "task": "task_two",
+  "run_date": "2026-10-28",
+  "mode": "fresh_rerun_after_previous_tmp_checkpoint_was_lost",
+  "previous_terminated_progress": "23/45",
+  "waypoints": 45,
+  "static_obstacles": 24,
+  "checkpoint_every": 10,
+  "code_sha256": {
+    "server/experiments/field_tasks.py": "4fc75fe7aed303ada3a37e5e040ffab8b2698ceb44a36386fa03dd89c32682b4",
+    "server/policies/kev_policy.py": "750a0972872161035471a0bfc0c9a5d7f754ef7155dc7748b7941700ccf1932c",
+    "server/policies/static_obstacles.py": "ab144255e5ba6f03e114f7a7a6caf26731aa546ed7f90331ee97084088225433",
+    "server/navigation/route_rejoin.py": "207d3a2cdf26ec33ff7b22c278b55a6f0f8fe2533334f5add2bb2cb34690684b"
+  }
+}

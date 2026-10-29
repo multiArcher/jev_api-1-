@@ -1,0 +1,36 @@
+{
+  "results": [
+    {
+      "scenario": "single",
+      "steps": 120,
+      "model": "real local Kev",
+      "first_ahead_150m_s": {
+        "4001": 29
+      },
+      "min_clearance_m": {
+        "static": null,
+        "dynamic": 11.246289688348924
+      },
+      "final_cross_track_m": -5.962267618351635,
+      "passed": true,
+      "elapsed_s": 21.523337786999036
+    },
+    {
+      "scenario": "two",
+      "steps": 120,
+      "model": "real local Kev",
+      "first_ahead_150m_s": {
+        "4001": 31,
+        "4003": 57
+      },
+      "min_clearance_m": {
+        "static": null,
+        "dynamic": 11.347347486007095
+      },
+      "final_cross_track_m": -6.344626105665122,
+      "passed": true,
+      "elapsed_s": 26.26689401800104
+    }
+  ],
+  "source_hashes_unchanged": true
+}

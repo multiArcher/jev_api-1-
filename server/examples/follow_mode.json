@@ -1,0 +1,12 @@
+{
+  "simId": "sim-001",
+  "id": "node-follow-1",
+  "code": "followMode",
+  "params": {
+    "platCode": 1001,
+    "targetPlatCode": 2002,
+    "followDistanceMinM": 180.0,
+    "followDistanceMaxM": 220.0,
+    "maxSpeed": 18.0
+  }
+}

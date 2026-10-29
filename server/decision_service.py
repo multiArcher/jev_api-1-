@@ -21,6 +21,7 @@ from typing import Any, Callable, Dict, Mapping, Optional, Tuple
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "jev_api"))
 from tools.waypoint_geometry import LocalFrame
 if __package__:
+    from .navigation import target_following
     from .control_runtime import error_details, run_task_control
     from .policies.waypoint_radius import waypoint_arrival_radius
     from .jev_policy import JevPolicy, jev_policy
@@ -28,6 +29,7 @@ if __package__:
     from .policies.turning import DEFAULT_MAX_TURN_RATE_DEG_S
     from .policies.static_obstacles import StaticObstacleConfig, configure_actual_distance_log
 else:
+    from navigation import target_following
     from control_runtime import error_details, run_task_control
     from policies.waypoint_radius import waypoint_arrival_radius
     from jev_policy import JevPolicy, jev_policy
@@ -526,13 +528,26 @@ class SituationStore:
     def __init__(self) -> None:
         self._records: Dict[int, Tuple[Dict[str, Any], float]] = {}
         self._lock = threading.Lock()
+        self._turn_rates = {}
 
     def update(self, record: Mapping[str, Any]) -> None:
         platform_id = record.get("platformId")
         if not isinstance(platform_id, int):
             raise ValueError("situation platformId must be an integer")
         with self._lock:
-            self._records[platform_id] = (dict(record), time.monotonic())
+            now = time.monotonic()
+            previous = self._records.get(platform_id)
+            rate = record.get('_turn_rate_deg_s', 0.)
+            if '_turn_rate_deg_s' not in record and previous:
+                old, received = previous
+                elapsed = now-received
+                before, after = old.get('targetCourse'), record.get('targetCourse')
+                if .05 <= elapsed <= 5. and all(isinstance(v,(int,float)) and math.isfinite(v) for v in (before,after)):
+                    rate = max(-12.,min(12.,((after-before+180)%360-180)/elapsed))
+                elif elapsed < .05:
+                    rate = self._turn_rates.get(platform_id,0.)
+            self._turn_rates[platform_id] = rate
+            self._records[platform_id] = (dict(record), now)
 
     def query_state(self, *, include_age: bool = False) -> Tuple[Dict[str, Any], ...]:
         """Return a stable snapshot for policy input."""
@@ -540,7 +555,7 @@ class SituationStore:
         with self._lock:
             now = time.monotonic()
             return tuple(dict(self._records[key][0], **(
-                {'_received_age_s': max(0., now-self._records[key][1])} if include_age else {}))
+                {'_received_age_s': max(0., now-self._records[key][1]), '_turn_rate_deg_s':self._turn_rates.get(key,0.)} if include_age else {}))
                 for key in sorted(self._records))
 
     def get(self, platform_id: int, max_age: float) -> Optional[Dict[str, Any]]:
@@ -550,7 +565,7 @@ class SituationStore:
             item = self._records.get(platform_id)
             if item is None or time.monotonic() - item[1] > max_age:
                 return None
-            return dict(item[0])
+            return dict(item[0], _turn_rate_deg_s=self._turn_rates.get(platform_id,0.))
 
 
 class ControlSession:
@@ -571,40 +586,48 @@ class ControlSession:
         self.status_lock = threading.Lock()
         self._lock = threading.Lock()
         params = task.get("params")
-        if not isinstance(params, Mapping) or task.get("code") != "trackingMode":
-            raise ValueError("trackingMode task params must be an object")
+        self.is_following = target_following.is_target_task(task)
+        if not isinstance(params, Mapping) or not (task.get("code")=="trackingMode" or self.is_following):
+            raise ValueError("expected trackingMode, followMode, accompanyMode or targetFollowing with object params")
         plat_code = params.get("platCode")
         if type(plat_code) is not int or not 0 <= plat_code <= 0xFFFFFFFF:
             raise ValueError("params.platCode must be an integer in [0, 4294967295]")
-        self.waypoints = params.get("planWaypointList")
-        if (not isinstance(self.waypoints, list) or not self.waypoints
-                or type(params.get("planWaypointNum")) is not int
-                or params.get("planWaypointNum") != len(self.waypoints)):
-            raise ValueError("planWaypointNum must match a nonempty planWaypointList")
-        for index, point in enumerate(self.waypoints):
-            if not isinstance(point, Mapping):
-                raise ValueError("waypoint {} must be an object".format(index + 1))
-            for field in ("routeLon", "routeLat", "routeSpeed"):
-                value = point.get(field)
-                if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):
-                    raise ValueError("waypoint {} has invalid {}".format(index + 1, field))
-            if (not -180 <= point["routeLon"] <= 180 or not -90 <= point["routeLat"] <= 90
-                    or point["routeSpeed"] < 0):
-                raise ValueError("waypoint {} has invalid coordinates or speed".format(index + 1))
-        self.frame = LocalFrame(self.waypoints)
-        self.waypoint_positions = [self.frame.project(p['routeLon'], p['routeLat']) for p in self.waypoints]
-        self.current_route = params.get("next_waypoint_index", params.get("currentRoute", 0))
-        self.initial_route = self.current_route
         self.start_state: Optional[Dict[str, Any]] = None
+        self.latest_target = None
+        if self.is_following:
+            target_following.validate_task(task)
+            self.waypoints = []
+            self.current_route = self.initial_route = 0
+        else:
+            self.waypoints = params.get("planWaypointList")
+            if (not isinstance(self.waypoints, list) or not self.waypoints
+                    or type(params.get("planWaypointNum")) is not int
+                    or params.get("planWaypointNum") != len(self.waypoints)):
+                raise ValueError("planWaypointNum must match a nonempty planWaypointList")
+            for index, point in enumerate(self.waypoints):
+                if not isinstance(point, Mapping):
+                    raise ValueError("waypoint {} must be an object".format(index + 1))
+                for field in ("routeLon", "routeLat", "routeSpeed"):
+                    value = point.get(field)
+                    if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):
+                        raise ValueError("waypoint {} has invalid {}".format(index + 1, field))
+                if (not -180 <= point["routeLon"] <= 180 or not -90 <= point["routeLat"] <= 90
+                        or point["routeSpeed"] < 0):
+                    raise ValueError("waypoint {} has invalid coordinates or speed".format(index + 1))
+            self.frame = LocalFrame(self.waypoints)
+            self.waypoint_positions = [self.frame.project(p['routeLon'], p['routeLat']) for p in self.waypoints]
+            self.current_route = params.get("next_waypoint_index", params.get("currentRoute", 0))
+            self.initial_route = self.current_route
         self.phase = "tracking"
-        self.description = "tracking"
+        self.description = ("伴随中" if task.get("code")=="accompanyMode" else "跟随中" if task.get("code")=="followMode" else "tracking")
         self.errors: Dict[str, Any] = {}
         self.consecutive_errors = 0
         self.stop_command_sent = False
         self.stop_confirmed = False
         self.speed_unit = speed_unit
         self.latest_state: Optional[Dict[str, Any]] = None
-        self.progress = calculate_route_progress(self.task, None, self.current_route, speed_unit)
+        self.progress = (target_following.progress(self.task) if self.is_following else
+                         calculate_route_progress(self.task, None, self.current_route, speed_unit))
 
     @property
     def key(self) -> Tuple[Any, Any]:
@@ -625,6 +648,8 @@ class ControlSession:
         self.stop_requested.set()  # Wake the old loop without waiting for its next tick.
 
     def update_route(self, current_route: int) -> None:
+        if self.is_following:
+            return
         with self._lock:
             self.current_route = max(self.current_route, int(current_route))
             self.progress = calculate_route_progress(
@@ -643,6 +668,9 @@ class ControlSession:
             if self.start_state is None:
                 self.start_state = dict(state)
             self.latest_state = dict(state)
+            if self.is_following:
+                self.progress = target_following.progress(self.task, state, self.latest_target, self.speed_unit)
+                return
             position = self.frame.project(state['longitude'], state['latitude'])
             while self.current_route < len(self.waypoints):
                 point = self.waypoints[self.current_route]
@@ -654,10 +682,22 @@ class ControlSession:
                 self.start_state, self.initial_route,
             )
 
+    def update_target(self, records):
+        try:
+            target = target_following.target_record(self.task, records)
+        except target_following.TargetUnavailable:
+            with self._lock:
+                self.latest_target = None
+                self.progress = target_following.progress(self.task)
+            raise
+        with self._lock:
+            self.latest_target = dict(target)
+            self.progress = target_following.progress(self.task, self.latest_state, target, self.speed_unit)
+
     @property
     def route_complete(self) -> bool:
         with self._lock:
-            return self.current_route >= len(self.waypoints)
+            return not self.is_following and self.current_route >= len(self.waypoints)
 
     def set_phase(self, phase: str, description: str) -> None:
         with self._lock:
@@ -668,11 +708,13 @@ class ControlSession:
             self.consecutive_errors += 1
             self.errors = error_details(stage, exc)
             self.errors["maxConsecutiveErrors"] = limit
-            labels = dict(situation="态势接收", inference="模型决策", control="控制指令发送", task="任务校验")
+            labels = dict(situation="态势接收", inference="模型决策", control="控制指令发送", task="任务校验", collision="碰撞检测")
+            objective = ("{}目标{}".format('伴随' if self.task.get('code')=='accompanyMode' else '跟随',target_following.target_id(self.task)) if self.is_following else
+                         "目标航路点{}/{}".format(min(self.current_route + 1, len(self.waypoints)), len(self.waypoints)))
             self.description = (
-                "{}异常：平台{}，目标航路点{}/{}，连续失败{}/{}次；{}: {}".format(
+                "{}异常：平台{}，{}，连续失败{}/{}次；{}: {}".format(
                     labels.get(stage, stage), self.task["params"].get("platCode"),
-                    min(self.current_route + 1, len(self.waypoints)), len(self.waypoints),
+                    objective,
                     self.consecutive_errors, limit, self.errors["errorType"], self.errors["lastError"],
                 )
             )
@@ -685,7 +727,7 @@ class ControlSession:
             self.consecutive_errors = 0
             self.errors = {}
             if self.phase not in ("stopping", "finishing"):
-                self.phase, self.description = "tracking", "tracking"
+                self.phase, self.description = "tracking", ("伴随中" if self.task.get("code")=="accompanyMode" else "跟随中" if self.task.get("code")=="followMode" else "tracking")
 
     def status_fields(self) -> Tuple[str, Dict[str, Any]]:
         with self._lock:
@@ -694,9 +736,11 @@ class ControlSession:
             if progress.get("nextWaypoint") is not None:
                 progress["nextWaypoint"] = dict(progress["nextWaypoint"])
             progress.update(self.errors)
-            progress.update(currentRoute=self.current_route, phase=self.phase,
+            progress.update(phase=self.phase,
                             consecutiveErrors=self.consecutive_errors,
                             stopCommandSent=self.stop_command_sent, stopConfirmed=self.stop_confirmed)
+            if not self.is_following:
+                progress["currentRoute"] = self.current_route
         return description, progress
 
 
@@ -917,9 +961,27 @@ def start_server(
                     continue
                 try:
                     session = ControlSession(task, remote, getattr(policy, "speed_unit", "knots"))
+                    if session.is_following:
+                        if not getattr(type(policy), 'supports_target_following', False):
+                            raise ValueError('followMode/accompanyMode/targetFollowing require the Kev backend')
+                        if task.get('code') in target_following.TARGET_CODES:
+                            if __package__:
+                                from .navigation.target_tasks import validate_feasibility
+                            else:
+                                from navigation.target_tasks import validate_feasibility
+                            validate_feasibility(task,max(policy.obstacle_config.collision_radius_m,
+                                                          policy.dynamic_config.safe_distance_m))
+                        elif task['params']['minFollowingDistanceM'] <= max(
+                                policy.obstacle_config.collision_radius_m, policy.dynamic_config.safe_distance_m):
+                            raise ValueError('minimum following distance must exceed configured obstacle safety distance')
                     replaced = registry.replace(session)
                 except (ValueError, TypeError, KeyError) as exc:
                     details = error_details("task", exc)
+                    if task.get('code') in target_following.TARGET_CODES and isinstance(task.get('params'),dict):
+                        try:
+                            details={**target_following.progress(task),**details}
+                        except (KeyError,TypeError,ValueError):
+                            pass
                     LOGGER.warning("task %s validation failed: %s", task.get("id"), details["lastError"])
                     server.sendto(build_algorithm_status_packet(
                         task, 3, "任务校验失败：{}；任务未启动，未下发航行指令".format(details["lastError"]), details,
@@ -1112,7 +1174,9 @@ def parse_args() -> argparse.Namespace:
                         help="决策后端，默认 kev；可切换为 jev 或 julia")
     parser.add_argument("--local-model-path", default=os.getenv("LOCAL_MODEL_PATH", str(Path(__file__).resolve().parents[1] / "models/Julia-1")))
     parser.add_argument("--kev-endpoint", default=os.getenv("KEV_ENDPOINT", "http://127.0.0.1:18028/v1/systemone"))
-    parser.add_argument("--max-turn-rate-deg-s", type=float, default=float(os.getenv("MAX_TURN_RATE_DEG_S", str(DEFAULT_MAX_TURN_RATE_DEG_S))), help="Kev转向角速度预测上限，默认45度/秒；1秒周期对应最大转角45度，未实艇标定")
+    parser.add_argument("--max-turn-rate-deg-s", type=float, default=float(os.getenv("MAX_TURN_RATE_DEG_S", str(DEFAULT_MAX_TURN_RATE_DEG_S))), help="Kev转向角速度预测上限，默认12度/秒（11节工况），角加速度上限4度/秒²；其他航速暂用同一上限")
+    parser.add_argument("--acceleration-response", choices=("measured_0_50kn", "bounded"), default=os.getenv("ACCELERATION_RESPONSE", "measured_0_50kn"), help="默认仅在直线加速到50节时使用实测响应；bounded仅使用能力上限")
+    parser.add_argument("--motion-curves-file", default=os.getenv("MOTION_CURVES_FILE"), help="可选SI航速能力曲线JSON；acceleration_curve/deceleration_curve/turn_rate_curve")
     parser.add_argument("--initial-course-deg", type=float, default=float(os.environ["INITIAL_COURSE_DEG"]) if os.getenv("INITIAL_COURSE_DEG") else None, help="Kev静止且态势缺少targetCourse时的备用方向；优先使用态势航向")
     parser.add_argument("--kev-timeout", type=float, default=float(os.getenv("KEV_TIMEOUT", "120")))
     parser.add_argument("--max-consecutive-errors", type=int,
@@ -1131,8 +1195,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--vessel-length-m", type=float, default=float(os.getenv("VESSEL_LENGTH_M", "11.6")))
     parser.add_argument("--vessel-width-m", type=float, default=float(os.getenv("VESSEL_WIDTH_M", "3.4")))
     parser.add_argument("--static-obstacle-margin-m", type=float, default=float(os.getenv("STATIC_OBSTACLE_MARGIN_M", "0")))
-    parser.add_argument("--speed-transition-time", type=float, default=float(os.getenv("SPEED_TRANSITION_TIME", "0.5")))
-    parser.add_argument("--course-transition-time", type=float, default=float(os.getenv("COURSE_TRANSITION_TIME", "0.5")))
+    parser.add_argument("--speed-transition-time", type=float, default=float(os.getenv("SPEED_TRANSITION_TIME", "0.5")), help="兼容旧配置；物理预测已改用加减速度约束，此值不再决定变速时间")
+    parser.add_argument("--course-transition-time", type=float, default=float(os.getenv("COURSE_TRANSITION_TIME", "0.5")), help="兼容旧配置；物理预测已改用角速度及角加速度约束")
     parser.add_argument("--jev-timeout", type=float, default=float(os.getenv("JEV_TIMEOUT", "30.0")))
     parser.add_argument("--situation-group", default=os.getenv("SITUATION_GROUP", DEFAULT_SITUATION_GROUP))
     parser.add_argument("--situation-port", type=int, default=int(os.getenv("SITUATION_PORT", DEFAULT_SITUATION_PORT)))
@@ -1212,6 +1276,8 @@ def main() -> None:
         kev_obstacle_config=obstacle_config,
         model=args.model, endpoint=args.endpoint, speed_unit=args.speed_unit,
         max_speed_knots=args.max_speed_knots, duration=args.control_interval,
+        motion_curves=json.loads(Path(args.motion_curves_file).read_text()) if args.motion_curves_file else None,
+        acceleration_response=args.acceleration_response,
         speed_transition=args.speed_transition_time,
         course_transition=args.course_transition_time,
         api_timeout=args.jev_timeout,

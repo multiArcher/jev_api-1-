@@ -1,0 +1,15 @@
+{
+  "simId": "sim-001",
+  "id": "node-accompany-1",
+  "code": "accompanyMode",
+  "params": {
+    "platCode": 1001,
+    "targetPlatCode": 2002,
+    "offsetAlongMinM": -160.0,
+    "offsetAlongMaxM": -140.0,
+    "offsetAcrossMinM": 70.0,
+    "offsetAcrossMaxM": 90.0,
+    "syncHeading": 1,
+    "maxSpeed": 18.0
+  }
+}

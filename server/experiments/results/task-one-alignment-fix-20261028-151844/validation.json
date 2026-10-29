@@ -1,0 +1,17 @@
+{
+  "server_tests": {
+    "run": 242,
+    "passed": 242,
+    "failures": 0,
+    "errors": 0
+  },
+  "client_tests": {
+    "run": 17,
+    "passed": 8,
+    "skipped": 9,
+    "failures": 0,
+    "errors": 0,
+    "skip_reason": "Unity Assets map files unavailable"
+  },
+  "new_regressions": 5
+}

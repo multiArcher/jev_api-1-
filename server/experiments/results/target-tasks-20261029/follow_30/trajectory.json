@@ -1,0 +1,2510 @@
+[
+  {
+    "time_s": 0.0,
+    "own_xy_m": [
+      -300.0,
+      -80.0
+    ],
+    "target_xy_m": [
+      0.0,
+      0.0
+    ],
+    "own_speed_knots": 10.0,
+    "target_speed_knots": 10.0,
+    "own_course_deg": 90.0,
+    "target_course_deg": 90.0,
+    "distance_m": 310.4834939252005,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 10.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 310.49,
+      "relativeBearingDeg": 165.07,
+      "inRange": 0,
+      "distanceOutM": 110.49
+    },
+    "command": null,
+    "status": "running"
+  },
+  {
+    "time_s": 2.0,
+    "own_xy_m": [
+      -289.7111111111087,
+      -80.0
+    ],
+    "target_xy_m": [
+      13.208888888888918,
+      8.088111749035429e-16
+    ],
+    "own_speed_knots": 10.0,
+    "target_speed_knots": 15.676025917926626,
+    "own_course_deg": 90.0,
+    "target_course_deg": 90.0,
+    "distance_m": 313.3058033295881,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 15.676025917926626,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 313.31,
+      "relativeBearingDeg": 165.21,
+      "inRange": 0,
+      "distanceOutM": 113.31
+    },
+    "command": [
+      37.5,
+      90.0
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 4.0,
+    "own_xy_m": [
+      -276.50222222221976,
+      -80.0
+    ],
+    "target_xy_m": [
+      32.25777777777783,
+      1.975219215158112e-15
+    ],
+    "own_speed_knots": 15.676025917926626,
+    "target_speed_knots": 21.352051835853086,
+    "own_course_deg": 90.0,
+    "target_course_deg": 90.0,
+    "distance_m": 318.9556984911831,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 21.352051835853086,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 318.96,
+      "relativeBearingDeg": 165.47,
+      "inRange": 0,
+      "distanceOutM": 118.96
+    },
+    "command": [
+      37.5,
+      75.6
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 6.0,
+    "own_xy_m": [
+      -257.49418691649595,
+      -79.04714764783687
+    ],
+    "target_xy_m": [
+      57.14666666666662,
+      3.4992241207637007e-15
+    ],
+    "own_speed_knots": 21.352051835853086,
+    "target_speed_knots": 27.02807775377954,
+    "own_course_deg": 82.04213446238356,
+    "target_course_deg": 90.0,
+    "distance_m": 324.4184308802446,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 27.02807775377954,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 324.42,
+      "relativeBearingDeg": 165.9,
+      "inRange": 0,
+      "distanceOutM": 124.42
+    },
+    "command": [
+      50.0,
+      85.2
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 8.0,
+    "own_xy_m": [
+      -233.21743595897783,
+      -73.62296232085477
+    ],
+    "target_xy_m": [
+      87.2127519999999,
+      5.340240879081597e-15
+    ],
+    "own_speed_knots": 27.02807775377954,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 75.68426892476711,
+    "target_course_deg": 90.0,
+    "distance_m": 328.7793271121586,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 328.78,
+      "relativeBearingDeg": 167.06,
+      "inRange": 0,
+      "distanceOutM": 128.78
+    },
+    "command": [
+      50.0,
+      90.0
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 10.0,
+    "own_xy_m": [
+      -203.05940958623776,
+      -67.92616908333629
+    ],
+    "target_xy_m": [
+      118.07941866666663,
+      7.230279105765699e-15
+    ],
+    "own_speed_knots": 32.704103671706,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 84.94719322569864,
+    "target_course_deg": 90.0,
+    "distance_m": 328.24398160207966,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 328.25,
+      "relativeBearingDeg": 168.06,
+      "inRange": 0,
+      "distanceOutM": 128.25
+    },
+    "command": [
+      50.0,
+      90.0
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 12.0,
+    "own_xy_m": [
+      -166.51178611851282,
+      -67.1134292534799
+    ],
+    "target_xy_m": [
+      148.9460853333324,
+      9.1203173324498e-15
+    ],
+    "own_speed_knots": 38.38012958963246,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 90.0,
+    "target_course_deg": 90.0,
+    "distance_m": 322.51803212702816,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 322.52,
+      "relativeBearingDeg": 167.99,
+      "inRange": 0,
+      "distanceOutM": 122.52
+    },
+    "command": [
+      50.0,
+      90.0
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 14.0,
+    "own_xy_m": [
+      -124.65613573221442,
+      -67.1134292534799
+    ],
+    "target_xy_m": [
+      179.81275199999772,
+      1.1010355559133903e-14
+    ],
+    "own_speed_knots": 42.79902224990961,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 90.0,
+    "target_course_deg": 90.0,
+    "distance_m": 311.7779914988424,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 311.78,
+      "relativeBearingDeg": 167.57,
+      "inRange": 0,
+      "distanceOutM": 111.78
+    },
+    "command": [
+      50.0,
+      90.0
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 16.0,
+    "own_xy_m": [
+      -78.89019832288174,
+      -67.1134292534799
+    ],
+    "target_xy_m": [
+      210.67941866666303,
+      1.2900393785818004e-14
+    ],
+    "own_speed_knots": 45.87657959913232,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 90.0,
+    "target_course_deg": 90.0,
+    "distance_m": 297.2453119388656,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 297.25,
+      "relativeBearingDeg": 166.95,
+      "inRange": 0,
+      "distanceOutM": 97.25
+    },
+    "command": [
+      50.0,
+      91.6
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 18.0,
+    "own_xy_m": [
+      -28.998937543125464,
+      -68.08054567041044
+    ],
+    "target_xy_m": [
+      241.54608533332834,
+      1.4790432012502105e-14
+    ],
+    "own_speed_knots": 50.0,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 91.6,
+    "target_course_deg": 90.0,
+    "distance_m": 278.97951555983775,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 278.98,
+      "relativeBearingDeg": 165.88,
+      "inRange": 0,
+      "distanceOutM": 78.98
+    },
+    "command": [
+      50.0,
+      91.6
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 20.0,
+    "own_xy_m": [
+      22.42544948617281,
+      -69.51695886252314
+    ],
+    "target_xy_m": [
+      272.4127519999952,
+      1.6680470239186207e-14
+    ],
+    "own_speed_knots": 50.0,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 91.6,
+    "target_course_deg": 90.0,
+    "distance_m": 259.47304096501256,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 259.47,
+      "relativeBearingDeg": 164.46,
+      "inRange": 0,
+      "distanceOutM": 59.47
+    },
+    "command": [
+      50.0,
+      91.6
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 22.0,
+    "own_xy_m": [
+      73.84983651547095,
+      -70.95337205463584
+    ],
+    "target_xy_m": [
+      303.27941866666333,
+      1.8570508465870308e-14
+    ],
+    "own_speed_knots": 50.0,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 91.6,
+    "target_course_deg": 90.0,
+    "distance_m": 240.15060726967633,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 240.15,
+      "relativeBearingDeg": 162.82,
+      "inRange": 0,
+      "distanceOutM": 40.15
+    },
+    "command": [
+      40.0,
+      90.0
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 24.0,
+    "own_xy_m": [
+      121.78951366898418,
+      -71.39622375615772
+    ],
+    "target_xy_m": [
+      334.1460853333315,
+      2.046054669255441e-14
+    ],
+    "own_speed_knots": 43.19654427645786,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 90.0,
+    "target_course_deg": 90.0,
+    "distance_m": 224.037350224632,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 224.04,
+      "relativeBearingDeg": 161.42,
+      "inRange": 0,
+      "distanceOutM": 24.04
+    },
+    "command": [
+      40.0,
+      70.8
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 26.0,
+    "own_xy_m": [
+      163.63752224964216,
+      -69.47950034651208
+    ],
+    "target_xy_m": [
+      365.01275199999964,
+      2.2350584919238512e-14
+    ],
+    "own_speed_knots": 40.0,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 82.0,
+    "target_course_deg": 90.0,
+    "distance_m": 213.02437448660714,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 213.03,
+      "relativeBearingDeg": 160.96,
+      "inRange": 0,
+      "distanceOutM": 13.03
+    },
+    "command": [
+      30.0,
+      72.4
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 28.0,
+    "own_xy_m": [
+      200.14067100546842,
+      -60.42604545900367
+    ],
+    "target_xy_m": [
+      395.8794186666678,
+      2.4240623145922614e-14
+    ],
+    "own_speed_knots": 33.19654427645786,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 72.4762337171103,
+    "target_course_deg": 90.0,
+    "distance_m": 204.85351914426138,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 204.85,
+      "relativeBearingDeg": 162.84,
+      "inRange": 0,
+      "distanceOutM": 4.85
+    },
+    "command": [
+      30.0,
+      20.79
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 30.0,
+    "own_xy_m": [
+      229.66237990217422,
+      -49.15302583202304
+    ],
+    "target_xy_m": [
+      426.74608533333594,
+      2.6130661372606716e-14
+    ],
+    "own_speed_knots": 30.0,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 62.91435057566546,
+    "target_course_deg": 90.0,
+    "distance_m": 203.12067077213104,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 203.12,
+      "relativeBearingDeg": 166.0,
+      "inRange": 0,
+      "distanceOutM": 3.12
+    },
+    "command": [
+      37.5,
+      72.48
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 32.0,
+    "own_xy_m": [
+      257.85553603005656,
+      -30.606530707494297
+    ],
+    "target_xy_m": [
+      457.6127520000041,
+      2.8020699599290818e-14
+    ],
+    "own_speed_knots": 35.67602591792646,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 53.352467434220614,
+    "target_course_deg": 90.0,
+    "distance_m": 202.08835952130707,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 202.09,
+      "relativeBearingDeg": 171.29,
+      "inRange": 0,
+      "distanceOutM": 2.09
+    },
+    "command": [
+      37.5,
+      90.0
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 34.0,
+    "own_xy_m": [
+      289.2925003635782,
+      -8.80031338164079
+    ],
+    "target_xy_m": [
+      488.47941866667225,
+      2.991073782597492e-14
+    ],
+    "own_speed_knots": 37.5,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 59.79058429277577,
+    "target_course_deg": 90.0,
+    "distance_m": 199.3812276486895,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 199.38,
+      "relativeBearingDeg": 177.47,
+      "inRange": 1,
+      "distanceOutM": 0.0
+    },
+    "command": [
+      40.0,
+      58.15
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 36.0,
+    "own_xy_m": [
+      325.870357751891,
+      8.739863835981893
+    ],
+    "target_xy_m": [
+      519.3460853333404,
+      3.180077605265902e-14
+    ],
+    "own_speed_knots": 40.0,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 66.22870115133092,
+    "target_course_deg": 90.0,
+    "distance_m": 193.6730295705696,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 193.67,
+      "relativeBearingDeg": 182.59,
+      "inRange": 1,
+      "distanceOutM": 0.0
+    },
+    "command": [
+      30.0,
+      90.0
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 38.0,
+    "own_xy_m": [
+      360.7678732352378,
+      22.829222671319066
+    ],
+    "target_xy_m": [
+      550.2127520000085,
+      3.369081427934312e-14
+    ],
+    "own_speed_knots": 33.19654427645786,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 72.66681800988607,
+    "target_course_deg": 90.0,
+    "distance_m": 190.8154487927415,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 190.82,
+      "relativeBearingDeg": 186.87,
+      "inRange": 1,
+      "distanceOutM": 0.0
+    },
+    "command": [
+      30.0,
+      90.0
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 40.0,
+    "own_xy_m": [
+      391.89298058062866,
+      27.911023243834254
+    ],
+    "target_xy_m": [
+      581.0794186666767,
+      3.5580852506027225e-14
+    ],
+    "own_speed_knots": 30.0,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 87.67311920731761,
+    "target_course_deg": 90.0,
+    "distance_m": 191.23423745293087,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 191.23,
+      "relativeBearingDeg": 188.39,
+      "inRange": 1,
+      "distanceOutM": 0.0
+    },
+    "command": [
+      37.5,
+      162.66681800988607
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 42.0,
+    "own_xy_m": [
+      425.4357415798392,
+      25.040099146064186
+    ],
+    "target_xy_m": [
+      611.9460853333449,
+      3.7470890732711327e-14
+    ],
+    "own_speed_knots": 35.67602591792646,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 104.28978572876561,
+    "target_course_deg": 90.0,
+    "distance_m": 188.18372642791292,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 188.18,
+      "relativeBearingDeg": 187.65,
+      "inRange": 1,
+      "distanceOutM": 0.0
+    },
+    "command": [
+      30.0,
+      153.06
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 44.0,
+    "own_xy_m": [
+      455.17512976405857,
+      10.600026428712848
+    ],
+    "target_xy_m": [
+      642.812752000013,
+      3.936092895939543e-14
+    ],
+    "own_speed_knots": 30.0,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 128.2897857287656,
+    "target_course_deg": 90.0,
+    "distance_m": 187.93679213675048,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 187.94,
+      "relativeBearingDeg": 183.23,
+      "inRange": 1,
+      "distanceOutM": 0.0
+    },
+    "command": [
+      30.0,
+      90.0
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 46.0,
+    "own_xy_m": [
+      475.91003424659533,
+      -12.127441558436109
+    ],
+    "target_xy_m": [
+      673.6794186666812,
+      4.125096718607953e-14
+    ],
+    "own_speed_knots": 30.0,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 144.2897857287656,
+    "target_course_deg": 90.0,
+    "distance_m": 198.14086971811992,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 198.14,
+      "relativeBearingDeg": 176.49,
+      "inRange": 1,
+      "distanceOutM": 0.0
+    },
+    "command": [
+      37.5,
+      90.0
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 48.0,
+    "own_xy_m": [
+      494.98606735121194,
+      -40.01149138475292
+    ],
+    "target_xy_m": [
+      704.5460853333493,
+      4.314100541276363e-14
+    ],
+    "own_speed_knots": 35.67602591792646,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 144.2897857287656,
+    "target_course_deg": 90.0,
+    "distance_m": 213.3455426755054,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 213.35,
+      "relativeBearingDeg": 169.19,
+      "inRange": 0,
+      "distanceOutM": 13.35
+    },
+    "command": [
+      30.0,
+      90.0
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 50.0,
+    "own_xy_m": [
+      517.2479539388559,
+      -64.63389415095521
+    ],
+    "target_xy_m": [
+      735.4127520000175,
+      4.5031043639447734e-14
+    ],
+    "own_speed_knots": 30.0,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 128.2897857287656,
+    "target_course_deg": 90.0,
+    "distance_m": 227.53773178570694,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 227.54,
+      "relativeBearingDeg": 163.5,
+      "inRange": 0,
+      "distanceOutM": 27.54
+    },
+    "command": [
+      30.0,
+      84.2897857287656
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 52.0,
+    "own_xy_m": [
+      544.7200832815992,
+      -78.2053728751594
+    ],
+    "target_xy_m": [
+      766.2794186666856,
+      4.6921081866131836e-14
+    ],
+    "own_speed_knots": 30.0,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 104.2897857287656,
+    "target_course_deg": 90.0,
+    "distance_m": 234.95663311092954,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 234.96,
+      "relativeBearingDeg": 160.56,
+      "inRange": 0,
+      "distanceOutM": 34.96
+    },
+    "command": [
+      30.0,
+      68.2897857287656
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 54.0,
+    "own_xy_m": [
+      575.3402848527621,
+      -79.4518261813231
+    ],
+    "target_xy_m": [
+      797.1460853333538,
+      4.881112009281594e-14
+    ],
+    "own_speed_knots": 30.0,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 80.7897857287656,
+    "target_course_deg": 90.0,
+    "distance_m": 235.60646385526695,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 235.61,
+      "relativeBearingDeg": 160.29,
+      "inRange": 0,
+      "distanceOutM": 35.61
+    },
+    "command": [
+      30.0,
+      14.289785728765594
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 56.0,
+    "own_xy_m": [
+      603.9977481961029,
+      -68.59364102779884
+    ],
+    "target_xy_m": [
+      828.0127520000219,
+      5.070115831950004e-14
+    ],
+    "own_speed_knots": 30.0,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 57.289785728765594,
+    "target_course_deg": 90.0,
+    "distance_m": 234.2814749798208,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 234.28,
+      "relativeBearingDeg": 162.98,
+      "inRange": 0,
+      "distanceOutM": 34.28
+    },
+    "command": [
+      50.0,
+      80.79
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 58.0,
+    "own_xy_m": [
+      628.9155579907709,
+      -45.93918575971717
+    ],
+    "target_xy_m": [
+      858.8794186666901,
+      5.259119654618414e-14
+    ],
+    "own_speed_knots": 35.67602591792646,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 41.289785728765594,
+    "target_course_deg": 90.0,
+    "distance_m": 234.50753933560293,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 234.51,
+      "relativeBearingDeg": 168.7,
+      "inRange": 0,
+      "distanceOutM": 34.51
+    },
+    "command": [
+      50.0,
+      78.08
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 60.0,
+    "own_xy_m": [
+      654.3625926895385,
+      -15.565658547464762
+    ],
+    "target_xy_m": [
+      889.7460853333582,
+      5.4481234772868243e-14
+    ],
+    "own_speed_knots": 41.35205183585291,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 41.289785728765594,
+    "target_course_deg": 90.0,
+    "distance_m": 235.8976013765706,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 235.9,
+      "relativeBearingDeg": 176.22,
+      "inRange": 0,
+      "distanceOutM": 35.9
+    },
+    "command": [
+      40.0,
+      90.0
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 62.0,
+    "own_xy_m": [
+      684.9167648225343,
+      12.008993153487696
+    ],
+    "target_xy_m": [
+      920.6127520000264,
+      5.6371272999552345e-14
+    ],
+    "own_speed_knots": 40.0,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 57.289785728765594,
+    "target_course_deg": 90.0,
+    "distance_m": 236.00172518041686,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 236.0,
+      "relativeBearingDeg": 182.92,
+      "inRange": 0,
+      "distanceOutM": 36.0
+    },
+    "command": [
+      50.0,
+      90.0
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 64.0,
+    "own_xy_m": [
+      725.8905462296751,
+      27.415211372074147
+    ],
+    "target_xy_m": [
+      951.4794186666945,
+      5.826131122623644e-14
+    ],
+    "own_speed_knots": 45.67602591792646,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 80.0911729664548,
+    "target_course_deg": 90.0,
+    "distance_m": 227.24861535767675,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 227.25,
+      "relativeBearingDeg": 186.93,
+      "inRange": 0,
+      "distanceOutM": 27.25
+    },
+    "command": [
+      40.0,
+      90.0
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 66.0,
+    "own_xy_m": [
+      769.3304171292093,
+      30.296727250248466
+    ],
+    "target_xy_m": [
+      982.3460853333627,
+      6.015134945292054e-14
+    ],
+    "own_speed_knots": 40.0,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 89.89798248061108,
+    "target_course_deg": 90.0,
+    "distance_m": 215.1593980809063,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 215.16,
+      "relativeBearingDeg": 188.09,
+      "inRange": 0,
+      "distanceOutM": 15.16
+    },
+    "command": [
+      40.0,
+      97.69
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 68.0,
+    "own_xy_m": [
+      810.391513363908,
+      28.073696137791437
+    ],
+    "target_xy_m": [
+      1013.2127520000308,
+      6.204138767960464e-14
+    ],
+    "own_speed_knots": 40.0,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 97.00839865704783,
+    "target_course_deg": 90.0,
+    "distance_m": 204.7549444011747,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 204.75,
+      "relativeBearingDeg": 187.88,
+      "inRange": 0,
+      "distanceOutM": 4.75
+    },
+    "command": [
+      37.5,
+      89.9
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 70.0,
+    "own_xy_m": [
+      849.1744057646707,
+      23.527518994093565
+    ],
+    "target_xy_m": [
+      1044.0794186666915,
+      6.393142590628875e-14
+    ],
+    "own_speed_knots": 37.5,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 93.68036182016465,
+    "target_course_deg": 90.0,
+    "distance_m": 196.319912908381,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 196.32,
+      "relativeBearingDeg": 186.88,
+      "inRange": 1,
+      "distanceOutM": 0.0
+    },
+    "command": [
+      40.0,
+      97.01
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 72.0,
+    "own_xy_m": [
+      889.7525854808196,
+      22.941822452470017
+    ],
+    "target_xy_m": [
+      1074.9460853333483,
+      6.582146413297285e-14
+    ],
+    "own_speed_knots": 40.0,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 90.68165379397956,
+    "target_course_deg": 90.0,
+    "distance_m": 186.60910911600538,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 186.61,
+      "relativeBearingDeg": 187.06,
+      "inRange": 1,
+      "distanceOutM": 0.0
+    },
+    "command": [
+      37.5,
+      93.68
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 74.0,
+    "own_xy_m": [
+      928.7522855752668,
+      20.94927045952554
+    ],
+    "target_xy_m": [
+      1105.812752000005,
+      6.771150235965695e-14
+    ],
+    "own_speed_knots": 37.5,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 93.68,
+    "target_course_deg": 90.0,
+    "distance_m": 178.29548705262343,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 178.3,
+      "relativeBearingDeg": 186.75,
+      "inRange": 1,
+      "distanceOutM": 0.0
+    },
+    "command": [
+      40.0,
+      120.68165379397956
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 76.0,
+    "own_xy_m": [
+      969.0550903409796,
+      16.44298985777839
+    ],
+    "target_xy_m": [
+      1136.6794186666618,
+      6.960154058634105e-14
+    ],
+    "own_speed_knots": 40.0,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 101.68,
+    "target_course_deg": 90.0,
+    "distance_m": 168.42887924016802,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 168.43,
+      "relativeBearingDeg": 185.6,
+      "inRange": 1,
+      "distanceOutM": 0.0
+    },
+    "command": [
+      30.0,
+      123.68
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 78.0,
+    "own_xy_m": [
+      1004.1207462625426,
+      3.1769981081677394
+    ],
+    "target_xy_m": [
+      1167.5460853333186,
+      7.149157881302515e-14
+    ],
+    "own_speed_knots": 33.19654427645786,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 119.31560920082659,
+    "target_course_deg": 90.0,
+    "distance_m": 163.45621666788142,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 163.46,
+      "relativeBearingDeg": 181.11,
+      "inRange": 1,
+      "distanceOutM": 0.0
+    },
+    "command": [
+      30.0,
+      161.68
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 80.0,
+    "own_xy_m": [
+      1029.0315526868123,
+      -16.073542587587397
+    ],
+    "target_xy_m": [
+      1198.4127519999754,
+      7.338161703970926e-14
+    ],
+    "own_speed_knots": 30.0,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 138.6779253022731,
+    "target_course_deg": 90.0,
+    "distance_m": 170.14214484389356,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 170.14,
+      "relativeBearingDeg": 174.58,
+      "inRange": 1,
+      "distanceOutM": 0.0
+    },
+    "command": [
+      5.0,
+      209.3156092008266
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 82.0,
+    "own_xy_m": [
+      1042.5478446845186,
+      -39.64084504291771
+    ],
+    "target_xy_m": [
+      1229.2794186666322,
+      7.527165526639336e-14
+    ],
+    "own_speed_knots": 23.196544276457853,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 162.6779253022731,
+    "target_course_deg": 90.0,
+    "distance_m": 190.89284249953997,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 190.89,
+      "relativeBearingDeg": 168.01,
+      "inRange": 1,
+      "distanceOutM": 0.0
+    },
+    "command": [
+      25.0,
+      90.0
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 84.0,
+    "own_xy_m": [
+      1046.034238468643,
+      -64.74471835858309
+    ],
+    "target_xy_m": [
+      1260.146085333289,
+      7.716169349307746e-14
+    ],
+    "own_speed_knots": 25.0,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 178.6779253022731,
+    "target_course_deg": 90.0,
+    "distance_m": 223.68674865338323,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 223.69,
+      "relativeBearingDeg": 163.18,
+      "inRange": 0,
+      "distanceOutM": 23.69
+    },
+    "command": [
+      10.0,
+      132.6779253022731
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 86.0,
+    "own_xy_m": [
+      1046.029843515755,
+      -86.96573734422618
+    ],
+    "target_xy_m": [
+      1291.0127519999457,
+      7.905173171976156e-14
+    ],
+    "own_speed_knots": 18.196544276457857,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 178.6779253022731,
+    "target_course_deg": 90.0,
+    "distance_m": 259.96089113787554,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 259.96,
+      "relativeBearingDeg": 160.46,
+      "inRange": 0,
+      "distanceOutM": 59.96
+    },
+    "command": [
+      25.0,
+      90.0
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 88.0,
+    "own_xy_m": [
+      1049.1611702487846,
+      -108.3072113408071
+    ],
+    "target_xy_m": [
+      1321.8794186666025,
+      8.094176994644566e-14
+    ],
+    "own_speed_knots": 23.872570194384316,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 162.6779253022731,
+    "target_course_deg": 90.0,
+    "distance_m": 293.43771919864855,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 293.44,
+      "relativeBearingDeg": 158.34,
+      "inRange": 0,
+      "distanceOutM": 93.44
+    },
+    "command": [
+      30.0,
+      90.0
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 90.0,
+    "own_xy_m": [
+      1062.698493379265,
+      -131.99427026821633
+    ],
+    "target_xy_m": [
+      1352.7460853332593,
+      8.283180817312976e-14
+    ],
+    "own_speed_knots": 29.548596112310772,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 138.6779253022731,
+    "target_course_deg": 90.0,
+    "distance_m": 318.66925327359354,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 90.0,
+      "relativeDistanceM": 318.67,
+      "relativeBearingDeg": 155.53,
+      "inRange": 0,
+      "distanceOutM": 118.67
+    },
+    "command": [
+      30.0,
+      90.0
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 92.0,
+    "own_xy_m": [
+      1087.260816092542,
+      -150.28320659814509
+    ],
+    "target_xy_m": [
+      1383.5526351311262,
+      -1.4345650566977723
+    ],
+    "own_speed_knots": 30.0,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 114.67792530227311,
+    "target_course_deg": 98.0,
+    "distance_m": 331.5791913222653,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 98.0,
+      "relativeDistanceM": 331.58,
+      "relativeBearingDeg": 145.33,
+      "inRange": 0,
+      "distanceOutM": 131.58
+    },
+    "command": [
+      50.0,
+      90.0
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 94.0,
+    "own_xy_m": [
+      1119.9606189474891,
+      -158.0657194087488
+    ],
+    "target_xy_m": [
+      1412.889767316901,
+      -10.588761101199209
+    ],
+    "own_speed_knots": 35.67602591792646,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 94.84534574440687,
+    "target_course_deg": 115.63560920082658,
+    "distance_m": 327.9587461801799,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 115.63560920082658,
+      "relativeDistanceM": 327.96,
+      "relativeBearingDeg": 127.64,
+      "inRange": 0,
+      "distanceOutM": 127.96
+    },
+    "command": [
+      30.0,
+      24.67792530227311
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 96.0,
+    "own_xy_m": [
+      1153.0243485559174,
+      -155.94979702577254
+    ],
+    "target_xy_m": [
+      1439.8989387610543,
+      -25.514391491101662
+    ],
+    "own_speed_knots": 30.0,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 75.01276618654063,
+    "target_course_deg": 119.99999999999999,
+    "distance_m": 315.1355668952003,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 119.99999999999999,
+      "relativeDistanceM": 315.14,
+      "relativeBearingDeg": 125.55,
+      "inRange": 0,
+      "distanceOutM": 115.14
+    },
+    "command": [
+      50.0,
+      94.85
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 98.0,
+    "own_xy_m": [
+      1183.6559047271332,
+      -141.95589281764012
+    ],
+    "target_xy_m": [
+      1466.6302562245407,
+      -40.94772482443503
+    ],
+    "own_speed_knots": 35.67602591792646,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 59.01276618654063,
+    "target_course_deg": 119.99999999999999,
+    "distance_m": 300.4615343213202,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 119.99999999999999,
+      "relativeDistanceM": 300.46,
+      "relativeBearingDeg": 130.36,
+      "inRange": 0,
+      "distanceOutM": 100.46
+    },
+    "command": [
+      50.0,
+      120.0
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 100.0,
+    "own_xy_m": [
+      1217.1413708265952,
+      -120.77037204576783
+    ],
+    "target_xy_m": [
+      1493.3615736880272,
+      -56.38105815776839
+    ],
+    "own_speed_knots": 41.35205183585291,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 59.01276618654063,
+    "target_course_deg": 119.99999999999999,
+    "distance_m": 283.62578199412326,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 119.99999999999999,
+      "relativeDistanceM": 283.63,
+      "relativeBearingDeg": 136.88,
+      "inRange": 0,
+      "distanceOutM": 83.63
+    },
+    "command": [
+      50.0,
+      120.0
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 102.0,
+    "own_xy_m": [
+      1258.4905252365768,
+      -102.22989135427298
+    ],
+    "target_xy_m": [
+      1520.0928911515136,
+      -71.8143914911014
+    ],
+    "own_speed_knots": 47.02807775377937,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 75.01276618654063,
+    "target_course_deg": 119.99999999999999,
+    "distance_m": 263.3645771249792,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 119.99999999999999,
+      "relativeDistanceM": 263.37,
+      "relativeBearingDeg": 143.37,
+      "inRange": 0,
+      "distanceOutM": 63.37
+    },
+    "command": [
+      50.0,
+      120.0
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 104.0,
+    "own_xy_m": [
+      1308.7049797308598,
+      -99.71828208509658
+    ],
+    "target_xy_m": [
+      1546.824208615,
+      -87.24772482443406
+    ],
+    "own_speed_knots": 50.0,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 99.01276618654063,
+    "target_course_deg": 119.99999999999999,
+    "distance_m": 238.4455534556454,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 119.99999999999999,
+      "relativeDistanceM": 238.45,
+      "relativeBearingDeg": 147.0,
+      "inRange": 0,
+      "distanceOutM": 38.45
+    },
+    "command": [
+      50.0,
+      75.01
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 106.0,
+    "own_xy_m": [
+      1357.3730050308677,
+      -115.85885017970394
+    ],
+    "target_xy_m": [
+      1573.5555260784865,
+      -102.68105815776671
+    ],
+    "own_speed_knots": 50.0,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 115.01276618654063,
+    "target_course_deg": 119.99999999999999,
+    "distance_m": 216.583786579415,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 119.99999999999999,
+      "relativeDistanceM": 216.59,
+      "relativeBearingDeg": 146.51,
+      "inRange": 0,
+      "distanceOutM": 16.59
+    },
+    "command": [
+      37.5,
+      69.01276618654063
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 108.0,
+    "own_xy_m": [
+      1400.3350904635188,
+      -137.13513131847344
+    ],
+    "target_xy_m": [
+      1600.286843541973,
+      -118.11439149109937
+    ],
+    "own_speed_knots": 43.19654427645786,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 115.01276618654063,
+    "target_course_deg": 119.99999999999999,
+    "distance_m": 200.85440523605095,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 119.99999999999999,
+      "relativeDistanceM": 200.86,
+      "relativeBearingDeg": 144.57,
+      "inRange": 0,
+      "distanceOutM": 0.86
+    },
+    "command": [
+      30.0,
+      55.01276618654063
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 110.0,
+    "own_xy_m": [
+      1439.0200637338705,
+      -150.13611386494262
+    ],
+    "target_xy_m": [
+      1627.0181610054594,
+      -133.54772482443252
+    ],
+    "own_speed_knots": 36.393088552915714,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 99.01276618654063,
+    "target_course_deg": 119.99999999999999,
+    "distance_m": 188.72853315992555,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 119.99999999999999,
+      "relativeDistanceM": 188.73,
+      "relativeBearingDeg": 144.96,
+      "inRange": 1,
+      "distanceOutM": 0.0
+    },
+    "command": [
+      30.0,
+      24.44
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 112.0,
+    "own_xy_m": [
+      1472.6961417466462,
+      -148.61978579691714
+    ],
+    "target_xy_m": [
+      1653.7494784689459,
+      -148.9810581577666
+    ],
+    "own_speed_knots": 30.0,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 75.01276618654063,
+    "target_course_deg": 119.99999999999999,
+    "distance_m": 181.0536971619115,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 119.99999999999999,
+      "relativeDistanceM": 181.06,
+      "relativeBearingDeg": 150.11,
+      "inRange": 1,
+      "distanceOutM": 0.0
+    },
+    "command": [
+      37.5,
+      39.01276618654063
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 114.0,
+    "own_xy_m": [
+      1502.5080210461394,
+      -133.23965713757042
+    ],
+    "target_xy_m": [
+      1680.4807959324323,
+      -164.41439149110067
+    ],
+    "own_speed_knots": 35.67602591792646,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 51.51276618654063,
+    "target_course_deg": 119.99999999999999,
+    "distance_m": 180.68251897386273,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 119.99999999999999,
+      "relativeDistanceM": 180.68,
+      "relativeBearingDeg": 159.94,
+      "inRange": 1,
+      "distanceOutM": 0.0
+    },
+    "command": [
+      37.5,
+      120.0
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 116.0,
+    "own_xy_m": [
+      1529.1167031925575,
+      -105.81651310067598
+    ],
+    "target_xy_m": [
+      1707.2121133959188,
+      -179.84772482443475
+    ],
+    "own_speed_knots": 37.5,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 39.51276618654063,
+    "target_course_deg": 119.99999999999999,
+    "distance_m": 192.86937404572956,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 119.99999999999999,
+      "relativeDistanceM": 192.87,
+      "relativeBearingDeg": 172.57,
+      "inRange": 1,
+      "distanceOutM": 0.0
+    },
+    "command": [
+      30.0,
+      120.0
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 118.0,
+    "own_xy_m": [
+      1551.715123566737,
+      -78.99214060746165
+    ],
+    "target_xy_m": [
+      1733.9434308594052,
+      -195.28105815776883
+    ],
+    "own_speed_knots": 30.696544276457857,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 43.51276618654063,
+    "target_course_deg": 119.99999999999999,
+    "distance_m": 216.17184905480465,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 119.99999999999999,
+      "relativeDistanceM": 216.17,
+      "relativeBearingDeg": 182.54,
+      "inRange": 0,
+      "distanceOutM": 16.17
+    },
+    "command": [
+      30.0,
+      120.0
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 120.0,
+    "own_xy_m": [
+      1575.9868199031698,
+      -60.11455529196792
+    ],
+    "target_xy_m": [
+      1760.6747483228917,
+      -210.7143914911029
+    ],
+    "own_speed_knots": 30.0,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 63.01276618654063,
+    "target_course_deg": 119.99999999999999,
+    "distance_m": 238.30640269865725,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 119.99999999999999,
+      "relativeDistanceM": 238.31,
+      "relativeBearingDeg": 189.19,
+      "inRange": 0,
+      "distanceOutM": 38.31
+    },
+    "command": [
+      30.0,
+      120.0
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 122.0,
+    "own_xy_m": [
+      1605.586024525456,
+      -52.19054045641646
+    ],
+    "target_xy_m": [
+      1787.4060657863781,
+      -226.14772482443698
+    ],
+    "own_speed_knots": 30.0,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 87.01276618654063,
+    "target_course_deg": 119.99999999999999,
+    "distance_m": 251.63391940947255,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 119.99999999999999,
+      "relativeDistanceM": 251.63,
+      "relativeBearingDeg": 193.73,
+      "inRange": 0,
+      "distanceOutM": 51.63
+    },
+    "command": [
+      30.0,
+      120.0
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 124.0,
+    "own_xy_m": [
+      1635.873257268497,
+      -56.91853226248113
+    ],
+    "target_xy_m": [
+      1814.1373832498646,
+      -241.58105815777105
+    ],
+    "own_speed_knots": 30.0,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 109.8845723763566,
+    "target_course_deg": 119.99999999999999,
+    "distance_m": 256.66777569833255,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 119.99999999999999,
+      "relativeDistanceM": 256.67,
+      "relativeBearingDeg": 196.01,
+      "inRange": 0,
+      "distanceOutM": 56.67
+    },
+    "command": [
+      30.0,
+      177.01276618654063
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 126.0,
+    "own_xy_m": [
+      1662.1773530782577,
+      -72.65908236024927
+    ],
+    "target_xy_m": [
+      1840.868700713351,
+      -257.01439149110513
+    ],
+    "own_speed_knots": 30.0,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 132.75637856617257,
+    "target_course_deg": 119.99999999999999,
+    "distance_m": 256.74399257700105,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 119.99999999999999,
+      "relativeDistanceM": 256.74,
+      "relativeBearingDeg": 195.89,
+      "inRange": 0,
+      "distanceOutM": 56.74
+    },
+    "command": [
+      50.0,
+      120.0
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 128.0,
+    "own_xy_m": [
+      1682.7612316837008,
+      -99.31289128154857
+    ],
+    "target_xy_m": [
+      1867.6000181768375,
+      -272.4477248244392
+    ],
+    "own_speed_knots": 35.67602591792646,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 148.75637856617257,
+    "target_course_deg": 119.99999999999999,
+    "distance_m": 253.2608291429605,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 119.99999999999999,
+      "relativeDistanceM": 253.26,
+      "relativeBearingDeg": 193.13,
+      "inRange": 0,
+      "distanceOutM": 53.26
+    },
+    "command": [
+      50.0,
+      120.0
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 130.0,
+    "own_xy_m": [
+      1702.5196936074758,
+      -133.65973848300905
+    ],
+    "target_xy_m": [
+      1894.331335640324,
+      -287.8810581577733
+    ],
+    "own_speed_knots": 41.35205183585291,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 148.75637856617257,
+    "target_course_deg": 119.99999999999999,
+    "distance_m": 246.12176145469803,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 119.99999999999999,
+      "relativeDistanceM": 246.12,
+      "relativeBearingDeg": 188.8,
+      "inRange": 0,
+      "distanceOutM": 46.12
+    },
+    "command": [
+      50.0,
+      148.76
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 132.0,
+    "own_xy_m": [
+      1727.011021231985,
+      -171.96365814186024
+    ],
+    "target_xy_m": [
+      1921.0626531038104,
+      -303.31439149110736
+    ],
+    "own_speed_knots": 47.02807775377937,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 148.4147305463801,
+    "target_course_deg": 119.99999999999999,
+    "distance_m": 234.32680380934534,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 119.99999999999999,
+      "relativeDistanceM": 234.33,
+      "relativeBearingDeg": 184.09,
+      "inRange": 0,
+      "distanceOutM": 34.33
+    },
+    "command": [
+      40.0,
+      120.0
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 134.0,
+    "own_xy_m": [
+      1751.1399994429532,
+      -209.79633397879311
+    ],
+    "target_xy_m": [
+      1947.7939705672968,
+      -318.74772482444143
+    ],
+    "own_speed_knots": 40.22462203023723,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 143.73867737445002,
+    "target_course_deg": 119.99999999999999,
+    "distance_m": 224.81812632920722,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 119.99999999999999,
+      "relativeDistanceM": 224.82,
+      "relativeBearingDeg": 178.99,
+      "inRange": 0,
+      "distanceOutM": 24.82
+    },
+    "command": [
+      37.5,
+      124.42
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 136.0,
+    "own_xy_m": [
+      1778.3560169100265,
+      -237.73736579558246
+    ],
+    "target_xy_m": [
+      1974.5252880307833,
+      -334.1810581577755
+    ],
+    "own_speed_knots": 37.5,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 128.05988209516318,
+    "target_course_deg": 119.99999999999999,
+    "distance_m": 218.594987885135,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 119.99999999999999,
+      "relativeDistanceM": 218.6,
+      "relativeBearingDeg": 176.18,
+      "inRange": 0,
+      "distanceOutM": 18.6
+    },
+    "command": [
+      40.0,
+      120.0
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 138.0,
+    "own_xy_m": [
+      1812.4099907477666,
+      -259.75439709815697
+    ],
+    "target_xy_m": [
+      2001.2566054942697,
+      -349.6143914911096
+    ],
+    "own_speed_knots": 40.0,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 120.01020731816772,
+    "target_course_deg": 119.99999999999999,
+    "distance_m": 209.13599043090508,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 119.99999999999999,
+      "relativeDistanceM": 209.14,
+      "relativeBearingDeg": 175.45,
+      "inRange": 0,
+      "distanceOutM": 9.14
+    },
+    "command": [
+      40.0,
+      120.0
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 140.0,
+    "own_xy_m": [
+      1848.0517045953238,
+      -280.3322489477392
+    ],
+    "target_xy_m": [
+      2027.9879229577562,
+      -365.04772482444366
+    ],
+    "own_speed_knots": 40.0,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 120.0,
+    "target_course_deg": 119.99999999999999,
+    "distance_m": 198.88125736627228,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 119.99999999999999,
+      "relativeDistanceM": 198.89,
+      "relativeBearingDeg": 175.21,
+      "inRange": 1,
+      "distanceOutM": 0.0
+    },
+    "command": [
+      40.0,
+      120.01
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 142.0,
+    "own_xy_m": [
+      1883.6899589749412,
+      -300.91609156527477
+    ],
+    "target_xy_m": [
+      2054.719240421237,
+      -380.48105815777774
+    ],
+    "own_speed_knots": 40.0,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 120.00999999999999,
+    "target_course_deg": 119.99999999999999,
+    "distance_m": 188.63085384131185,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 119.99999999999999,
+      "relativeDistanceM": 188.64,
+      "relativeBearingDeg": 174.95,
+      "inRange": 1,
+      "distanceOutM": 0.0
+    },
+    "command": [
+      30.0,
+      120.0
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 144.0,
+    "own_xy_m": [
+      1916.3005371072063,
+      -319.7440244631407
+    ],
+    "target_xy_m": [
+      2081.4505578847006,
+      -395.9143914911118
+    ],
+    "own_speed_knots": 33.19654427645786,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 120.0,
+    "target_course_deg": 119.99999999999999,
+    "distance_m": 181.8693326979088,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 119.99999999999999,
+      "relativeDistanceM": 181.87,
+      "relativeBearingDeg": 174.76,
+      "inRange": 1,
+      "distanceOutM": 0.0
+    },
+    "command": [
+      30.0,
+      120.01
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 146.0,
+    "own_xy_m": [
+      1943.698287502357,
+      -335.56832783384516
+    ],
+    "target_xy_m": [
+      2108.1818753481643,
+      -411.3477248244459
+    ],
+    "own_speed_knots": 30.0,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 120.00999999999999,
+    "target_course_deg": 119.99999999999999,
+    "distance_m": 181.10043533599932,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 119.99999999999999,
+      "relativeDistanceM": 181.1,
+      "relativeBearingDeg": 174.74,
+      "inRange": 1,
+      "distanceOutM": 0.0
+    },
+    "command": [
+      30.0,
+      99.2
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 148.0,
+    "own_xy_m": [
+      1971.0923527971556,
+      -349.7340143323776
+    ],
+    "target_xy_m": [
+      2134.913192811628,
+      -426.78105815777997
+    ],
+    "own_speed_knots": 30.0,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 112.00999999999999,
+    "target_course_deg": 119.99999999999999,
+    "distance_m": 181.0345673767329,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 119.99999999999999,
+      "relativeDistanceM": 181.04,
+      "relativeBearingDeg": 175.19,
+      "inRange": 1,
+      "distanceOutM": 0.0
+    },
+    "command": [
+      30.0,
+      99.21
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 150.0,
+    "own_xy_m": [
+      2000.884501353403,
+      -357.56791391021727
+    ],
+    "target_xy_m": [
+      2161.6445102750918,
+      -442.21439149111404
+    ],
+    "own_speed_knots": 30.0,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 99.83877279365515,
+    "target_course_deg": 119.99999999999999,
+    "distance_m": 181.68325909492788,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 119.99999999999999,
+      "relativeDistanceM": 181.69,
+      "relativeBearingDeg": 177.77,
+      "inRange": 1,
+      "distanceOutM": 0.0
+    },
+    "command": [
+      25.0,
+      49.58
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 152.0,
+    "own_xy_m": [
+      2028.3307304600926,
+      -360.0377838708561
+    ],
+    "target_xy_m": [
+      2188.3758277385555,
+      -457.6477248244481
+    ],
+    "own_speed_knots": 25.0,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 87.35315919048273,
+    "target_course_deg": 119.99999999999999,
+    "distance_m": 187.46235284940911,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 119.99999999999999,
+      "relativeDistanceM": 187.47,
+      "relativeBearingDeg": 181.38,
+      "inRange": 1,
+      "distanceOutM": 0.0
+    },
+    "command": [
+      30.0,
+      120.0
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 154.0,
+    "own_xy_m": [
+      2056.403016512417,
+      -354.8704289667008
+    ],
+    "target_xy_m": [
+      2215.107145202019,
+      -473.0810581577822
+    ],
+    "own_speed_knots": 30.0,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 74.8675455873103,
+    "target_course_deg": 119.99999999999999,
+    "distance_m": 197.89076107003385,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 119.99999999999999,
+      "relativeDistanceM": 197.89,
+      "relativeBearingDeg": 186.68,
+      "inRange": 1,
+      "distanceOutM": 0.0
+    },
+    "command": [
+      50.0,
+      120.0
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 156.0,
+    "own_xy_m": [
+      2089.082877749731,
+      -346.3225461613506
+    ],
+    "target_xy_m": [
+      2241.838462665483,
+      -488.51439149111627
+    ],
+    "own_speed_knots": 35.67602591792646,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 78.38193198413788,
+    "target_course_deg": 119.99999999999999,
+    "distance_m": 208.69305115704626,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 119.99999999999999,
+      "relativeDistanceM": 208.7,
+      "relativeBearingDeg": 192.95,
+      "inRange": 0,
+      "distanceOutM": 8.7
+    },
+    "command": [
+      30.0,
+      134.8675455873103
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 158.0,
+    "own_xy_m": [
+      2122.1641402059636,
+      -344.2775025185645
+    ],
+    "target_xy_m": [
+      2268.5697801289466,
+      -503.94772482445035
+    ],
+    "own_speed_knots": 30.0,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 97.5103523888965,
+    "target_course_deg": 119.99999999999999,
+    "distance_m": 216.63146422546555,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 119.99999999999999,
+      "relativeDistanceM": 216.63,
+      "relativeBearingDeg": 197.48,
+      "inRange": 0,
+      "distanceOutM": 16.63
+    },
+    "command": [
+      40.0,
+      120.0
+    ],
+    "status": "running"
+  },
+  {
+    "time_s": 160.0,
+    "own_xy_m": [
+      2154.0872679522245,
+      -354.86767838205844
+    ],
+    "target_xy_m": [
+      2295.3010975924103,
+      -519.3810581577817
+    ],
+    "own_speed_knots": 35.67602591792646,
+    "target_speed_knots": 30.0,
+    "own_course_deg": 116.22349335641151,
+    "target_course_deg": 119.99999999999999,
+    "distance_m": 216.80866635556518,
+    "report": {
+      "targetPlatCode": 1001,
+      "targetAvailable": true,
+      "targetSpeed": 30.0,
+      "targetCourse": 119.99999999999999,
+      "relativeDistanceM": 216.81,
+      "relativeBearingDeg": 199.36,
+      "inRange": 0,
+      "distanceOutM": 16.81
+    },
+    "command": [
+      30.0,
+      187.51035238889648
+    ],
+    "status": "running"
+  }
+]

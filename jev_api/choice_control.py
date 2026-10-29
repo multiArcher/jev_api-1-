@@ -3,6 +3,7 @@
 import math
 from tools.waypoint_geometry import WaypointGeometry, KNOT_MPS
 from tools.navigation_motion import predict_ground_motion
+from tools.vessel_dynamics import motion_parameters, MAX_SPEED_MPS, MAX_SPEED_KNOTS, limits_state
 
 DIRECTIONS = (
     "north",
@@ -54,7 +55,7 @@ INSTRUCTIONS = (
     "Because forecasts are approximate, begin braking with spatial margin: do not rely on barely meeting the ceiling at the exact boundary. "
     "Use approach_margin_speed_above_ceiling as an early-braking warning, especially with residual high speed or a course change. "
     "The extra approach margin is a conservative cue only; the actual arrival radius and speed ceiling are unchanged. "
-    "Account for speed and course transition durations. A zero-speed command brakes over time, not instantly. "
+    "Physical limits: 50 knots, acceleration <=1.46 m/s^2, braking <=1.75 m/s^2, yaw <=12 deg/s, yaw acceleration <=4 deg/s^2. Brake early; heading targets take time and cannot reverse rotation instantly. A zero-speed command brakes over time. "
     "Intermediate waypoints require no stop. Once a waypoint is passed, proceed to the next one; "
     "keep respecting the previous ceiling until you leave its circle. "
     "If recently_passed_circle exists, its exit ceiling is still ACTIVE even though the target switched. "
@@ -85,6 +86,7 @@ def _candidate_facts(
     limit,
     previous,
 ):
+    target_speed = min(target_speed, MAX_SPEED_MPS)
     task = observation["task"]
     boat = observation["boat"]
     execution = observation["execution"]
@@ -99,7 +101,7 @@ def _candidate_facts(
         execution["speed_transition_time_s"],
         execution["course_transition_time_s"],
         duration,
-        max_turn_rate_deg_s=execution.get("max_turn_rate_deg_s"),
+        **motion_parameters(execution),
     )
     facts = geometry.motion_facts(motion)
     margin_facts = geometry.motion_facts(motion, radius=task["arrival_radius_m"] * 1.25)
@@ -111,7 +113,7 @@ def _candidate_facts(
         execution["speed_transition_time_s"],
         execution["course_transition_time_s"],
         duration * 2,
-        max_turn_rate_deg_s=execution.get("max_turn_rate_deg_s"),
+        **motion_parameters(execution),
     )
     future_facts = geometry.motion_facts(future)
     candidate = {
@@ -266,9 +268,11 @@ def build_payload(observation, model="jev-latest"):
         ],
         "execution": {
             "duration_s": duration,
-            **execution,
+            **{k: v for k, v in execution.items() if k not in ("speed_transition_time_s", "course_transition_time_s")},
+            "physical_limits": limits_state(),
+            **motion_parameters(execution),
             "frame": "Fixed east/north; course 0=N,90=E,180=S,270=W. No bow-relative positions.",
-            "forecast": "Approximate ground-velocity forecast; assumes zero initial course rotation and a fresh response. Unknown startup direction uses candidate direction. Not a guarantee.",
+            "forecast": "Response mode is execution.acceleration_response. measured_0_50kn is nominal straight acceleration to a 50-knot target, not maximum capability; bounded uses physical limits. Other maneuvers use bounds. Uses supplied initial turn rate, otherwise assumes zero. Unknown startup direction uses candidate direction. 12 deg/s is calibrated only at 11 knots; constant envelope elsewhere. Not a guarantee.",
         },
     }
     # A passed circle remains subject to its ceiling until the boat exits it.
@@ -331,6 +335,6 @@ def decode_action(response, observation):
         raise ValueError("Unknown speed/course choice")
     i, j = ACTION_CHOICES[name]
     return {
-        "speed": observation["action_space"]["speeds_knots"][i],
+        "speed": min(MAX_SPEED_KNOTS, observation["action_space"]["speeds_knots"][i]),
         "course": observation["action_space"]["courses_deg"][j],
     }

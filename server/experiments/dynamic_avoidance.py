@@ -7,38 +7,46 @@ from dataclasses import asdict
 import json
 import math
 from pathlib import Path
+from tools.vessel_dynamics import turn_profile, step_acceleration_limit, MAX_SPEED_MPS
+from tools.acceleration_response import response_applies, measured_speed_profile
 
 from server.navigation.dynamic_avoidance import (
     Action, AvoidanceConfig, DynamicAvoidancePlanner, Target, Vessel, forecast)
 
 
 def advance(own, action, seconds, config, *, speed_transition_s=None):
-    """Independent midpoint integrator; does not call the planner's predictor."""
+    """Independent midpoint position integration of the shared physical limits.
+
+    The legacy speed_transition_s argument cannot bypass acceleration limits.
+    """
     x, y = own.position_m
-    difference = (action.course_deg-own.course_deg+180) % 360-180 if action.speed_mps else 0.
-    acceleration = config.acceleration_mps2 if action.speed_mps > own.speed_mps else -config.deceleration_mps2
-    def speed_at(t):
-        if speed_transition_s is not None:
-            fraction = min(1., t/speed_transition_s) if speed_transition_s else 1.
-            return own.speed_mps+(action.speed_mps-own.speed_mps)*fraction
-        value = own.speed_mps+acceleration*t
-        return min(value, action.speed_mps) if acceleration > 0 else max(value, action.speed_mps)
+    requested = min(action.speed_mps, MAX_SPEED_MPS)
+    difference = (action.course_deg-own.course_deg+180) % 360-180 if requested else own.turn_rate_deg_s*abs(own.turn_rate_deg_s)/(2*config.max_turn_acceleration_deg_s2)
+    rate = min([config.max_turn_rate_deg_s]+[p[1] for p in config.turn_rate_curve])
+    yaw, _ = turn_profile(difference, own.turn_rate_deg_s, rate, config.max_turn_acceleration_deg_s2)
     steps = max(1, math.ceil(seconds/.02))
     dt = seconds/steps
     positions = [(0., x, y)]
     speed, course = own.speed_mps, own.course_deg
+    increasing = requested > speed
+    cap = config.acceleration_mps2 if increasing else config.deceleration_mps2
+    curve = config.acceleration_curve if increasing else config.deceleration_curve
+    use_measured = response_applies(config.acceleration_response,speed,requested,own.course_deg,action.course_deg,own.turn_rate_deg_s)
+    if use_measured:
+        response_speed,_ = measured_speed_profile(speed,requested,cap,curve)
     for i in range(steps):
+        limit = step_acceleration_limit(curve,speed,requested,cap,dt)
+        next_speed = response_speed((i+1)*dt) if use_measured else (min(requested,speed+limit*dt) if increasing else max(requested,speed-limit*dt))
         mid = (i+.5)*dt
-        v = speed_at(mid)
-        turn = math.copysign(min(abs(difference), config.max_turn_rate_deg_s*mid), difference)
-        heading = math.radians(own.course_deg+turn)
+        v = (speed+next_speed)/2
+        heading = math.radians(own.course_deg+yaw(mid)[0])
         x += v*math.sin(heading)*dt
         y += v*math.cos(heading)*dt
         end = (i+1)*dt
-        speed = speed_at(end)
-        course = (own.course_deg+math.copysign(min(abs(difference), config.max_turn_rate_deg_s*end), difference)) % 360
+        speed = next_speed
+        course = (own.course_deg+yaw(end)[0]) % 360
         positions.append((end, x, y))
-    return Vessel((x, y), speed, course), positions
+    return Vessel((x,y), speed, course, yaw(seconds)[1]), positions
 
 
 def verify(own, targets, action, config):
@@ -47,13 +55,19 @@ def verify(own, targets, action, config):
     Returns dense geometric clearance, including the same configured uncertainty
     envelope, rather than reusing planner clearance or relative-segment code.
     """
-    transition = abs(action.speed_mps-own.speed_mps)/(
-        config.acceleration_mps2 if action.speed_mps > own.speed_mps else config.deceleration_mps2)
-    turning = abs((action.course_deg-own.course_deg+180) % 360-180)/config.max_turn_rate_deg_s if action.speed_mps else 0.
+    requested=min(action.speed_mps,MAX_SPEED_MPS)
+    curve=config.acceleration_curve if requested>own.speed_mps else config.deceleration_curve
+    cap=config.acceleration_mps2 if requested>own.speed_mps else config.deceleration_mps2
+    transition=abs(requested-own.speed_mps)/min([cap]+[p[1] for p in curve])
+    if response_applies(config.acceleration_response,own.speed_mps,requested,own.course_deg,action.course_deg,own.turn_rate_deg_s):
+        _,response_times = measured_speed_profile(own.speed_mps,requested,cap,curve)
+        transition=max(transition,response_times[-1])
+    _,turns=turn_profile((action.course_deg-own.course_deg+180)%360-180 if action.speed_mps else own.turn_rate_deg_s*abs(own.turn_rate_deg_s)/(2*config.max_turn_acceleration_deg_s2),own.turn_rate_deg_s,min([config.max_turn_rate_deg_s]+[p[1] for p in config.turn_rate_curve]),config.max_turn_acceleration_deg_s2)
+    turning=max(turns,default=0.)
     hold = max(config.horizon_s, transition, turning)
     end, points = advance(own, action, hold, config)
     if action.speed_mps:
-        _, tail = advance(end, Action(0., end.course_deg), action.speed_mps/config.deceleration_mps2, config)
+        _, tail = advance(end, Action(0., end.course_deg), end.speed_mps/min([config.deceleration_mps2]+[p[1] for p in config.deceleration_curve]), config)
         points += [(hold+t, x, y) for t, x, y in tail[1:]]
     minimum = float('inf')
     for time, x, y in points:

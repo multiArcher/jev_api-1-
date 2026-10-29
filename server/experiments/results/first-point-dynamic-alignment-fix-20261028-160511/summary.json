@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "first_aligned_within_5deg_s": 6,
+  "steps": 35,
+  "initial_course_deg": 113.0,
+  "aligned_course_deg": 159.7482986111111,
+  "initial_target_bearing_deg": 161.95,
+  "initial_command": {
+    "platCode": 1010,
+    "speed": 10.0,
+    "course": 161.95000000000002
+  },
+  "alignment_cycles": 5,
+  "max_acceleration_mps2": 0.0,
+  "max_braking_mps2": 0.0,
+  "max_turn_rate_deg_s": 12.0,
+  "max_angular_acceleration_deg_s2": 4.000000000000089,
+  "all_static_dynamic_checks_safe": true,
+  "elapsed_s": 8.799932030000491,
+  "source_hashes_unchanged": true,
+  "scope": "首点到点圈内切换P2的局部合成工况，真实本地Kev与任务/态势/控制编解码；非15:53精确态势回放，不运行后续航点"
+}

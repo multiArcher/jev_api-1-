@@ -88,10 +88,10 @@ class JevIntegrationTests(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError, "API failed"):
                 policy(self.packet())
 
-    def test_stationary_course_behavior_is_preserved_for_jev(self):
+    def test_stationary_heading_is_preserved_for_physical_startup(self):
         packet = self.packet()
         packet['situation'][1].update(targetSpeed=0., targetCourse=230.)
-        self.assertIsNone(JevPolicy().observation(packet)['boat']['targetCourse'])
+        self.assertEqual(JevPolicy().observation(packet)['boat']['targetCourse'],230.)
 
     def test_fragmented_stop_reassembly(self):
         content = json.dumps(

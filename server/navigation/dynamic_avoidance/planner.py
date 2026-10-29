@@ -1,6 +1,7 @@
 """Deterministic right-turn-first selection, independent of models or I/O."""
 import math
 from .types import Action, AvoidanceConfig, PlanResult
+from tools.vessel_dynamics import MAX_SPEED_MPS
 from .prediction import assess_action, signed_turn
 
 
@@ -15,7 +16,7 @@ class DynamicAvoidancePlanner:
 
     def _candidates(self, own, desired):
         config = self.config
-        cap = min(179., config.max_turn_rate_deg_s*config.planning_interval_s)
+        cap = min(179., config.max_turn_rate_deg_s*config.horizon_s)
         offsets = {0., cap, -cap}
         for i in range(1, math.floor(cap/config.heading_step_deg)+1):
             offsets.update((i*config.heading_step_deg, -i*config.heading_step_deg))
@@ -31,8 +32,9 @@ class DynamicAvoidancePlanner:
 
     def plan(self, own, targets, desired, *, candidates=None):
         """Optionally restrict selection to externally admissible actions."""
+        desired = Action(min(desired.speed_mps, MAX_SPEED_MPS), desired.course_deg)
         targets = tuple(targets)
-        candidates = None if candidates is None else tuple(candidates)
+        candidates = None if candidates is None else tuple(a for a in candidates if a.speed_mps <= MAX_SPEED_MPS)
         if len({t.target_id for t in targets}) != len(targets):
             raise ValueError('targets must have unique IDs')
         config = self.config

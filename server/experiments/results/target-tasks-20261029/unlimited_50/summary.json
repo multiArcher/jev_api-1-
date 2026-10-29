@@ -1,0 +1,24 @@
+{
+  "scenario": "unlimited_50",
+  "title": "伴随：上限50节，目标50节",
+  "status": "failed",
+  "failure": "TargetTaskUnreachable: 目标任务持续无法缩小位置误差或找到安全可达动作",
+  "simulated_s": 78.0,
+  "first_band_entry_s": null,
+  "min_distance_m": 310.4834939252005,
+  "final_distance_m": 541.2976756204432,
+  "final_report": {
+    "targetPlatCode": 1001,
+    "targetAvailable": true,
+    "targetSpeed": 50.0,
+    "targetCourse": 90.0,
+    "currentAlongM": -536.84,
+    "currentAcrossM": 69.33,
+    "alongOutM": -376.84,
+    "acrossOutM": -0.67,
+    "inPosition": 0
+  },
+  "max_own_speed_knots": 50.0,
+  "zero_speed_commands": 9,
+  "in_band_samples": 0
+}

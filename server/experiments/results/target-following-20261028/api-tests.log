@@ -1,0 +1,169 @@
+======================================================================
+ERROR: test_all_choices_decode_global_physical_commands (test_navigation.NavigationTests.test_all_choices_decode_global_physical_commands)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/epic/jev_api(1)/jev_api/tests/test_navigation.py", line 128, in test_all_choices_decode_global_physical_commands
+    obs = observation()
+          ^^^^^^^^^^^^^
+  File "/home/epic/jev_api(1)/jev_api/tests/test_navigation.py", line 36, in observation
+    route = json.loads(p.read_text(encoding="utf-8-sig"))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1029, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1015, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/epic/jev_api(1)/Assets/StreamingAssets/fixed_route.json'
+
+======================================================================
+ERROR: test_all_maps_and_udp_budget (test_navigation.NavigationTests.test_all_maps_and_udp_budget)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/epic/jev_api(1)/jev_api/tests/test_navigation.py", line 225, in test_all_maps_and_udp_budget
+    p = packet(observation(level))
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/epic/jev_api(1)/jev_api/tests/test_navigation.py", line 36, in observation
+    route = json.loads(p.read_text(encoding="utf-8-sig"))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1029, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1015, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/epic/jev_api(1)/Assets/StreamingAssets/fixed_route.json'
+
+======================================================================
+ERROR: test_final_parking_stage (test_navigation.NavigationTests.test_final_parking_stage)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/epic/jev_api(1)/jev_api/tests/test_navigation.py", line 210, in test_final_parking_stage
+    obs = observation()
+          ^^^^^^^^^^^^^
+  File "/home/epic/jev_api(1)/jev_api/tests/test_navigation.py", line 36, in observation
+    route = json.loads(p.read_text(encoding="utf-8-sig"))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1029, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1015, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/epic/jev_api(1)/Assets/StreamingAssets/fixed_route.json'
+
+======================================================================
+ERROR: test_no_hidden_bow_or_reference_path_is_required (test_navigation.NavigationTests.test_no_hidden_bow_or_reference_path_is_required)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/epic/jev_api(1)/jev_api/tests/test_navigation.py", line 113, in test_no_hidden_bow_or_reference_path_is_required
+    p = build_payload(observation())
+                      ^^^^^^^^^^^^^
+  File "/home/epic/jev_api(1)/jev_api/tests/test_navigation.py", line 36, in observation
+    route = json.loads(p.read_text(encoding="utf-8-sig"))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1029, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1015, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/epic/jev_api(1)/Assets/StreamingAssets/fixed_route.json'
+
+======================================================================
+ERROR: test_passed_circle_ceiling_is_visible_in_each_candidate (test_navigation.NavigationTests.test_passed_circle_ceiling_is_visible_in_each_candidate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/epic/jev_api(1)/jev_api/tests/test_navigation.py", line 192, in test_passed_circle_ceiling_is_visible_in_each_candidate
+    obs = observation(4)
+          ^^^^^^^^^^^^^^
+  File "/home/epic/jev_api(1)/jev_api/tests/test_navigation.py", line 36, in observation
+    route = json.loads(p.read_text(encoding="utf-8-sig"))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1029, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1015, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/epic/jev_api(1)/Assets/StreamingAssets/Maps/level_4.json'
+
+======================================================================
+ERROR: test_protocol_rejects_unavailable_moving_course_and_invalid_data (test_navigation.NavigationTests.test_protocol_rejects_unavailable_moving_course_and_invalid_data)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/epic/jev_api(1)/jev_api/tests/test_navigation.py", line 150, in test_protocol_rejects_unavailable_moving_course_and_invalid_data
+    p = packet()
+        ^^^^^^^^
+  File "/home/epic/jev_api(1)/jev_api/tests/test_navigation.py", line 80, in packet
+    observation=obs or observation(),
+                       ^^^^^^^^^^^^^
+  File "/home/epic/jev_api(1)/jev_api/tests/test_navigation.py", line 36, in observation
+    route = json.loads(p.read_text(encoding="utf-8-sig"))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1029, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1015, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/epic/jev_api(1)/Assets/StreamingAssets/fixed_route.json'
+
+======================================================================
+ERROR: test_swept_circle_and_interpolated_speed (test_navigation.NavigationTests.test_swept_circle_and_interpolated_speed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/epic/jev_api(1)/jev_api/tests/test_navigation.py", line 170, in test_swept_circle_and_interpolated_speed
+    c = WaypointGeometry(observation())
+                         ^^^^^^^^^^^^^
+  File "/home/epic/jev_api(1)/jev_api/tests/test_navigation.py", line 36, in observation
+    route = json.loads(p.read_text(encoding="utf-8-sig"))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1029, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1015, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/epic/jev_api(1)/Assets/StreamingAssets/fixed_route.json'
+
+======================================================================
+ERROR: test_unknown_course_at_rest_and_forecast_is_explicit (test_navigation.NavigationTests.test_unknown_course_at_rest_and_forecast_is_explicit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/epic/jev_api(1)/jev_api/tests/test_navigation.py", line 105, in test_unknown_course_at_rest_and_forecast_is_explicit
+    p = build_payload(observation())
+                      ^^^^^^^^^^^^^
+  File "/home/epic/jev_api(1)/jev_api/tests/test_navigation.py", line 36, in observation
+    route = json.loads(p.read_text(encoding="utf-8-sig"))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1029, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1015, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/epic/jev_api(1)/Assets/StreamingAssets/fixed_route.json'
+
+======================================================================
+ERROR: test_waypoint_speed_is_ceiling_and_slow_candidate_is_allowed (test_navigation.NavigationTests.test_waypoint_speed_is_ceiling_and_slow_candidate_is_allowed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/epic/jev_api(1)/jev_api/tests/test_navigation.py", line 164, in test_waypoint_speed_is_ceiling_and_slow_candidate_is_allowed
+    p = build_payload(observation())
+                      ^^^^^^^^^^^^^
+  File "/home/epic/jev_api(1)/jev_api/tests/test_navigation.py", line 36, in observation
+    route = json.loads(p.read_text(encoding="utf-8-sig"))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1029, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1015, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/epic/jev_api(1)/Assets/StreamingAssets/fixed_route.json'
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.003s
+
+FAILED (errors=9)

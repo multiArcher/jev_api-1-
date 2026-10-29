@@ -33,6 +33,8 @@ def observation(level=0):
         / "Assets/StreamingAssets"
         / ("fixed_route.json" if level == 0 else f"Maps/level_{level}.json")
     )
+    if not p.is_file():
+        raise unittest.SkipTest("Unity map assets are not included in this repository checkout")
     route = json.loads(p.read_text(encoding="utf-8-sig"))
     return {
         "planning": {
@@ -218,7 +220,7 @@ class NavigationTests(unittest.TestCase):
     def test_prediction_path_speed_alignment(self):
         m = predict_ground_motion(3, 90, 0, 0, 0.13, 0.17, 0.4)
         self.assertEqual(len(m["path"]), len(m["path_speeds"]))
-        self.assertAlmostEqual(m["end_speed"], 0)
+        self.assertAlmostEqual(m["end_speed"], 3-1.75*.4)
 
     def test_all_maps_and_udp_budget(self):
         for level in range(5):
@@ -228,30 +230,29 @@ class NavigationTests(unittest.TestCase):
             build_payload(p["observation"])
 
     def test_course_change_wraps_and_settles(self):
-        motion = predict_ground_motion(2, 359, 2, 1, 0, 0.5, 0.5)
-        self.assertGreater(motion["endpoint"][1], 0.99)
-        self.assertLess(abs(motion["endpoint"][0]), 0.01)
-        # A settled northward course continues straight after the transition.
-        longer = predict_ground_motion(2, 90, 2, 0, 0, 0.5, 0.8)
-        settled = predict_ground_motion(2, 90, 2, 0, 0, 0.5, 0.5)
-        self.assertAlmostEqual(longer["endpoint"][0], settled["endpoint"][0], places=3)
-        self.assertAlmostEqual(
-            longer["endpoint"][1] - settled["endpoint"][1], 0.6, places=3
-        )
+        motion = predict_ground_motion(2, 359, 2, 1, 0, .5, 2.)
+        self.assertEqual(motion['end_course_deg'],1.)
+        self.assertEqual(motion['end_turn_rate_deg_s'],0.)
+        # A 90-degree turn needs 10.5s with acceleration and braking.
+        settled = predict_ground_motion(2,90,2,0,0,.5,11.)
+        longer = predict_ground_motion(2,90,2,0,0,.5,12.)
+        self.assertAlmostEqual(longer['endpoint'][0],settled['endpoint'][0],places=5)
+        self.assertAlmostEqual(longer['endpoint'][1]-settled['endpoint'][1],2.,places=5)
 
     def test_turning_displacement_is_curved(self):
-        motion = predict_ground_motion(2, 90, 2, 0, 0, 0.5, 0.5)
-        self.assertGreater(motion["endpoint"][0], 0.4)
-        self.assertGreater(motion["endpoint"][1], 0.4)
-        self.assertLess(motion["endpoint"][0], 1)
+        motion = predict_ground_motion(2,90,2,0,0,.5,3.)
+        self.assertGreater(motion['endpoint'][0],0.)
+        self.assertGreater(motion['endpoint'][1],0.)
+        self.assertLess(motion['endpoint'][0],6.)
+        self.assertAlmostEqual(motion['end_course_deg'],72.)
 
     def test_fixed_speed_arrival_time_and_hold(self):
-        a = predict_ground_motion(0, None, 2, 90, 0.5, 0, 0.25)
-        self.assertAlmostEqual(a["end_speed"], 1)
-        self.assertAlmostEqual(a["endpoint"][0], 0.125)
-        b = predict_ground_motion(0, None, 2, 90, 0.5, 0, 1)
-        self.assertAlmostEqual(b["end_speed"], 2)
-        self.assertAlmostEqual(b["endpoint"][0], 1.5)
+        a = predict_ground_motion(0,None,2,90,.5,0,.25)
+        self.assertAlmostEqual(a['end_speed'],1.46*.25)
+        self.assertAlmostEqual(a['endpoint'][0],.5*1.46*.25**2)
+        b = predict_ground_motion(0,None,2,90,.5,0,2.)
+        self.assertAlmostEqual(b['end_speed'],2.)
+        self.assertAlmostEqual(b['endpoint'][0],4.-2./1.46)
 
     def test_braking_ignores_the_requested_course(self):
         a = predict_ground_motion(2, 90, 0, 90, 0.5, 0.5, 0.4)

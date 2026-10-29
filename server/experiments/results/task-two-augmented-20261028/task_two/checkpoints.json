@@ -1,0 +1,42 @@
+[
+  {
+    "milestone": 10,
+    "reached_waypoints": 10,
+    "total_waypoints": 45,
+    "time_s": 406.0,
+    "minimum_static_clearance_m": 10.037058325270593,
+    "static_collision_count": 0,
+    "speed_violation_count": 0,
+    "image": "server/experiments/results/task-two-augmented-20261028/task_two/checkpoints/waypoints_10.png"
+  },
+  {
+    "milestone": 20,
+    "reached_waypoints": 20,
+    "total_waypoints": 45,
+    "time_s": 1250.0,
+    "minimum_static_clearance_m": 9.441027563842667,
+    "static_collision_count": 0,
+    "speed_violation_count": 0,
+    "image": "server/experiments/results/task-two-augmented-20261028/task_two/checkpoints/waypoints_20.png"
+  },
+  {
+    "milestone": 30,
+    "reached_waypoints": 30,
+    "total_waypoints": 45,
+    "time_s": 2312.0,
+    "minimum_static_clearance_m": 9.441027563842667,
+    "static_collision_count": 0,
+    "speed_violation_count": 0,
+    "image": "server/experiments/results/task-two-augmented-20261028/task_two/checkpoints/waypoints_30.png"
+  },
+  {
+    "milestone": 40,
+    "reached_waypoints": 40,
+    "total_waypoints": 45,
+    "time_s": 2980.0,
+    "minimum_static_clearance_m": 9.441027563842667,
+    "static_collision_count": 0,
+    "speed_violation_count": 0,
+    "image": "server/experiments/results/task-two-augmented-20261028/task_two/checkpoints/waypoints_40.png"
+  }
+]

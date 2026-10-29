@@ -1,0 +1,17 @@
+task_one: 100 steps, 2/12 waypoints, distance=627.9m
+task_one: checkpoint 3/12 image=/home/epic/jev_api(1)/server/experiments/results/task-one-alignment-fix-20261028-151844/task_one/checkpoints/waypoints_03.png
+task_one: 200 steps, 3/12 waypoints, distance=397.1m
+task_one: 300 steps, 4/12 waypoints, distance=668.0m
+task_one: 400 steps, 5/12 waypoints, distance=541.7m
+task_one: checkpoint 6/12 image=/home/epic/jev_api(1)/server/experiments/results/task-one-alignment-fix-20261028-151844/task_one/checkpoints/waypoints_06.png
+task_one: 500 steps, 6/12 waypoints, distance=524.5m
+task_one: 600 steps, 7/12 waypoints, distance=582.6m
+task_one: 700 steps, 8/12 waypoints, distance=1505.3m
+task_one: checkpoint 9/12 image=/home/epic/jev_api(1)/server/experiments/results/task-one-alignment-fix-20261028-151844/task_one/checkpoints/waypoints_09.png
+task_one: 800 steps, 9/12 waypoints, distance=1949.6m
+task_one: 900 steps, 9/12 waypoints, distance=367.3m
+task_one: 1000 steps, 10/12 waypoints, distance=2793.9m
+task_one: 1100 steps, 10/12 waypoints, distance=243.5m
+task_one: 1200 steps, 11/12 waypoints, distance=1900.1m
+task_one: checkpoint 12/12 image=/home/epic/jev_api(1)/server/experiments/results/task-one-alignment-fix-20261028-151844/task_one/checkpoints/waypoints_12.png
+{"task": "task_one", "passed": true, "completed": true, "reason": "completed", "reached_waypoints": 12, "total_waypoints": 12, "speed_violation_count": 0}

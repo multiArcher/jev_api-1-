@@ -1,0 +1,2 @@
+task_one: 100 steps, 1/12 waypoints, distance=1202.3m
+{"task": "task_one", "passed": false, "completed": false, "reason": "navigation_no_progress", "reached_waypoints": 1, "total_waypoints": 12, "speed_violation_count": 0}

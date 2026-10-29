@@ -1,6 +1,7 @@
 """Per-task model worker and safe error metadata; no socket ownership here."""
 
 from concurrent.futures import Future
+
 import math
 import os
 import queue
@@ -9,6 +10,14 @@ import threading
 import socket
 import time
 from urllib.error import HTTPError, URLError
+from tools.vessel_dynamics import MAX_SPEED_KNOTS, MAX_SPEED_MPS
+
+if __package__:
+    from .navigation.collision import CollisionDetected
+    from .navigation.target_following import TargetUnavailable, target_record
+else:
+    from navigation.collision import CollisionDetected
+    from navigation.target_following import TargetUnavailable, target_record
 
 
 class PolicyWorker:
@@ -142,6 +151,16 @@ def run_task_control(session, status_socket, situations, action_target, policy,
 
     with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as control_socket:
         def send_control(speed, course, mode):
+            requested_mode=mode
+            speed = min(speed, MAX_SPEED_MPS if session.speed_unit == 'mps' else MAX_SPEED_KNOTS)
+            if session.is_following and task['params'].get('maxSpeed',0.)>0:
+                speed=min(speed,math.floor(task['params']['maxSpeed']*100.+1e-8)/100.)
+            if session.is_following and speed > 0:
+                try:
+                    target_record(task, situations.query_state(include_age=True))
+                except TargetUnavailable:
+                    speed, course, mode = 0., stop_course(), 'following_target_stop'
+
             if speed > 0 and callable(getattr(type(policy), 'validate_control', None)):
                 fresh = situations.get(plat_code, situation_max_age)
                 check = (policy.validate_control(task, fresh, situation_snapshot(fresh), speed, course)
@@ -156,15 +175,36 @@ def run_task_control(session, status_socket, situations, action_target, policy,
                 check=(policy.validate_dynamic_control(task,fresh,records,speed,course)
                        if fresh is not None else dict(safe=False,obstacle_id=None,min_clearance_m=None))
                 if not check['safe']:
-                    logger.warning('task %s dynamic obstacle control veto target=%s clearance=%s mode=%s; sending zero speed',
+                    logger.warning('task %s dynamic obstacle control veto target=%s clearance=%s mode=%s',
                         task.get('id'),check['obstacle_id'],check['min_clearance_m'],mode)
-                    moving=speed>0
-                    speed,course,mode=0.,stop_course(),'dynamic_obstacle_stop'
-                    if moving and fresh is not None:
-                        stopped=policy.validate_dynamic_control(task,fresh,records,speed,course)
+                    escape=None
+                    normal_control=(requested_mode in ('new','hold') and mode!='following_target_stop'
+                                    and not session.stop_requested.is_set() and not session.route_complete)
+                    search=getattr(policy,'find_safe_escape',None)
+                    if normal_control and fresh is not None and callable(search):
+                        escape=search(task,fresh,records,speed,course)
+                    if escape is not None:
+                        latest=situations.get(plat_code,situation_max_age)
+                        latest_records=situation_snapshot(latest) if latest is not None else ()
+                        if (latest is None or not policy.validate_control(task,latest,latest_records,*escape)['safe']
+                                or not policy.validate_dynamic_control(task,latest,latest_records,*escape)['safe']):
+                            escape=None
+                    if escape is not None:
+                        speed,course=escape
+                        mode='dynamic_escape'
+                        logger.warning('task %s using certified escape speed=%s course=%s',task.get('id'),speed,course)
+                    else:
+                        speed,course=0.,stop_course()
+                        mode='dynamic_obstacle_stop'
+                        fresh=situations.get(plat_code,situation_max_age)
+                        records=situation_snapshot(fresh) if fresh is not None else ()
+                        stopped=(policy.validate_dynamic_control(task,fresh,records,speed,course)
+                                 if fresh is not None else dict(safe=False,obstacle_id=None,min_clearance_m=None))
                         if not stopped['safe']:
-                            logger.warning('task %s dynamic obstacle zero-speed risk target=%s clearance=%s; awaiting new decision',
+                            logger.error('task %s emergency: no certified escape; zero-speed remains unsafe target=%s clearance=%s',
                                 task.get('id'),stopped['obstacle_id'],stopped['min_clearance_m'])
+                            if normal_control:
+                                mode='dynamic_emergency_stop'
             packet = build_control(plat_code, speed, course)
             with session.output_lock:
                 if session.superseded.is_set():
@@ -177,6 +217,7 @@ def run_task_control(session, status_socket, situations, action_target, policy,
                     round(speed * 100) / 100, session.speed_unit,
                     round(course * 100) / 100, mode, packet.hex(' '),
                 )
+            return dict(speed=speed,course=course,mode=mode)
 
         def send_stop():
             session.stop_command_sent = False
@@ -216,6 +257,7 @@ def run_task_control(session, status_socket, situations, action_target, policy,
                 failed_this_tick = False
                 new_action = False
                 now = time.monotonic()
+                following_ready = True
                 own_state = situations.get(plat_code, situation_max_age)
                 if own_state is not None:
                     try:
@@ -225,8 +267,24 @@ def run_task_control(session, status_socket, situations, action_target, policy,
                         if callable(getattr(type(policy), 'validate_position', None)):
                             policy.validate_position(task, own_state, situation_snapshot(own_state))
                         session.update_situation(own_state)
+                        if session.is_following and not session.stop_requested.is_set():
+                            session.update_target(situation_snapshot(own_state))
                         if session.errors.get('errorStage') == 'situation':
                             session.clear_errors()
+                    except CollisionDetected as exc:
+                        issue('collision', exc, force_terminal=True)
+                        return
+                    except TargetUnavailable as exc:
+                        following_ready = False
+                        last_action = None
+                        pending_route = None
+                        try:
+                            send_stop()
+                        except OSError as stop_error:
+                            if issue('control', stop_error):
+                                return
+                        if issue('situation', exc):
+                            return
                     except (ValueError, TypeError, KeyError) as exc:
                         issue('situation', exc)
                         return
@@ -259,7 +317,13 @@ def run_task_control(session, status_socket, situations, action_target, policy,
                         if issue('situation', TimeoutError(
                                 '未收到本艇新鲜态势，最大允许态势年龄为{}秒'.format(situation_max_age))):
                             return
+                    elif not following_ready:
+                        pass
                     else:
+                        if session.is_following and pending is not None and pending.done() and pending_route is None:
+                            # A target-loss interval invalidates both results and
+                            # exceptions from the earlier snapshot.
+                            pending = None
                         if pending is not None and pending.done():
                             try:
                                 action = pending.result()
@@ -280,7 +344,8 @@ def run_task_control(session, status_socket, situations, action_target, policy,
                                 pending = None
                         if pending is None and not (max_cycles > 0 and cycles + int(new_action) >= max_cycles):
                             packet = dict(task)
-                            packet['params'] = dict(task['params'], next_waypoint_index=session.current_route)
+                            packet['params'] = (dict(task['params']) if session.is_following else
+                                                dict(task['params'], next_waypoint_index=session.current_route))
                             packet['situation'] = situation_snapshot(own_state)
                             pending_route = session.current_route
                             pending_started = now
@@ -296,8 +361,8 @@ def run_task_control(session, status_socket, situations, action_target, policy,
                     elif last_action is not None:
                         try:
                             if now - last_action_at <= command_hold_timeout:
-                                send_control(*last_action, 'new' if new_action else 'hold')
-                                if last_action[0] > 0:
+                                sent=send_control(*last_action, 'new' if new_action else 'hold')
+                                if sent['speed'] > 0:
                                     session.stop_command_sent = False
                                 if new_action:
                                     cycles += 1
@@ -307,6 +372,12 @@ def run_task_control(session, status_socket, situations, action_target, policy,
                                                 len(session.waypoints), *last_action)
                                 elif session.errors.get('errorStage') == 'control':
                                     session.clear_errors()
+                                if sent['mode']=='dynamic_emergency_stop':
+                                    session.set_phase('emergency','没有可确认安全的避让动作；已下发零速，但预测仍存在碰撞风险')
+                                elif sent['mode']=='dynamic_escape':
+                                    session.set_phase('avoiding','原指令被否决，执行通过最新静动态检查的应急避让动作')
+                                elif session.phase in ('emergency','avoiding'):
+                                    session.set_phase('tracking',('伴随中' if task.get('code')=='accompanyMode' else '跟随中' if task.get('code')=='followMode' else 'tracking'))
                             else:
                                 send_stop()
                                 description, _ = session.status_fields()

@@ -1,0 +1,19 @@
+{
+  "scenario": "straight",
+  "mode": "real_kev",
+  "simulated_seconds": 120.0,
+  "steps": 60,
+  "min_distance_m": 124.99999999995521,
+  "max_distance_m": 125.0,
+  "final_distance_m": 124.99999999995521,
+  "in_band_fraction": 1.0,
+  "below_min_fraction": 0.0,
+  "above_max_fraction": 0.0,
+  "safety_hold_steps": 0,
+  "min_static_clearance_m": 396.10520646457974,
+  "target_min_static_clearance_m": 396.10520553806094,
+  "max_decision_s": 3.7300244110001586,
+  "target_completed_loops": 0.0,
+  "target_speed_min_knots": 10.0,
+  "target_speed_max_knots": 10.0
+}

@@ -4,12 +4,14 @@ import math
 import threading
 
 from tools.waypoint_geometry import KNOT_MPS, WaypointGeometry
+from tools.vessel_dynamics import limits_state, positive_limit, MAX_SPEED_KNOTS, validate_curve
+from tools.acceleration_response import DEFAULT_ACCELERATION_RESPONSE, validate_response_mode
 from .waypoint_radius import waypoint_arrival_radius
 
 
 class WaypointPolicy:
     def __init__(self, speed_unit="knots", max_speed_knots=50.0, duration=1.0,
-                 speed_transition=0.5, course_transition=0.5):
+                 speed_transition=0.5, course_transition=0.5, motion_curves=None, acceleration_response=DEFAULT_ACCELERATION_RESPONSE):
         if speed_unit not in ("knots", "mps"):
             raise ValueError("speed_unit must be knots or mps")
         if not all(math.isfinite(v) and v > 0 for v in (max_speed_knots, duration)):
@@ -17,14 +19,26 @@ class WaypointPolicy:
         if not all(math.isfinite(v) and v >= 0 for v in (speed_transition, course_transition)):
             raise ValueError("transition times must be nonnegative and finite")
         self.speed_unit = speed_unit
+        positive_limit('max_speed_knots', max_speed_knots, MAX_SPEED_KNOTS)
         self.max_speed, self.duration = max_speed_knots, duration
         self.execution = dict(speed_transition_time_s=speed_transition,
-                              course_transition_time_s=course_transition)
+                              course_transition_time_s=course_transition, **limits_state())
+        self.execution['acceleration_response'] = validate_response_mode(acceleration_response)
+        curves = motion_curves or {}
+        for key, maximum in (('acceleration_curve', 1.46), ('deceleration_curve', 1.75), ('turn_rate_curve', 12.)):
+            self.execution[key] = validate_curve(curves.get(key, ()), maximum)
+        if set(curves)-{'acceleration_curve', 'deceleration_curve', 'turn_rate_curve'}:
+            raise ValueError('unknown motion curve key')
         self.local = threading.local()
 
     def _observation_course(self, boat):
-        """Legacy backends use movement course only while the boat is moving."""
-        return None if boat["targetSpeed"] < 1e-6 else boat.get("targetCourse")
+        """Keep valid reported heading at rest so startup also obeys yaw limits."""
+        course = boat.get('targetCourse')
+        if course is None and boat['targetSpeed'] < 1e-6:
+            return None
+        if isinstance(course,bool) or not isinstance(course,(int,float)) or not math.isfinite(course) or not 0 <= course < 360:
+            raise ValueError('Missing or invalid situation targetCourse')
+        return course
 
     def observation(self, packet):
         if packet.get("code") != "trackingMode":
@@ -62,11 +76,13 @@ class WaypointPolicy:
         index = self.local.next_index
         if type(index) is not int or not 0 <= index < len(waypoints):
             raise ValueError("Invalid current route / next waypoint index")
+        execution = dict(self.execution, initial_turn_rate_deg_s=boat.get('_turn_rate_deg_s', 0.))
         obs = dict(
             boat=dict(longitude=boat["longitude"], latitude=boat["latitude"],
                       targetSpeed=speed if self.speed_unit == "knots" else speed / KNOT_MPS,
-                      targetCourse=self._observation_course(boat)),
-            planning=dict(action_duration_s=self.duration), execution=self.execution,
+                      targetCourse=self._observation_course(boat),
+                      _turn_rate_deg_s=boat.get('_turn_rate_deg_s', 0.)),
+            planning=dict(action_duration_s=self.duration), execution=execution,
             action_space=dict(speeds_knots=[self.max_speed * f for f in (0, .05, .1, .2, .35, .5, .75, 1)],
                               courses_deg=list(range(0, 360, 45))),
             task=dict(planWaypointList=waypoints, planWaypointNum=len(waypoints),

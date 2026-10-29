@@ -26,7 +26,7 @@ class FieldTaskTests(unittest.TestCase):
                 points.clear()
                 self.assertEqual(len(ft.load_task(name)['params']['planWaypointList']), count)
 
-    def test_both_functions_start_near_first_point_and_report_fixed_speed_violations(self):
+    def test_both_functions_start_near_first_point_with_bounded_acceleration(self):
         for runner, name, count in ((ft.test_task_one, 'task_one', 12),
                                     (ft.test_task_two, 'task_two', 45)):
             with self.subTest(name=name), tempfile.TemporaryDirectory() as folder:
@@ -36,10 +36,11 @@ class FieldTaskTests(unittest.TestCase):
                 self.assertEqual(result['speed_unit'], 'knots')
                 self.assertEqual(result['total_waypoints'], count)
                 self.assertEqual(result['arrival_radius_m'], 100.)
-                self.assertGreater(result['speed_violation_count'], 0)
+                self.assertEqual(result['speed_violation_count'], 0)
                 self.assertFalse(result['passed'])
                 self.assertFalse(result['completed'])
-                self.assertEqual(result['max_speed_knots'], 50.)
+                self.assertAlmostEqual(result['max_speed_knots'], 4.939384939360771)
+                self.assertLess(result['max_speed_knots'],3*1.46/(1852/3600))
                 output = Path(folder) / name
                 self.assertEqual(json.loads((output / 'task.json').read_text()), original)
                 rows = [json.loads(line) for line in (output / 'trajectory.jsonl').read_text().splitlines()]
@@ -65,7 +66,7 @@ class FieldTaskTests(unittest.TestCase):
         self.assertEqual(result['reached_waypoints'], 1)
         self.assertLessEqual(result['final_speed_knots'], .1)
         self.assertEqual([r['command']['speed'] for r in rows[-2:]], [0., 0.])
-        self.assertEqual(policy.call_count, len(rows) - 2)
+        self.assertEqual(policy.call_count, sum(r['command']['speed'] > 0 for r in rows))
 
     def test_real_kev_adapter_uses_speed_stages_for_each_task(self):
         for runner in (ft.test_task_one, ft.test_task_two):
@@ -77,7 +78,7 @@ class FieldTaskTests(unittest.TestCase):
                 self.assertEqual(payload['state']['speeds_knots'], [10.])
                 self.assertEqual(policy.speeds, [10., 20., 30., 40., 50.])
                 self.assertEqual(payload['state']['arrival_radius_m'], 100.)
-                self.assertEqual(len(payload['questions']['action']['criteria']), 16)
+                self.assertTrue(1 <= len(payload['questions']['action']['criteria']) <= 16)
 
     def test_invalid_speed_or_turn_is_reported_without_execution(self):
         for action in ((55., 90.), (50., 180.)):
@@ -92,12 +93,12 @@ class FieldTaskTests(unittest.TestCase):
     def test_yaw_envelope_uses_packet_course_but_physics_keeps_unrounded_course(self):
         with tempfile.TemporaryDirectory() as folder:
             result=ft.test_task_two(folder, ft.TestConfig(steps=1, initial_course_deg=175.91),
-                                    Mock(return_value=(10.,130.)), plots=False)
+                                    Mock(return_value=(10.,163.)), plots=False)
             row=json.loads((Path(folder)/'task_two/trajectory.jsonl').read_text().splitlines()[0])
         self.assertEqual(row['observed_course_deg'],175.)
         self.assertEqual(row['actual_course_deg'],175.91)
         self.assertNotEqual(result['reason'],'invalid_command')
-        self.assertAlmostEqual(result['max_actual_turn_rate_deg_s'],45.)
+        self.assertAlmostEqual(result['max_actual_turn_rate_deg_s'],2.)
 
     def test_model_failure_saves_a_failed_result(self):
         with tempfile.TemporaryDirectory() as folder:

@@ -4,7 +4,7 @@ Use --mock for a deterministic client; otherwise calls only the local Kev HTTP
 endpoint. No live task or control packets are sent. Inference pauses world time.
 """
 import argparse
-from dataclasses import asdict
+from dataclasses import asdict, replace
 import json
 import math
 from pathlib import Path
@@ -22,16 +22,16 @@ def telemetry(pid,position,speed,course):
         targetCourse=course,_received_age_s=0.)
 
 
-def run_scene(name,targets,*,steps=50,mock=True,endpoint='http://127.0.0.1:18028/v1/systemone',response='configured'):
+def run_scene(name,targets,*,steps=50,mock=True,endpoint='http://127.0.0.1:18028/v1/systemone',response='configured',initial_speed_knots=20.):
     task=dict(simId='separate-avoidance',id=name,code='trackingMode',params=dict(
         platCode=1010,currentRoute=0,planWaypointNum=1,planWaypointList=[
             dict(routeLon=math.degrees(3000/EARTH_RADIUS),routeLat=0.,routeSpeed=50.,routeRadius=0.)]))
     policy=KevPolicy(endpoint=endpoint,timeout=30.,client=closest_heading if mock else None)
-    boat=Vessel((0.,0.),20*KNOT_MPS,90.)
+    boat=Vessel((0.,0.),initial_speed_knots*KNOT_MPS,90.)
     minima=dict(static=None,dynamic=None)
     samples=[]
     for tick in range(steps):
-        own=telemetry(1010,boat.position_m,boat.speed_mps,boat.course_deg)
+        own=dict(telemetry(1010,boat.position_m,boat.speed_mps,boat.course_deg),_turn_rate_deg_s=boat.turn_rate_deg_s)
         records=[own,*(telemetry(t.target_id,t.position_m,t.speed_mps,t.course_deg) for t in targets)]
         speed,course=policy(dict(task,situation=records))
         static=policy.validate_control(task,own,records,speed,course)
@@ -40,7 +40,8 @@ def run_scene(name,targets,*,steps=50,mock=True,endpoint='http://127.0.0.1:18028
         samples.append(dict(time_s=tick,own=asdict(boat),targets=[asdict(t) for t in targets],
             command=dict(speed_knots=speed,course_deg=course),static_check=static,dynamic_check=dynamic,
             decision=policy.local.last_decision))
-        boat,trace=advance(boat,Action(speed*KNOT_MPS,course),1.,policy.dynamic_config,
+        boat,trace=advance(boat,Action(speed*KNOT_MPS,course),1.,
+            replace(policy.dynamic_config,acceleration_response='bounded') if response=='physical' else policy.dynamic_config,
             speed_transition_s=.5 if response=='configured' else None)
         for target in targets:
             kind='static' if target.speed_mps<=.1*KNOT_MPS else 'dynamic'

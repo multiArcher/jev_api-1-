@@ -70,7 +70,8 @@ class KevDynamicAvoidanceTests(unittest.TestCase):
         p=moving_packet();policy=KevPolicy(client=choose_heading)
         speed,course=policy(p)
         self.assertGreater(speed,0.)
-        self.assertEqual(max(c['speed_knots'] for c in policy.local.last_decision['options'].values()),50.)
+        self.assertGreater(max(c['speed_knots'] for c in policy.local.last_decision['options'].values()),25.)
+        self.assert_safe_options(policy,p)
         self.assertGreater(course,90.)
         decision=policy.local.last_decision
         self.assertAlmostEqual(decision['dynamic_avoidance']['assessment']['min_clearance_m'],

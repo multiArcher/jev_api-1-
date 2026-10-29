@@ -35,7 +35,7 @@ def run(*,endpoint='http://127.0.0.1:18028/v1/systemone',steps=100,mock=False):
     physics=AvoidanceConfig()
     minimum=float('inf');first_turn=None;samples=[]
     for tick in range(steps):
-        own=record(1010,boat.position_m,boat.speed_mps,boat.course_deg)
+        own=dict(record(1010,boat.position_m,boat.speed_mps,boat.course_deg),_turn_rate_deg_s=boat.turn_rate_deg_s)
         records=[own,record(4001,obstacle,0.,0.)]
         speed,course=policy(dict(task,situation=records))
         check=policy.validate_control(task,own,records,speed,course)

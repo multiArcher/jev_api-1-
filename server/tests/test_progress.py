@@ -57,7 +57,7 @@ class ProgressTests(unittest.TestCase):
     def test_policy_recovery_restricts_speed_and_new_task_resets_it(self):
         task = load_task('task_one')
         first = task['params']['planWaypointList'][0]
-        client = Mock(return_value=answer('speed_10__heading_07'))
+        client = Mock(side_effect=fastest_straight)
         policy = KevPolicy(client=client)
         original = copy.deepcopy(task)
         # Move west away from the first target, continuing to face west.
@@ -69,7 +69,7 @@ class ProgressTests(unittest.TestCase):
         payload = client.call_args.args[0]
         self.assertEqual(payload['state']['progress']['mode'], 'recovery')
         self.assertEqual(payload['state']['speeds_knots'], [10.])
-        self.assertEqual(len(payload['questions']['action']['criteria']), 16)
+        self.assertTrue(1 <= len(payload['questions']['action']['criteria']) <= 16)
         self.assertEqual(task, original)
         packet['id'] = 'new-task'
         policy(packet)
@@ -82,7 +82,7 @@ class ProgressTests(unittest.TestCase):
     def test_recovery_rejects_a_high_speed_model_choice(self):
         task = load_task('task_one')
         first = task['params']['planWaypointList'][0]
-        client = Mock(return_value=answer('speed_10__heading_07'))
+        client = Mock(side_effect=fastest_straight)
         policy = KevPolicy(client=client)
         for i in range(5):
             packet = dict(task, situation=[dict(platformId=1010,
@@ -90,6 +90,7 @@ class ProgressTests(unittest.TestCase):
                           latitude=first['routeLat'], targetSpeed=5., targetCourse=270.)])
             policy(packet)
         packet['situation'][0]['longitude'] -= .0001
+        client.side_effect = None
         client.return_value = answer('speed_50__heading_07')
         with self.assertRaisesRegex(ValueError, 'available speed/course'):
             policy(packet)
@@ -99,16 +100,16 @@ class FixedFrameTests(unittest.TestCase):
     def test_previous_circle_limits_speed_options(self):
         task = load_task('task_one')
         first = task['params']['planWaypointList'][0]
-        client = Mock(return_value=answer('speed_10__heading_07'))
+        client = Mock(side_effect=fastest_straight)
         policy = KevPolicy(client=client)
         packet = dict(task, situation=[dict(platformId=1010,
                       longitude=first['routeLon'] - .0004, latitude=first['routeLat'],
                       targetSpeed=5., targetCourse=90.)])
         policy(packet)
         options = client.call_args.args[0]['questions']['action']['criteria']
-        self.assertFalse(options['speed_10__heading_07']['speed_limit_violation'])
+        self.assertTrue(all(not v['speed_limit_violation'] for v in options.values()))
         self.assertNotIn('speed_50__heading_07', options)
-        self.assertEqual(client.call_args.args[0]['state']['speed_profile']['phase'], 'exit_circle')
+        self.assertEqual(client.call_args.args[0]['state']['speed_profile']['phase'], 'heading_alignment')
 
     def test_origin_is_first_waypoint_and_stays_fixed_when_boat_moves(self):
         task = load_task('task_one')

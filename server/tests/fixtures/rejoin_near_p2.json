@@ -1,0 +1,8 @@
+{
+  "source": "2026-10-28 17:40:48 guidance snapshot; static positions unavailable; initial yaw assumed zero",
+  "own": {"longitude":113.20924371,"latitude":21.89712139,"speed_knots":50.0,"course_deg":176.0},
+  "targets": [
+    {"id":4001,"speed_mps":4.938666666666668,"course_deg":162.0,"age_s":0.016,"position_xy_m":[948.1586759664632,-3043.444256655162]},
+    {"id":4003,"speed_mps":4.938666666666668,"course_deg":170.0,"age_s":0.016,"position_xy_m":[1468.1595417739416,-5976.290670616016]}
+  ]
+}

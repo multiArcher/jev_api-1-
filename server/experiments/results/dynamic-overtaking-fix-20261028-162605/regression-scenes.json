@@ -1,0 +1,57 @@
+[
+  {
+    "scenario": "head_on",
+    "response": "physical",
+    "mock": true,
+    "steps": 50,
+    "min_clearance_m": {
+      "static": null,
+      "dynamic": 4.530696974275244
+    },
+    "model_calls": 50
+  },
+  {
+    "scenario": "crossing",
+    "response": "physical",
+    "mock": true,
+    "steps": 50,
+    "min_clearance_m": {
+      "static": null,
+      "dynamic": 50.78728208287585
+    },
+    "model_calls": 50
+  },
+  {
+    "scenario": "overtaking",
+    "response": "physical",
+    "mock": true,
+    "steps": 50,
+    "min_clearance_m": {
+      "static": null,
+      "dynamic": 4.720819549512058
+    },
+    "model_calls": 50
+  },
+  {
+    "scenario": "mixed_near",
+    "response": "physical",
+    "mock": true,
+    "steps": 50,
+    "min_clearance_m": {
+      "static": 6.01154955538361,
+      "dynamic": 8.532522117608579
+    },
+    "model_calls": 50
+  },
+  {
+    "scenario": "mixed_far",
+    "response": "physical",
+    "mock": true,
+    "steps": 50,
+    "min_clearance_m": {
+      "static": 726.1701775149662,
+      "dynamic": 5.495044025340647
+    },
+    "model_calls": 50
+  }
+]

@@ -1,0 +1,85 @@
+{
+  "simId": "1010",
+  "id": "84b6706c-b5d0-4352-9b4f-dd27be357299",
+  "code": "trackingMode",
+  "params": {
+    "platCode": 1010,
+    "planRouteNum": 0,
+    "currentRoute": 0,
+    "planWaypointNum": 12,
+    "planWaypointList": [
+      {
+        "routeLon": 113.2014778585932,
+        "routeLat": 21.92637287373057,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 100.0
+      },
+      {
+        "routeLon": 113.20548377601506,
+        "routeLat": 21.915194263902237,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 100.0
+      },
+      {
+        "routeLon": 113.20686181160426,
+        "routeLat": 21.91061553741274,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 100.0
+      },
+      {
+        "routeLon": 113.20779118444341,
+        "routeLat": 21.90743412780712,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 100.0
+      },
+      {
+        "routeLon": 113.20907307800917,
+        "routeLat": 21.901100829929376,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 100.0
+      },
+      {
+        "routeLon": 113.21006654554276,
+        "routeLat": 21.89518355083112,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 100.0
+      },
+      {
+        "routeLon": 113.21173300718618,
+        "routeLat": 21.886768102800772,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 100.0
+      },
+      {
+        "routeLon": 113.2139763209583,
+        "routeLat": 21.875526906458617,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 100.0
+      },
+      {
+        "routeLon": 113.21650806077622,
+        "routeLat": 21.86142955166501,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 100.0
+      },
+      {
+        "routeLon": 113.22003326814269,
+        "routeLat": 21.843969506119848,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 100.0
+      },
+      {
+        "routeLon": 113.22656192749372,
+        "routeLat": 21.810983756062356,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 100.0
+      },
+      {
+        "routeLon": 113.24933468959813,
+        "routeLat": 21.79540914458717,
+        "routeSpeed": 10.28888888888889,
+        "routeRadius": 100.0
+      }
+    ]
+  }
+}

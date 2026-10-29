@@ -193,7 +193,7 @@ class StaticObstacleTests(unittest.TestCase):
         self.assertEqual(len(decision['options']),1)
         geo=WaypointGeometry(policy.observation(p))
         nav=policy.local.navigator.guide(geo,policy.observation(p)['static_obstacles'],
-            boat=dict(targetSpeed=50.),execution=dict(max_turn_rate_deg_s=45.),speed_knots=50.)
+            boat=dict(targetSpeed=50.),execution=dict(max_turn_rate_deg_s=12.),speed_knots=50.)
         self.assertTrue(nav['approaching'])
         self.assertAlmostEqual(nav['guidance_xy_m'][1],geo.boat_position[1])
         self.assertTrue(all(clear_segment(a,b,policy.observation(p)['static_obstacles'],10.)
@@ -210,12 +210,12 @@ class StaticObstacleTests(unittest.TestCase):
         policy=KevPolicy(client=choose_heading)
         self.assertEqual(policy(p),(50.,90.))
 
-    def test_returning_to_target_direction_does_not_add_a_speed_cap(self):
+    def test_large_return_to_target_direction_uses_low_speed_alignment(self):
         p=packet(speed=50.,obstacle_x=1200.,target=3500.)
         p['situation'][0]=record(1010,1400.,100.,speed=50.,course=54.)
         policy=KevPolicy(client=choose_heading)
-        self.assertEqual(policy(p)[0],50.)
-        self.assertEqual(policy.local.last_decision['state']['speed_profile']['phase'],'cruise')
+        self.assertEqual(policy(p)[0],10.)
+        self.assertEqual(policy.local.last_decision['state']['speed_profile']['phase'],'heading_alignment')
 
     def test_turn_in_reserve_increases_with_speed_and_slower_turning(self):
         p=packet(obstacle_x=2000.,target=4000.)
@@ -243,7 +243,7 @@ class StaticObstacleTests(unittest.TestCase):
 
     def test_near_obstacle_half_cap_does_not_repeat_halving_actual_speed(self):
         policy=KevPolicy(client=choose_heading)
-        p=packet(speed=50.,obstacle_x=250.,target=2500.)
+        p=packet(speed=50.,obstacle_x=400.,target=2500.)
         for actual in (50.,25.,20.):
             p['situation'][0]['targetSpeed']=actual
             self.assertEqual(policy(p)[0],25.)

@@ -1,0 +1,12 @@
+{
+  "simId": "task-one-following",
+  "id": "straight",
+  "code": "targetFollowing",
+  "params": {
+    "platCode": 1010,
+    "targetPlatformId": 3001,
+    "minFollowingDistanceM": 100.0,
+    "maxFollowingDistanceM": 150.0,
+    "targetMaxAgeS": 2.5
+  }
+}

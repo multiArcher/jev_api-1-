@@ -4,7 +4,7 @@ Use --mock for fully offline validation; otherwise only local Kev HTTP is used.
 Independent 0.02s motion integration checks actual static/dynamic distances.
 """
 import argparse
-from dataclasses import asdict
+from dataclasses import asdict, replace
 import json
 import math
 from pathlib import Path
@@ -34,7 +34,7 @@ def run_scene(name, *, mock=True, response='configured', steps=260, output_path=
     samples = []
     first_rejoin = first_following = None
     for tick in range(steps):
-        own = telemetry(1010, boat.position_m, boat.speed_mps, boat.course_deg)
+        own = dict(telemetry(1010, boat.position_m, boat.speed_mps, boat.course_deg), _turn_rate_deg_s=boat.turn_rate_deg_s)
         records = [own, *(telemetry(t.target_id, t.position_m, t.speed_mps, t.course_deg) for t in targets)]
         packet = dict(task, situation=records)
         command = policy(packet)
@@ -54,7 +54,8 @@ def run_scene(name, *, mock=True, response='configured', steps=260, output_path=
             route_heading_error_deg=abs((boat.course_deg-90.+180.)%360.-180.),
             command=dict(speed_knots=command[0], course_deg=command[1]),
             static_check=static, dynamic_check=dynamic, decision=decision))
-        boat, trace = advance(boat, Action(command[0]*KNOT_MPS, command[1]), 1., policy.dynamic_config,
+        boat, trace = advance(boat, Action(command[0]*KNOT_MPS, command[1]), 1.,
+            replace(policy.dynamic_config,acceleration_response='bounded') if response=='physical' else policy.dynamic_config,
             speed_transition_s=.5 if response == 'configured' else None)
         for target in targets:
             kind = 'static' if target.speed_mps <= .1*KNOT_MPS else 'dynamic'

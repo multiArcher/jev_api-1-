@@ -1,0 +1,24 @@
+{
+  "scenario": "accompany_30",
+  "title": "伴随：上限50节，目标30节",
+  "status": "running",
+  "failure": "",
+  "simulated_s": 160.0,
+  "first_band_entry_s": 36.0,
+  "min_distance_m": 158.2356638832487,
+  "final_distance_m": 190.4436374595546,
+  "final_report": {
+    "targetPlatCode": 1001,
+    "targetAvailable": true,
+    "targetSpeed": 30.0,
+    "targetCourse": 119.99999999999999,
+    "currentAlongM": -160.11,
+    "currentAcrossM": 103.13,
+    "alongOutM": -0.11,
+    "acrossOutM": 13.13,
+    "inPosition": 0
+  },
+  "max_own_speed_knots": 49.062529705748744,
+  "zero_speed_commands": 0,
+  "in_band_samples": 8
+}

@@ -1,0 +1,17 @@
+{
+  "simId": "sim-001",
+  "id": "node-accompany-1",
+  "code": "accompanyMode",
+  "status": 1,
+  "description": "伴随中",
+  "params": {
+    "targetPlatCode": 2002,
+    "currentAlongM": -148.5,
+    "currentAcrossM": 81.2,
+    "alongOutM": 0.0,
+    "acrossOutM": 0.0,
+    "inPosition": 1,
+    "targetSpeed": 12.0,
+    "targetCourse": 45.0
+  }
+}

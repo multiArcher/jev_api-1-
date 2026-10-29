@@ -1,0 +1,46 @@
+{
+  "title": "跟随：上限50节，目标30节",
+  "task": {
+    "simId": "offline",
+    "id": "follow_30",
+    "code": "followMode",
+    "params": {
+      "platCode": 1010,
+      "targetPlatCode": 1001,
+      "maxSpeed": 0.0,
+      "followDistanceMinM": 150.0,
+      "followDistanceMaxM": 200.0
+    }
+  },
+  "dt_s": 2.0,
+  "duration_s": 160.0,
+  "initial_own_xy_m": [
+    -300.0,
+    -80.0
+  ],
+  "initial_target_xy_m": [
+    0.0,
+    0.0
+  ],
+  "initial_speed_knots": 10.0,
+  "initial_course_deg": 90.0,
+  "target_cap_knots": 30.0,
+  "target_route": "Eastbound; target30 scenarios turn toward120deg at90s. Synthetic route, not field replay.",
+  "model": "Real local Kev HTTP",
+  "execution": "2s command delay; dense independent0.02s integration; no UDP",
+  "safety_radius_m": 86.04400529450463,
+  "motion_limits": {
+    "speed_transition_time_s": 0.5,
+    "course_transition_time_s": 0.5,
+    "max_speed_knots": 50.0,
+    "acceleration_mps2": 1.46,
+    "deceleration_mps2": 1.75,
+    "max_turn_rate_deg_s": 12.0,
+    "max_turn_acceleration_deg_s2": 4.0,
+    "calibration": "12 deg/s at 11 knots; constant envelope pending speed curves",
+    "acceleration_response": "measured_0_50kn",
+    "acceleration_curve": [],
+    "deceleration_curve": [],
+    "turn_rate_curve": []
+  }
+}

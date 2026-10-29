@@ -1,0 +1,214 @@
+{
+  "main": {
+    "task": "task_one",
+    "task_id": "84b6706c-b5d0-4352-9b4f-dd27be357299",
+    "passed": true,
+    "completed": true,
+    "reason": "completed",
+    "error": null,
+    "steps": 1301,
+    "reached_waypoints": 12,
+    "total_waypoints": 12,
+    "simulated_seconds": 1300.0,
+    "final_speed_knots": 0.0,
+    "max_speed_knots": 50.0,
+    "max_actual_turn_rate_deg_s": 7.796456187410428,
+    "available_speeds_knots": [
+      10.0,
+      20.0,
+      30.0,
+      40.0,
+      50.0
+    ],
+    "recovery_decisions": 0,
+    "stop_confirmed": true,
+    "arrival_radius_m": 100.0,
+    "speed_unit": "knots",
+    "waypoint_speed_limits_knots": [
+      10.28888888888889,
+      10.28888888888889,
+      10.28888888888889,
+      10.28888888888889,
+      10.28888888888889,
+      10.28888888888889,
+      10.28888888888889,
+      10.28888888888889,
+      10.28888888888889,
+      10.28888888888889,
+      10.28888888888889,
+      10.28888888888889
+    ],
+    "speed_violation_count": 0,
+    "static_obstacle_count": 16,
+    "static_collision_radius_m": 86.04400529450463,
+    "static_collision_count": 0,
+    "minimum_static_clearance_m": 9.499961986151362,
+    "violations": [],
+    "arrivals": [
+      {
+        "index": 0,
+        "time_s": 12.0,
+        "speed_knots": 10.0
+      },
+      {
+        "index": 1,
+        "time_s": 114.0,
+        "speed_knots": 10.0
+      },
+      {
+        "index": 2,
+        "time_s": 200.0,
+        "speed_knots": 10.0
+      },
+      {
+        "index": 3,
+        "time_s": 272.0,
+        "speed_knots": 10.0
+      },
+      {
+        "index": 4,
+        "time_s": 372.0,
+        "speed_knots": 10.0
+      },
+      {
+        "index": 5,
+        "time_s": 456.0,
+        "speed_knots": 10.0
+      },
+      {
+        "index": 6,
+        "time_s": 543.0,
+        "speed_knots": 10.0
+      },
+      {
+        "index": 7,
+        "time_s": 678.0,
+        "speed_knots": 10.0
+      },
+      {
+        "index": 8,
+        "time_s": 790.0,
+        "speed_knots": 10.0
+      },
+      {
+        "index": 9,
+        "time_s": 935.0,
+        "speed_knots": 10.0
+      },
+      {
+        "index": 10,
+        "time_s": 1135.0,
+        "speed_knots": 10.0
+      },
+      {
+        "index": 11,
+        "time_s": 1297.0,
+        "speed_knots": 10.0
+      }
+    ],
+    "config": {
+      "steps": 6000,
+      "dt": 1.0,
+      "start_offset_m": 50.0,
+      "initial_course_deg": 161.61145139668466,
+      "initial_position_xy_m": [
+        -47.318907591313874,
+        142.340861962982
+      ],
+      "max_turn_rate_deg_s": 12.0,
+      "kev_endpoint": "http://127.0.0.1:18028/v1/systemone",
+      "kev_timeout": 120.0
+    },
+    "checkpoints": [
+      {
+        "milestone": 3,
+        "reached_waypoints": 3,
+        "total_waypoints": 12,
+        "time_s": 200.0,
+        "minimum_static_clearance_m": 115.14928355678153,
+        "static_collision_count": 0,
+        "speed_violation_count": 0,
+        "image": "/home/epic/jev_api(1)/server/experiments/results/task-one-avoidance-tracking-20261028-115840/aligned-entry/task_one/checkpoints/waypoints_03.png"
+      },
+      {
+        "milestone": 6,
+        "reached_waypoints": 6,
+        "total_waypoints": 12,
+        "time_s": 456.0,
+        "minimum_static_clearance_m": 10.10035969504078,
+        "static_collision_count": 0,
+        "speed_violation_count": 0,
+        "image": "/home/epic/jev_api(1)/server/experiments/results/task-one-avoidance-tracking-20261028-115840/aligned-entry/task_one/checkpoints/waypoints_06.png"
+      },
+      {
+        "milestone": 9,
+        "reached_waypoints": 9,
+        "total_waypoints": 12,
+        "time_s": 790.0,
+        "minimum_static_clearance_m": 9.499961986151362,
+        "static_collision_count": 0,
+        "speed_violation_count": 0,
+        "image": "/home/epic/jev_api(1)/server/experiments/results/task-one-avoidance-tracking-20261028-115840/aligned-entry/task_one/checkpoints/waypoints_09.png"
+      },
+      {
+        "milestone": 12,
+        "reached_waypoints": 12,
+        "total_waypoints": 12,
+        "time_s": 1297.0,
+        "minimum_static_clearance_m": 9.499961986151362,
+        "static_collision_count": 0,
+        "speed_violation_count": 0,
+        "image": "/home/epic/jev_api(1)/server/experiments/results/task-one-avoidance-tracking-20261028-115840/aligned-entry/task_one/checkpoints/waypoints_12.png"
+      }
+    ],
+    "elapsed_s": 258.3475029359997,
+    "limitations": "Idealized motion; simulation pauses during inference. No live UDP timing or measured hull dynamics."
+  },
+  "initial_heading_test": {
+    "passed": false,
+    "completed": false,
+    "reason": "navigation_no_progress",
+    "reached_waypoints": 1,
+    "error": "航点1低速恢复连续20轮无改善；距离1203.9米，航向误差93.8度",
+    "stop_confirmed": true
+  },
+  "reference_route_length_m": 16039.986097813102,
+  "static_obstacles": 16,
+  "interpretation": "真实本机Kev模型＋离线船艇运动仿真；不是实艇测试。首轮侧向进场失败，主图为沿首航段进场对照。",
+  "motion_audit": {
+    "source_hashes_unchanged": true,
+    "model_decision": "real local Kev",
+    "simulation": "offline, world paused during inference",
+    "acceleration_response": "measured_0_50kn",
+    "measured_response_steps": 171,
+    "maximum_acceleration_mps2": 1.460000014118579,
+    "maximum_braking_mps2": 1.7500000000002778,
+    "maximum_turn_rate_deg_s": 8.86493564616274,
+    "maximum_angular_acceleration_deg_s2": 4.000000002487148,
+    "maximum_replay_position_error_m": 0.0,
+    "maximum_replay_speed_error_mps": 1.7763568394002505e-15,
+    "maximum_replay_course_error_deg": 0.0,
+    "minimum_static_clearance_m": 9.499961986151263,
+    "per_obstacle_minimum_clearance_m": {
+      "1001": 1006.0206532740474,
+      "1002": 625.8362217948618,
+      "1003": 280.5601211693639,
+      "1004": 426.14228880155605,
+      "1005": 911.3192094939562,
+      "1006": 223.27417712034952,
+      "1007": 115.14928355678153,
+      "1008": 921.3521590736431,
+      "1009": 977.5911436294346,
+      "4001": 10.100359695040595,
+      "4002": 32.11066473921551,
+      "4003": 9.499961986151263,
+      "4004": 11.364721626978522,
+      "4005": 12.030782011264762,
+      "4006": 2060.7456923585682,
+      "4007": 3742.114522140727
+    },
+    "constraints_passed": true,
+    "replay_matches": true,
+    "scope": "Command replay and numerical geometry audit; not an independent vessel dynamics model or real-vessel measurement"
+  }
+}

@@ -21,6 +21,7 @@ from server.policies.turning import DEFAULT_MAX_TURN_RATE_DEG_S
 from server.policies.waypoint_radius import DEFAULT_ARRIVAL_RADIUS_M
 from server.policies.static_obstacles import StaticObstacleConfig, StaticObstacleBlocked, segment_distance
 from tools.navigation_motion import predict_ground_motion
+from tools.vessel_dynamics import motion_parameters, positive_limit
 from tools.waypoint_geometry import EARTH_RADIUS, KNOT_MPS, circle_interval, xy
 
 TASK_DIR = Path(__file__).with_name('tasks')
@@ -43,6 +44,7 @@ class TestConfig:
         for name in ('dt', 'start_offset_m', 'max_turn_rate_deg_s', 'kev_timeout'):
             if not math.isfinite(getattr(self, name)) or getattr(self, name) <= 0:
                 raise ValueError(f'{name} must be positive and finite')
+        positive_limit('max_turn_rate_deg_s',self.max_turn_rate_deg_s,12.)
         if not math.isfinite(self.initial_course_deg) or not 0 <= self.initial_course_deg < 360:
             raise ValueError('initial_course_deg must be in [0, 360)')
         if self.initial_position_xy_m is not None and (
@@ -105,6 +107,7 @@ def run_task(name, output, config=None, policy=None, *, plots=True, static_obsta
     minimum_clearance = float('inf')
     x, y = config.initial_position_xy_m or (-config.start_offset_m, 0.)
     speed, course = 0., config.initial_course_deg
+    yaw_rate = 0.
     rows, arrivals, violations = [], [], []
     checkpoints = []
     next_checkpoint = checkpoint_every
@@ -117,6 +120,7 @@ def run_task(name, output, config=None, policy=None, *, plots=True, static_obsta
     with (output / 'trajectory.jsonl').open('w') as log:
         for step in range(config.steps):
             state = _telemetry(origin, x, y, speed, course, task['params']['platCode'])
+            state['_turn_rate_deg_s'] = yaw_rate
             previous_route = session.current_route
             session.update_situation(state)
             for index in range(previous_route, session.current_route):
@@ -151,7 +155,9 @@ def run_task(name, output, config=None, policy=None, *, plots=True, static_obsta
             observed_course = state['targetCourse']
             turn = abs((command['course'] - observed_course + 180) % 360 - 180)
             invalid = (not 0 <= command['speed'] <= 50. or not 0 <= command['course'] < 360
-                       or (command['speed'] > 0 and turn > min(config.max_turn_rate_deg_s * config.dt, 179.99) + .011))
+                       or (command['speed'] > 0 and not (isinstance(decision,dict) and (decision.get('state',{}).get('dynamic_avoidance')
+                                 or decision.get('state',{}).get('heading_alignment',{}).get('active')))
+                           and turn > min(config.max_turn_rate_deg_s * config.dt, 179.99) + .011))
             if invalid:
                 reason = 'invalid_command'
                 violations.append(dict(kind='command', step=step, command=command))
@@ -184,7 +190,9 @@ def run_task(name, output, config=None, policy=None, *, plots=True, static_obsta
                 break
             motion = predict_ground_motion(speed, course, command['speed'] * KNOT_MPS,
                                            command['course'], .5, .5, config.dt,
-                                           max_turn_rate_deg_s=config.max_turn_rate_deg_s)
+                                           **motion_parameters(dict(policy.execution if isinstance(getattr(policy,'execution',None),dict) else {},
+                                                                    max_turn_rate_deg_s=config.max_turn_rate_deg_s,initial_turn_rate_deg_s=yaw_rate)))
+            yaw_rate = motion['end_turn_rate_deg_s']
             for obstacle,center in zip(obstacles,centers):
                 relative=(center[0]-x,center[1]-y)
                 clearance=min(segment_distance(relative,a,b) for a,b in zip(motion['path'],motion['path'][1:]))-collision_radius

@@ -11,6 +11,8 @@ from pathlib import Path
 import time
 
 from tools.navigation_motion import predict_ground_motion
+from tools.acceleration_response import response_applies, measured_speed_profile
+from tools.vessel_dynamics import motion_parameters, turn_profile, positive_limit
 from tools.waypoint_geometry import KNOT_MPS, LocalFrame
 
 
@@ -50,6 +52,8 @@ class StaticObstacleConfig:
     acceleration_mps2: float = 1.46
 
     def __post_init__(self):
+        positive_limit('acceleration_mps2', self.acceleration_mps2, 1.46)
+        positive_limit('deceleration_mps2', self.deceleration_mps2, 1.75)
         for key,value in self.__dict__.items():
             if not math.isfinite(value) or value < 0 or (
                     key not in ('safety_margin_m','stationary_speed_knots') and value == 0):
@@ -236,17 +240,30 @@ class StaticNavigator:
         requested=speed_knots*KNOT_MPS
         speed=max(current,requested)
         execution=execution or {}
-        rate=math.radians(execution.get('max_turn_rate_deg_s',45.))
-        turn_radius=speed/rate
-        # Distance along a straight approach needed to turn clear of a circle.
+        turn_rate=min([execution.get('max_turn_rate_deg_s',12.)]+[p[1] for p in execution.get('turn_rate_curve',())])
+        angular_acceleration=execution.get('max_turn_acceleration_deg_s2',4.)
+        initial_rate=abs(boat.get('_turn_rate_deg_s',0.)) if boat else 0.
+        turn_radius=speed/math.radians(turn_rate)
+        # Include the time to brake existing yaw and build up a new turn.
         turn_lead=math.sqrt(radius*radius+2*turn_radius*radius)-radius
-        transition=abs(requested-current)/(self.config.acceleration_mps2
-                   if requested>current else self.config.deceleration_mps2)
-        stop_lead=0.
-        for response in (transition,execution.get('speed_transition_time_s',0.)):
-            horizon=max(self.config.horizon_s,2*duration,response)
-            distance=.5*(current+requested)*response+requested*(horizon-response)
-            stop_lead=max(stop_lead,distance+requested*requested/(2*self.config.deceleration_mps2))
+        turn_lead += speed*(turn_rate+initial_rate)/angular_acceleration
+        accel=min([self.config.acceleration_mps2 if requested>current else self.config.deceleration_mps2]
+                  +[p[1] for p in execution.get('acceleration_curve' if requested>current else 'deceleration_curve',())])
+        braking=min([self.config.deceleration_mps2]+[p[1] for p in execution.get('deceleration_curve',())])
+        transition=abs(requested-current)/accel
+        horizon=max(self.config.horizon_s,2*duration,transition)
+        distance=.5*(current+requested)*transition+requested*(horizon-transition)
+        stop_lead=distance+requested*requested/(2*braking)
+        desired_course=math.degrees(math.atan2(direction[0],direction[1]))%360
+        if boat and response_applies(execution.get('acceleration_response','measured_0_50kn'),current,requested,
+                                     boat.get('targetCourse'),desired_course,boat.get('_turn_rate_deg_s',0.)):
+            response_speed,times=measured_speed_profile(current,requested,self.config.acceleration_mps2,
+                                                        tuple(execution.get('acceleration_curve',())))
+            boundaries=[0.,*times]
+            distance=sum((response_speed(begin)+response_speed(end))*.5*(end-begin)
+                         for begin,end in zip(boundaries,boundaries[1:]))
+            distance+=requested*max(0.,max(self.config.horizon_s,2*duration)-times[-1])
+            stop_lead=max(stop_lead,distance+requested*requested/(2*braking))
         lead=max(stop_lead,turn_lead)+2*speed*duration+self.config.path_padding_m
         travel=entry-lead
         if travel <= max(2.,speed*duration):
@@ -307,28 +324,53 @@ class StaticNavigator:
 
 
 def motion_clearance(geometry,boat,speed_knots,course,obstacles,execution,duration,config):
+    """Reject if either the nominal response or faster physical response is unsafe."""
+    first = _motion_clearance(geometry,boat,speed_knots,course,obstacles,execution,duration,config)
+    mode = execution.get('acceleration_response','measured_0_50kn')
+    if not obstacles or not response_applies(mode,boat['targetSpeed']*KNOT_MPS,min(speed_knots,50.)*KNOT_MPS,
+                                            boat['targetCourse'],course,boat.get('_turn_rate_deg_s',0.)):
+        return first
+    second = _motion_clearance(geometry,boat,speed_knots,course,obstacles,
+                               dict(execution,acceleration_response='bounded'),duration,config)
+    return min((first,second),key=lambda item:item['min_clearance_m'])
+
+
+def _motion_clearance(geometry,boat,speed_knots,course,obstacles,execution,duration,config):
     """Check entire swept polylines plus stopping tails, not just endpoints.
 
-    Test both the current simulator response and the supplied longitudinal
-    acceleration bounds. Yaw still uses the configured rate-only approximation.
+    Use the shared longitudinal and angular acceleration bounds, including
+    continuous rotation and the complete physical braking tail.
     """
     if not obstacles:
         return dict(safe=True,min_clearance_m=None,obstacle_id=None)
     current=boat['targetSpeed']*KNOT_MPS
-    requested=speed_knots*KNOT_MPS
-    transition=abs(requested-current)/(config.acceleration_mps2 if requested>current else config.deceleration_mps2)
+    requested=min(speed_knots,50.)*KNOT_MPS
+    parameters=motion_parameters(execution)
+    parameters.update(acceleration_mps2=config.acceleration_mps2, deceleration_mps2=config.deceleration_mps2,
+                      initial_turn_rate_deg_s=boat.get('_turn_rate_deg_s',parameters.get('initial_turn_rate_deg_s',0.)))
+    accel=min([config.acceleration_mps2 if requested>current else config.deceleration_mps2]
+              +[p[1] for p in parameters.get('acceleration_curve' if requested>current else 'deceleration_curve',())])
+    transition=abs(requested-current)/accel
+    if response_applies(parameters['acceleration_response'],current,requested,boat['targetCourse'],course,parameters.get('initial_turn_rate_deg_s',0.)):
+        _,response_times=measured_speed_profile(current,requested,config.acceleration_mps2,parameters.get('acceleration_curve',()))
+        transition=max(transition,response_times[-1])
+    turn=(course-boat['targetCourse']+180)%360-180 if requested else boat.get('_turn_rate_deg_s',0.)*abs(boat.get('_turn_rate_deg_s',0.))/8.
+    rate=min([parameters.get('max_turn_rate_deg_s',12.)]+[p[1] for p in parameters.get('turn_rate_curve',())])
+    _,turns=turn_profile(turn,parameters.get('initial_turn_rate_deg_s',0.),rate,parameters.get('max_turn_acceleration_deg_s2',4.))
+    horizon=max(config.horizon_s,2*duration,transition,max(turns,default=0.))
+    motion=predict_ground_motion(current,boat['targetCourse'],requested,course,0.,0.,horizon,dt=.1,**parameters)
+    path=[(geometry.boat_position[0]+p[0],geometry.boat_position[1]+p[1]) for p in motion['path']]
+    deceleration=min([config.deceleration_mps2]+[p[1] for p in parameters.get('deceleration_curve',())])
+    braking_time=motion['end_speed']/deceleration
+    if braking_time:
+        parameters['initial_turn_rate_deg_s']=motion['end_turn_rate_deg_s']
+        tail=predict_ground_motion(motion['end_speed'],motion['end_course_deg'],0.,motion['end_course_deg'],
+                                   0.,0.,braking_time,dt=.1,**parameters)
+        end=path[-1]
+        path.extend((end[0]+p[0],end[1]+p[1]) for p in tail['path'][1:])
     smallest=float('inf');nearest=None
-    for speed_time in set((execution['speed_transition_time_s'],transition)):
-        horizon=max(config.horizon_s,2*duration,speed_time)
-        motion=predict_ground_motion(current,boat['targetCourse'],requested,course,
-            speed_time,execution['course_transition_time_s'],horizon,dt=.1,
-            max_turn_rate_deg_s=execution.get('max_turn_rate_deg_s'))
-        path=[(geometry.boat_position[0]+p[0],geometry.boat_position[1]+p[1]) for p in motion['path']]
-        stopping=motion['end_speed']**2/(2*config.deceleration_mps2)
-        heading=math.radians(motion.get('end_course_deg',course))
-        path.append((path[-1][0]+stopping*math.sin(heading),path[-1][1]+stopping*math.cos(heading)))
-        for obstacle in obstacles:
-            clearance=min(segment_distance(obstacle['xy'],a,b) for a,b in zip(path,path[1:]))-obstacle['radius_m']
-            if clearance < smallest:
-                smallest,nearest=clearance,obstacle['id']
+    for obstacle in obstacles:
+        clearance=min(segment_distance(obstacle['xy'],a,b) for a,b in zip(path,path[1:]))-obstacle['radius_m']
+        if clearance < smallest:
+            smallest,nearest=clearance,obstacle['id']
     return dict(safe=smallest>.5,min_clearance_m=smallest,obstacle_id=nearest)
